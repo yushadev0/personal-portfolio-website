@@ -687,11 +687,11 @@ const wAscii = document.getElementById('w-ascii');
 
 const weatherAscii = {
   clear: `
-    \\   /
-     .-.
+     \\   /
+      .-.
   -- (   ) --
-     \`-’
-    /   \\`,
+      \`-’
+     /   \\`,
   cloudy: `
       .--.
    .-(    ).
