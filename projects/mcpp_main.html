@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minecraft Pixelart | Hasup</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <link rel="stylesheet" href="assets/project-style.css">
+
+</head>
+<body class="project-page">
+
+  <nav class="detail-nav">
+    <div class="terminal-wrapper nav-content">
+      
+      <div class="nav-left">
+        <a href="../index.html#projects" class="back-link">
+          <span class="prompt">$</span> cd ..
+        </a>
+        <span class="path">/ home / projects / <span class="current-project">minecraft-painter-midi</span></span>
+      </div>
+
+      <div class="theme-toggle" id="themeToggle"></div>
+
+    </div>
+  </nav>
+
+  <section id="project-detail">
+    <div class="terminal-wrapper">
+      
+      <div class="project-header">
+        <div class="header-left">
+          <h1 class="project-title">Minecraft MIDI & Pixelart Painter</h1>
+          <p>Minecraft dünyanızda müzik çalabileceğiniz ve pixelart oluşturabileceğiniz bir uygulama.</p>
+          <br>
+          <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">MCRCON Lib</span>
+            <span class="badge">OpenCV</span>
+            <span class="badge">MIDI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="readme-window">
+        <div class="window-bar">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn minimize"></span>
+            <span class="win-btn maximize"></span>
+          </div>
+          <div class="win-title">projectDetails.md</div>
+        </div>
+
+        <div class="readme-content">
+          
+          <h3><span class="hash">#</span> Proje Özeti</h3>
+          <p>
+            2 sekmeden oluşan uygulamam size hem müzik çalmanızı hem de resim çizmenizi sağlıyor. Bu uygulama bi html dosyası üzerinden size ya programlanmış ses dizisi verir ya da programlanmış resim matrisi. 
+          </p>
+
+          <div class="project-image-container">
+            <img src="assets/images/mcpp.png" alt="Proje Ekran Görüntüsü">
+            <span class="img-caption">Resim 1: Editörlerin ekran görüntüsü.</span>
+          </div>
+
+          <p>
+            Uygulamayı kendi bilgisayarınızda çalıştırmak için ilk önce bir Spigot / Bukkit sunucunuz olması gerekir. Bu <a class="linkler" href="https://www.spigotmc.org/">$ xdg-open (https://www.spigotmc.org/)</a>  siteden gerekli makaleleri okuyarak kendinize bir tane edinebilirsiniz. Bu sunucu lokalde de çalışabilir, globalde de sizin ihtiyacınız olan RCON kullanıcı adı ve şifresidir. RCON Spigot / Bukkit sunucularında bulunan özel bir komut gönderme protokolüdür. RCON kullanarak 3. taraf uygulamalarla sunucuya komut göndermeyi mümkün kılar. İşte tam da bu anda bu dönüştürücü/gönderici scriptleri devreye giriyor. Dönüştürücü web uygulaması sizin MIDI dosyanızdan veya resim dosyanızdan elde edilen bilgilerle dizi oluştururlar. Bu dizileri python scriptine girdiğinizde MCRCON <a class="linkler" href="https://pypi.org/project/mcrcon/">$ xdg-open (https://pypi.org/project/mcrcon/)</a>  kütüphanesi sunucuya uygun komutları gönderek müziğinizin ve resminizin oluşmasını sağlar.
+          </p>
+
+          <p>MIDI çalarken python scripti ile aynı dizinde 'music.txt' diye bir dosya oluşturup müzik dizinizi içine yapıştırmanız gerekmektedir.
+            <br><br>
+            (Scriptte RCON Sunucu IP'sini ve şifresini değiştirebilirsiniz. Kendi sunucunuzun RCON ip ve şifrenizi 'server.properties' dosyasından öğrenip, değiştirebilirsiniz. Mevcut scriptte default olarak 127.0.0.1 ve 12345 kullanıldı.)
+            <br><br>
+            Daha önceki yazılarımda bu uygulamanın sadece resimle çalışan halini yapmıştım. O uygulama sadece tek Minecraft sürümüne bağlıyken bu uygulama daha dinamik bir yapı sunmakta. RCON sunucusu açılabilen her sürümde çalışmaktadır.
+          </p>
+        
+
+          <div class="code-window">
+  
+            <div class="code-header">
+              <div class="file-info">
+                <i class="fa-regular fa-file-code"></i>
+                <span class="filename">bash command</span>
+                <span class="lang-badge">BASH</span>
+              </div>
+              <button class="copy-btn" title="Kodu Kopyala">
+                <i class="fa-regular fa-copy"></i>
+                <span class="btn-text">Kopyala</span>
+              </button>
+            </div>
+          
+            <div class="code-content">
+          <pre><code>pip install mcrcon</code></pre>
+            </div>
+          </div>
+          
+          <p>Bu komutla ilk önce kütüphaneyi kurmanız gerekmektedir.
+            <br><br>
+            <a class="linkler" href="https://hasup.net/mmpp.html" target="_blank">Buradan</a> editörü kullanabilirsiniz.
+          <br><br>  
+            <a class="linkler"  href="../assets/files/world.rar">Buradan</a> da Minecraft dünyasını indirebilirsiniz.
+          </p>
+
+          <h3><span class="hash">#</span> Scriptler</h3>
+
+          <div class="code-window">
+  
+            <div class="code-header">
+              <div class="file-info">
+                <i class="fa-regular fa-file-code"></i>
+                <span class="filename">midi.py</span>
+                <span class="lang-badge">python</span>
+              </div>
+              <button class="copy-btn" title="Kodu Kopyala">
+                <i class="fa-regular fa-copy"></i>
+                <span class="btn-text">Kopyala</span>
+              </button>
+            </div>
+          
+            <div class="code-content">
+          <pre><code>from mcrcon import MCRcon
+import time
+import ast
+import os
+import threading
+from collections import defaultdict
+
+sunucuIP = "127.0.0.1"
+sunucuPASS = "12345"
+
+blok = 'minecraft:redstone_block'
+
+# RCON bağlantısı için thread lock
+rcon_lock = threading.Lock()
+
+# Her enstrüman için farklı Y koordinatları
+INSTRUMENT_Y = {
+    'harp': 57,      # Herhangi bir blok
+    'bass': 60,      # Oak planks
+    'bell': 63,      # Gold block
+    'flute': 66,     # Clay
+    'chime': 69,     # Packed ice
+    'guitar': 72,    # White wool
+    'xylophone': 75  # Bone block
+}
+
+# Her enstrüman için nota koordinatları
+NOTA_Z_KOORDS = {
+    'harp': {
+        'fad1': 1, 'sol1': 2, 'sold1': 3, 'la1': 4, 'lad1': 5, 'si1': 6,
+        'do2': 7, 'dod2': 8, 're2': 9, 'red2': 10, 'mi2': 11, 'fa2': 12,
+        'fad2': 13, 'sol2': 14, 'sold2': 15, 'la2': 16, 'lad2': 17, 'si2': 18,
+        'do3': 19, 'dod3': 20, 're3': 21, 'red3': 22, 'mi3': 23, 'fa3': 24, 'fad3': 25
+    },
+    'bass': {
+        'fad0': 1, 'sol0': 2, 'sold0': 3, 'la0': 4, 'lad0': 5, 'si0': 6,
+        'do1': 7, 'dod1': 8, 're1': 9, 'red1': 10, 'mi1': 11, 'fa1': 12,
+        'fad1': 13, 'sol1': 14, 'sold1': 15, 'la1': 16, 'lad1': 17, 'si1': 18,
+        'do2': 19, 'dod2': 20, 're2': 21, 'red2': 22, 'mi2': 23, 'fa2': 24, 'fad2': 25
+    },
+    'bell': {
+        'fad3': 1, 'sol3': 2, 'sold3': 3, 'la3': 4, 'lad3': 5, 'si3': 6,
+        'do4': 7, 'dod4': 8, 're4': 9, 'red4': 10, 'mi4': 11, 'fa4': 12,
+        'fad4': 13, 'sol4': 14, 'sold4': 15, 'la4': 16, 'lad4': 17, 'si4': 18,
+        'do5': 19, 'dod5': 20, 're5': 21, 'red5': 22, 'mi5': 23, 'fa5': 24, 'fad5': 25
+    },
+    'flute': {
+        'fad2': 1, 'sol2': 2, 'sold2': 3, 'la2': 4, 'lad2': 5, 'si2': 6,
+        'do3': 7, 'dod3': 8, 're3': 9, 'red3': 10, 'mi3': 11, 'fa3': 12,
+        'fad3': 13, 'sol3': 14, 'sold3': 15, 'la3': 16, 'lad3': 17, 'si3': 18,
+        'do4': 19, 'dod4': 20, 're4': 21, 'red4': 22, 'mi4': 23, 'fa4': 24, 'fad4': 25
+    },
+    'chime': {
+        'fad3': 1, 'sol3': 2, 'sold3': 3, 'la3': 4, 'lad3': 5, 'si3': 6,
+        'do4': 7, 'dod4': 8, 're4': 9, 'red4': 10, 'mi4': 11, 'fa4': 12,
+        'fad4': 13, 'sol4': 14, 'sold4': 15, 'la4': 16, 'lad4': 17, 'si4': 18,
+        'do5': 19, 'dod5': 20, 're5': 21, 'red5': 22, 'mi5': 23, 'fa5': 24, 'fad5': 25
+    },
+    'guitar': {
+        'fad1': 1, 'sol1': 2, 'sold1': 3, 'la1': 4, 'lad1': 5, 'si1': 6,
+        'do2': 7, 'dod2': 8, 're2': 9, 'red2': 10, 'mi2': 11, 'fa2': 12,
+        'fad2': 13, 'sol2': 14, 'sold2': 15, 'la2': 16, 'lad2': 17, 'si2': 18,
+        'do3': 19, 'dod3': 20, 're3': 21, 'red3': 22, 'mi3': 23, 'fa3': 24, 'fad3': 25
+    },
+    'xylophone': {
+        'fad3': 1, 'sol3': 2, 'sold3': 3, 'la3': 4, 'lad3': 5, 'si3': 6,
+        'do4': 7, 'dod4': 8, 're4': 9, 'red4': 10, 'mi4': 11, 'fa4': 12,
+        'fad4': 13, 'sol4': 14, 'sold4': 15, 'la4': 16, 'lad4': 17, 'si4': 18,
+        'do5': 19, 'dod5': 20, 're5': 21, 'red5': 22, 'mi5': 23, 'fa5': 24, 'fad5': 25
+    }
+}
+
+
+def muzik_yukle(dosya_adi='music.txt'):
+    """music.txt dosyasından müzik dizisini yükle"""
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        dosya_yolu = os.path.join(script_dir, dosya_adi)
+        
+        if not os.path.exists(dosya_yolu):
+            print(f"❌ Hata: {dosya_adi} dosyası bulunamadı!")
+            print(f"📁 Aranan konum: {dosya_yolu}")
+            print(f"💡 Çözüm: music.txt dosyasını şu konuma kaydedin: {script_dir}")
+            
+            try:
+                dosyalar = os.listdir(script_dir)
+                print(f"\n📂 Mevcut dizindeki dosyalar:")
+                for d in dosyalar:
+                    print(f"  - {d}")
+            except:
+                pass
+            
+            return []
+        
+        with open(dosya_yolu, 'r', encoding='utf-8') as f:
+            icerik = f.read()
+        
+        # "music = [" ile başlıyorsa, sadece liste kısmını al
+        if 'music = [' in icerik:
+            baslangic = icerik.find('[')
+            bitis = icerik.rfind(']') + 1
+            liste_str = icerik[baslangic:bitis]
+        else:
+            liste_str = icerik
+        
+        # String'i Python listesine çevir
+        music = ast.literal_eval(liste_str)
+        
+        # Format kontrolü - yeni format (zaman, nota, enstruman)
+        if music and len(music[0]) == 3 and isinstance(music[0][0], (int, float)):
+            print(f"✅ {len(music)} nota yüklendi (mutlak zamanlama)")
+        else:
+            print(f"❌ Hata: Geçersiz müzik formatı!")
+            print(f"💡 Format: (zaman_saniye, nota, enstruman)")
+            return []
+        
+        return music
+    
+    except FileNotFoundError:
+        print(f"❌ Hata: {dosya_adi} dosyası bulunamadı!")
+        return []
+    except Exception as e:
+        print(f"❌ Müzik dosyası okunurken hata: {e}")
+        return []
+
+
+def nota_cal(note_name, instrument, mcr):
+    """Belirtilen enstrüman ve notayı çal"""
+    y_coord = INSTRUMENT_Y.get(instrument)
+    z_coord = NOTA_Z_KOORDS.get(instrument, {}).get(note_name)
+    
+    if y_coord is None or z_coord is None:
+        return
+    
+    try:
+        with rcon_lock:
+            cmd = f'setblock 0 {y_coord} {z_coord} {blok}'
+            mcr.command(cmd)
+            time.sleep(0.05)
+            cmd = f'setblock 0 {y_coord} {z_coord} air'
+            mcr.command(cmd)
+    except Exception as e:
+        print(f"Hata ({note_name}/{instrument}): {e}")
+
+
+def muzik_cal(melody, mcr):
+    """Müziği polifonik olarak çalar - mutlak zamanlama ile"""
+    if not melody:
+        return
+    
+    # Zamanı aynı olan notaları grupla (20ms tolerans)
+    nota_gruplari = defaultdict(list)
+    for zaman, note, instrument in melody:
+        zaman_anahtari = round(zaman * 50) / 50  # 20ms hassasiyet
+        nota_gruplari[zaman_anahtari].append((note, instrument))
+    
+    # Sıralı zamanları al
+    zamanlar = sorted(nota_gruplari.keys())
+    
+    baslangic = time.time()
+    
+    for hedef_zaman in zamanlar:
+        # Hedef zamana kadar bekle
+        simdiki_zaman = time.time() - baslangic
+        bekleme = hedef_zaman - simdiki_zaman
+        
+        if bekleme > 0:
+            time.sleep(bekleme)
+        
+        # Bu zamandaki tüm notaları paralel çal
+        notalar = nota_gruplari[hedef_zaman]
+        
+        if len(notalar) > 1:
+            # Birden fazla nota varsa thread'lerle paralel çal
+            threads = []
+            for note, instrument in notalar:
+                t = threading.Thread(target=nota_cal, args=(note, instrument, mcr))
+                t.start()
+                threads.append(t)
+            
+            # Tüm notaların çalmasını bekle
+            for t in threads:
+                t.join()
+        else:
+            # Tek nota
+            note, instrument = notalar[0]
+            nota_cal(note, instrument, mcr)
+
+
+# Ana program
+if __name__ == "__main__":
+    music = muzik_yukle('music.txt')
+    
+    if not music:
+        print("Müzik yüklenemedi, program sonlandırılıyor...")
+        exit()
+    
+    try:
+        with MCRcon(sunucuIP, sunucuPASS) as mcr:
+            print("🎵 Müzik çalıyor... (Durdurmak için Ctrl+C)")
+            time.sleep(2)
+            muzik_cal(music, mcr)
+            print("Müzik bitti.")
+    except KeyboardInterrupt:
+        print("\n⏹️ Müzik durduruldu!")
+    except Exception as e:
+        print(f"❌ Bağlantı hatası: {e}")
+                </code></pre>
+            </div>
+          </div>
+
+          <div class="code-window">
+  
+            <div class="code-header">
+              <div class="file-info">
+                <i class="fa-regular fa-file-code"></i>
+                <span class="filename">mcpp.py</span>
+                <span class="lang-badge">python</span>
+              </div>
+              <button class="copy-btn" title="Kodu Kopyala">
+                <i class="fa-regular fa-copy"></i>
+                <span class="btn-text">Kopyala</span>
+              </button>
+            </div>
+          
+            <div class="code-content">
+          <pre><code>from mcrcon import MCRcon
+import time
+
+sunucuIP = "127.0.0.1"
+sunucuPASS = "12345"
+resim_matrisi = [] # Matrisi buraya yapıştıracaksınız.
+
+# Buradaki blokları kendi istediğiniz gibi deeğiştirebilirsiniz. 
+# Ancak web uygulama buradaki sıralamaya göre renkler üretecektir. Buna dikkat edin.
+RENKLI_BLOKLAR = { 
+    1: "minecraft:white_concrete_powder",
+    2: "minecraft:light_gray_concrete_powder",
+    3: "minecraft:gray_concrete_powder",
+    4: "minecraft:black_concrete_powder",
+    5: "minecraft:brown_concrete_powder",
+    6: "minecraft:red_concrete_powder",
+    7: "minecraft:orange_concrete_powder",
+    8: "minecraft:yellow_concrete_powder",
+    9: "minecraft:lime_concrete_powder",
+    10: "minecraft:green_concrete_powder",
+    11: "minecraft:cyan_concrete_powder",
+    12: "minecraft:light_blue_concrete_powder",
+    13: "minecraft:blue_concrete_powder",
+    14: "minecraft:purple_concrete_powder",
+    15: "minecraft:magenta_concrete_powder",
+    16: "minecraft:pink_concrete_powder",
+}
+
+with MCRcon(sunucuIP, sunucuPASS) as mcr:  
+    cmd = f'fill -20 57 32 -20 88 1 air'
+    mcr.command(cmd) 
+    
+    cmd = f'fill -20 56 32 -20 56 1 minecraft:stone'
+    mcr.command(cmd)   
+    x = 32
+    y = 57
+    z = 0
+    for i in range(0, 32):
+        for i in range (0, 32):
+            blok_sirasi = resim_matrisi[z]
+            blok = RENKLI_BLOKLAR.get(blok_sirasi)
+            cmd = f'setblock -20 {y} {x} {blok}'
+            mcr.command(cmd)
+            x -= 1
+            z += 1
+            time.sleep(0.001)
+        x = 32
+        y += 1
+        time.sleep(0.01)</code></pre>
+            </div>
+          </div>
+         
+
+          
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="status-bar">
+    <div class="footer-left">
+  
+      <div class="start-menu-wrapper">
+        
+        <div class="start-btn-trigger">
+          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <span class="os-text">Hasup OS</span>
+        </div>
+  
+        <div class="start-popup">
+          
+          <div class="menu-header">
+            <div class="user-avatar">
+              <img src="../assets/favicon.svg" alt="Hasup OS">
+            </div>
+            <div class="user-details">
+              <span class="username">Hasup OS</span>
+              <span class="role">v1.0</span>
+            </div>
+          </div>
+  
+          <ul class="menu-links">
+            <li>
+              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+            </li>
+            <li>
+              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+            </li>
+            <li>
+              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+            </li>
+            
+            <li class="divider"></li> <li>
+              <a href="https://www.linkedin.com/in/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+            </li>
+  
+            <li class="divider"></li>
+  
+            <li>
+              <a href="javascript:location.reload()" class="shutdown">
+                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-code-branch"></i> main*</span>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-copyright"></i> Yuşa Göverdik - 2025</span>
+    </div>
+  
+    <div class="footer-right">
+      <span class="stat-item">Ln <span id="line-num">120</span>, Col <span id="col-num">45</span></span>
+      <span class="stat-item">UTF-8</span>
+      <span class="stat-item accent-text">CPU: <span id="cpu-usage">12</span>%</span>
+      <span class="stat-item">RAM: <span id="ram-usage">450</span>MB</span>
+      <span class="stat-item"><i class="fa-solid fa-wifi"></i> <span id="ping">24</span>ms</span>
+      <span class="stat-item bell"><i class="fa-regular fa-bell"></i></span>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" title="Yukarı Çık">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hasup - Yuşa Göverdik</title>
+
+  <!-- CSS -->
+  <link rel="icon" type="image/png" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <section id="hero">
+    <div class="hero-grid">
+        <div class="terminal-wrapper">
+            <div class="theme-toggle" id="themeToggle"></div>  
+            
+            <div class="terminal">
+              <div class="line"> <h2>Merhabalar, Ben Yuşa.</h2></div>
+              <div class="line"><span class="prompt">$</span> <span>Öğrenmeyi ve sürekli gelişmeyi önemseyen, edindiği bilgileri üretime dönüştüren bir yazılım mühendisiyim.</span></div>
+              <br>
+              <div class="line"><span class="prompt">$</span> Burada yazılım alanındaki yeteneklerimi ve tamamladığım projeleri bulabilirsiniz. Web, mobil ve masaüstü yazılımlardan özel çözümlere kadar birçok alanda sizlere destek oluyorum.</div>
+              <div class="line">
+                <span class="prompt">$</span><span> Sitemdeki ayrıntı ve detaylar umarım hoşunuza gider. Geribildirimlerinizi beklemekteyim...<span class="cursor"></span></span>
+              </div>
+              
+             
+            </div>
+    
+            <nav class="terminal-nav">
+              <a href="#about">
+                <span class="prompt">></span> cd ./hakkımda
+              </a>
+              <a href="#projects">
+                <span class="prompt">></span> cd ./projelerim
+              </a>
+              <a href="#contact">
+                <span class="prompt">></span> cd ./iletişim
+              </a>
+            </nav>
+            </div>
+      <div class="ascii-wrapper">
+        <h2>Becerilerim</h2>
+        <pre id="ascii-icon" class="ascii"></pre>
+
+        <pre id="ascii-text" class="ascii ascii-text"></pre>
+      </div>
+  </section>
+
+  <section id="about">
+    <h2>Hakkımda</h2>
+  
+    <div class="neofetch-win">
+      
+      <div class="window-bar">
+        <div class="win-buttons">
+          <span class="win-btn close"></span>
+          <span class="win-btn minimize"></span>
+          <span class="win-btn maximize"></span>
+        </div>
+        <div class="win-title">user@yusa-portfolio: ~</div>
+      </div>
+  
+      <div class="neofetch-content">
+        
+        <div class="neofetch-art">
+          <img src="assets/pp.png" alt="Profile" class="profile-img">
+          
+          <div class="sys-monitor-wrapper">
+            
+            <div class="sys-header">
+              <span class="sys-title">task_mgr.exe</span>
+              <div class="sys-dots">
+                <span class="s-dot active"></span>
+                <span class="s-dot"></span>
+                <span class="s-dot"></span>
+              </div>
+            </div>
+
+            <div class="sys-track" id="sys-track">
+              
+              <div class="sys-slide">
+                <div class="sys-icon"><i class="fa-solid fa-microchip"></i> CPU Load</div>
+                <div class="sys-graph-container">
+                   <div class="bar-col"></div><div class="bar-col"></div>
+                   <div class="bar-col"></div><div class="bar-col"></div>
+                   <div class="bar-col"></div><div class="bar-col"></div>
+                   <div class="bar-col"></div>
+                </div>
+                <div class="sys-val"><span id="cpu-val-slider">0</span>%</div>
+              </div>
+
+              <div class="sys-slide">
+                <div class="sys-icon"><i class="fa-solid fa-memory"></i> Memory</div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" id="ram-bar" style="width: 0%"></div>
+                </div>
+                <div class="sys-info-row">
+                   <span>Used: <span id="ram-val-slider">0</span>MB</span>
+                  <span>Total: 1024MB</span>
+                </div>
+              </div>
+
+              <div class="sys-slide">
+                 <div class="sys-icon"><i class="fa-solid fa-wifi"></i> Network / Ping</div>
+                 <div class="ping-visual">
+                    <i class="fa-solid fa-signal"></i>
+                    <span class="ping-text">Live Connection</span>
+                 </div>
+                 <div class="sys-val"><span id="ping-val-slider">0</span> ms</div>
+              </div>
+
+            </div>
+          </div>
+
+        
+          <div class="weather-wrapper">
+            <div class="weather-header">
+              <span class="prompt">$</span> curl wttr.in/?0
+            </div>
+
+            <div class="weather-content">
+              <pre id="w-ascii" class="weather-ascii"></pre>
+
+              <div class="weather-info">
+                <span class="w-temp" id="w-temp">--°C</span>
+                <span class="w-desc" id="w-desc">Sistem Kontrol...</span>
+                <span class="w-detail" id="w-wind">Rüzgar: --</span>
+                <span class="w-detail" id="w-hum">Nem: --</span>
+              </div>
+            </div>
+
+            <div class="location-tag">
+              <i class="fa-solid fa-location-dot"></i>
+              <span id="w-loc">Konum bulunuyor...</span>
+            </div>
+          </div>
+
+
+
+
+        </div>
+  
+        <div class="neofetch-info">
+          <div class="cmd-line">
+            <span class="prompt">user@yusa:~$</span> neofetch
+          </div>
+  
+          <div class="info-grid">
+            <div class="info-row"><span class="key">Name</span>: <span class="val">Yuşa Güverdik</span></div>
+            <div class="info-row"><span class="key">Title</span>: Yazılım Mühendisi</div>
+            <div class="info-row"><span class="key">Location</span>: Aksaray - Adana / Türkiye</div>
+            <div class="info-row"><span class="key">Uptime</span>: 20 Yıl (Level 20)</div>
+            <div class="info-row"><span class="key">OS</span>: Windows 11</div>
+            <div class="info-row"><span class="key">Shell</span>: All the things that i know</div>
+            <div class="info-row"><span class="key">Core</span>: Full Stack Knowledge</div>
+          </div>
+  
+          <div class="bio-text">
+            <br>
+            <span class="comment"># Hakkımda</span><br>
+            Merhaba, ben Yuşa <br><br>
+Yazılıma merak ederek başladım ve bu merak zamanla üretmeye, denemeye ve geliştirmeye dönüştü. Yeni bir şeyler ortaya çıkarmak, bir fikri çalışır hâle getirmek ya da küçük bir detayı daha iyi yapmak beni motive eden şeylerden biri.
+Bugüne kadar farklı alanlarda projeler geliştirdim. Otomasyon araçları, oyun mantıkları, masaüstü ve web tabanlı uygulamalar üzerinde çalıştım. Genellikle Python ve Delphi ile üretim yapıyorum <br><br> Yaptığım işlerde benim için önemli olan; ortaya çıkan şeyin gerçekten işe yaraması ve karşısındaki kişi için anlaşılır olması.
+Teknolojiyle ilişkim hızlıca tüketmekten çok, öğrenerek ilerlemek üzerine. Bu yüzden yeni şeyler denemeyi, araştırmayı ve zamanla daha iyisini yapmayı seviyorum. Her proje bana hem teknik hem de düşünsel olarak yeni bir şey katıyor.
+<br><br>Bu site, nelerle ilgilendiğimi, neler ürettiğimi ve zaman içinde nasıl geliştiğimi paylaşmak için var. Eğer buradaysanız, umarım yaptıklarım size küçük de olsa bir fikir verir.
+<br><br>
+<span class="comment"># Bilgilendirme</span><br>
+Site üzerinde bulunan 'Sistem Bilgileri' -CPU ve RAM kullanımları, İnternet geçikmesi- gibi bilgiler temsilidir, gerçek değildir. 
+<br><br>
+Yan tarafta (mobilde iseniz üst tarafta) gördüğünüz 'hava durumu' izin verilmesi durumunda sizin konumunuzu, aksi takdirde Aksaray'ın hava durumunu gösterecektir.
+</div>
+            
+            
+
+          <div class="color-blocks">
+            <span class="c-blk c1"></span><span class="c-blk c2"></span>
+            <span class="c-blk c3"></span><span class="c-blk c4"></span>
+            <span class="c-blk c5"></span><span class="c-blk c6"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="neofetch-win hasup-win">
+    
+      <div class="window-bar">
+        <div class="win-buttons">
+          <span class="win-btn close"></span>
+          <span class="win-btn minimize"></span>
+          <span class="win-btn maximize"></span>
+        </div>
+        <div class="win-title">man hasup (1) — Linux User Manual</div>
+      </div>
+  
+      <div class="hasup-content">
+            
+        <div class="man-section">Hasup Ne Demek?</div>
+        <div class="man-text">
+          <p>
+            "Hasup" kelimesi, Arapça kökenli olup <strong>"hesap eden, hesaplama yapan"</strong> anlamlarına gelir. 
+            Klasik literatürde ve günümüzde; işlem yapan cihazları, yani <strong>"Bilgisayar"</strong> 
+            veya <strong>"Hesap Makinesi"</strong> gibi cihazları ifade etmek için kullanılır.
+          </p>
+          <p>
+            <span class="comment"># Seçim Nedeni:</span><br>
+            Bu ismin tercih edilme nedeni; <strong>Mühendis</strong> kimliğime (hesaplama ve analitik düşünce yapısına) 
+            doğrudan bir gönderme yapmasıdır. Hem kökeniyle teknik yetkinliği temsil etmekte 
+            hem de fonetik olarak akılda kalıcı, özgün bir tını sunmaktadır.
+          </p>
+        </div>
+
+        <div class="man-section">Okunuşu</div>
+        <div class="man-text">
+          /ha-sup/ — Kelimenin okunuşu, Türkçe'de yazıldığı gibidir.
+        </div>
+  
+  
+        <div class="man-footer">
+        Hasup ne demek?<span class="right">Press q to quit</span>
+        </div>
+  
+      </div>
+    </div>
+  
+  </section>
+
+  <section id="projects">
+    <h2 id="projects1">Projelerim</h2>
+    
+    <div class="project-window">
+      
+      <div class="window-bar">
+        <div class="win-buttons">
+          <span class="win-btn close"></span>
+          <span class="win-btn minimize"></span>
+          <span class="win-btn maximize"></span>
+        </div>
+        <div class="win-title">user@yusa: ~/projects</div>
+      </div>
+  
+      <div class="project-container">
+        
+        <div class="project-sidebar">
+          <div class="sidebar-header">explorer</div>
+          <ul class="file-tree">
+            <li class="folder open">
+              <span class="folder-name"><i class="fa-regular fa-folder-open"></i> my-projects</span>
+              <ul>
+                <li class="file active" data-target="p1">
+                  <img class="custom-icon" src="assets/icon-images/python.svg" alt=""> Minecraft MIDI & Pixelart Painter
+                </li>
+                <li class="file" data-target="p2">
+                  <img class="custom-icon" src="assets/icon-images/delphi.svg" alt=""> Teknoloji Atölyesi Yoklama Sistemi
+                </li>
+                <li class="file" data-target="p3">
+                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> UniGUI ile SweetAlert ve Ajax İstekleri
+                </li>
+                <li class="file" data-target="p4">
+                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> PolyBank WEB
+                </li>
+                <li class="file" data-target="p5">
+                  <img class="custom-icon" src="assets/icon-images/python.svg" alt=""> BombSniffer
+                </li>
+                <li class="file" data-target="p6">
+                  <img class="custom-icon" src="assets/icon-images/arduino.png" alt=""> Arduino Nano ile Game of Life
+                </li>
+                <li class="file" data-target="p7">
+                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> Wissio
+                </li>
+                <li class="file" data-target="p8">
+                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> Lexio
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="project-viewer">
+          
+          <div class="editor-tabs">
+            <div class="tab active" id="tab-name">Minecraft MIDI & Pixelart Painter</div>
+          </div>
+  
+          <div class="editor-content">
+
+            <div class="line-numbers" id="line-numbers"></div>
+
+            <div class="code-block active" id="p1"><span class="keyword">program</span> <span class="function">MinecraftPixelPainter</span>;
+<span class="keyword">var</span>
+  ProjectInfo: <span class="tag">TProjectRecord</span>;
+<span class="keyword">begin</span>
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Oyun Aracı / Scripting'</span>;
+  ProjectInfo.TechStack := [
+    <span class="string">'Python'</span>, 
+    <span class="string">'MCRCON Library'</span>, 
+    <span class="string">'Görüntü İşleme'</span>, 
+    <span class="string">'Ses İşleme'</span>
+  ];
+  ProjectInfo.Desc := <span class="string">'Minecraft üzerinde bloklarla resim çizen'</span> + 
+                      <span class="string">' ve MIDI çalan otomasyon aracı.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
+  <a href="projects/mcpp_main.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
+<span class="keyword">end</span>.</div>
+              
+                        <div class="code-block" id="p2"><span class="keyword">program</span> <span class="function">TAYOKSIS</span>;
+<span class="keyword">var</span>
+  ProjectInfo: <span class="tag">TProjectRecord</span>;
+<span class="keyword">begin</span>
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Web Application / Otomasyon'</span>;
+  ProjectInfo.TechStack := [
+    <span class="string">'Delphi'</span>, 
+    <span class="string">'UniGUI'</span>, 
+    <span class="string">'SQL Server'</span>
+  ];
+  ProjectInfo.Desc := <span class="string">'Topluluğumla yaptığımız etkinliklerin takibini'</span> + 
+                      <span class="string">'kolaylaştırmak için geliştirdiğim bir uygulama.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
+  <a href="projects/tayoksis.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
+<span class="keyword">end</span>.</div>
+              
+                        <div class="code-block" id="p3"><span class="keyword">program</span> <span class="function">SwalAjaxRequest</span>;
+<span class="keyword">var</span>
+  ProjectInfo: <span class="tag">TProjectRecord</span>;
+<span class="keyword">begin</span>
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Yardımcı Araç'</span>;
+  ProjectInfo.TechStack := [
+    <span class="string">'Delph'</span>, 
+    <span class="string">'UniGUI'</span>, 
+    <span class="string">'SweetAlert'</span>, 
+    <span class="string">'JavaScript'</span>
+  ];
+  ProjectInfo.Desc := <span class="string">'UniGUI ile yapılan uygulamarda nasıl '</span> + 
+                      <span class="string">'SweetAlert entegrasyonu yapılabildiğini gösteren küçük bir uygulama.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
+  <a href="projects/delphi_sweetalert.html" class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
+<span class="keyword">end</span>.</div>
+              
+                                  <div class="code-block" id="p4"><span class="keyword">program</span> <span class="function">PolyBankWEB</span>;
+<span class="keyword">var</span>
+  ProjectInfo: <span class="tag">TProjectRecord</span>;
+<span class="keyword">begin</span>
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Yardımcı Araç / Ekonomi'</span>;
+  ProjectInfo.TechStack := [
+    <span class="string">'Delphi'</span>, 
+    <span class="string">'UniGUI'</span> 
+  ];
+  ProjectInfo.Desc := <span class="string">'Monopoly oynarken para takibini kolaylaştırmak'</span> + 
+                      <span class="string">'amacıyla sınıf arkadaşımın geliştirdiği uygulamanın web portu.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
+  <a href="projects/polybank.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
+<span class="keyword">end</span>.</div>
+              
+                        <div class="code-block" id="p5"><span class="keyword">program</span> <span class="function">BombSniffer</span>;
+<span class="keyword">var</span>
+  ProjectInfo: <span class="tag">TProjectRecord</span>;
+<span class="keyword">begin</span>
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Otomasyon / Scripting'</span>;
+  ProjectInfo.TechStack := [
+    <span class="string">'Python'</span>, 
+    <span class="string">'pyAutoGUI'</span> 
+  ];
+  ProjectInfo.Desc := <span class="string">'Mayın tarlasını kendi kendine başarılı'</span> + 
+                      <span class="string">'olana kadar çözmeye çalışan bir python script'i.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
+  <a href="projects/bombsniffer.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
+<span class="keyword">end</span>.</div>
+              
+                        <div class="code-block" id="p6"><span class="keyword">program</span> <span class="function">ArduinoGOL</span>;
+<span class="keyword">var</span>
+  ProjectInfo: <span class="tag">TProjectRecord</span>;
+<span class="keyword">begin</span>
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Gömülü Sistemler / Hücresel Otomasyon'</span>;
+  ProjectInfo.TechStack := [
+    <span class="string">'Arduino Nano'</span>, 
+    <span class="string">'Conway's Game of Life'</span>, 
+    <span class="string">'Satır tabanlı Buffering.'</span>
+  ];
+  ProjectInfo.Desc := <span class="string">'Arduino Nano'nun sınırlı RAM kapasitesini yazılımsal'</span> + 
+                      <span class="string">'optimizasyonlarla dengeleyip, çalıştırılmış bir algoritma uygulaması.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
+  <a href="projects/ardu_gol.html" class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
+<span class="keyword">end</span>.</div>
+              
+                        <div class="code-block" id="p7"><span class="keyword">program</span> <span class="function">Wissio</span>;
+<span class="keyword">var</span>
+  ProjectInfo: <span class="tag">TProjectRecord</span>;
+<span class="keyword">begin</span>
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Quiz Night Uygulaması'</span>;
+  ProjectInfo.TechStack := [
+    <span class="string">'Delphi'</span>, 
+    <span class="string">'UniGUI'</span>
+  ];
+  ProjectInfo.Desc := <span class="string">'Topluluğumla gerçekleştirdiğimiz ''Quiz Night'' etkinlikleri için'</span> + 
+                      <span class="string">'geliştirdiğim bir web uygulaması.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
+  <a href="projects/wissio.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
+<span class="keyword">end</span>.</div>
+              
+                        <div class="code-block" id="p8"><span class="keyword">program</span> <span class="function">Lexio</span>;
+<span class="keyword">var</span>
+  ProjectInfo: <span class="tag">TProjectRecord</span>;
+<span class="keyword">begin</span>
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Kelime Oyunu'</span>;
+  ProjectInfo.TechStack := [
+    <span class="string">'Delphi'</span>, 
+    <span class="string">'UniGUI'</span> 
+  ];
+  ProjectInfo.Desc := <span class="string">'Televizyonda izlediğimiz meşhur yarışmanın kendimce yeniden yorumu.'</span>                  
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
+  <a href="projects/lexio.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
+<span class="keyword">end</span>.</div>
+  
+             </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <h2>İletişim</h2>
+    
+      <div class="neofetch-win">
+        
+        <div class="window-bar">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn minimize"></span>
+            <span class="win-btn maximize"></span>
+          </div>
+          <div class="win-title">user@yusa: ~/contact</div>
+        </div>
+    
+        <div class="contact-content">
+          
+          <div class="cmd-line">
+            <span class="prompt">user@yusa:~/contact$</span> ./show-email.sh
+          </div>
+          <p style="margin-top: 10px; margin-bottom: 20px;">
+            <span class="prompt">></span> <a href="mailto:yusaguverdik@gmail.com" class="contact-link">yusaguverdik@gmail.com</a>
+          </p>
+    
+          <div class="cmd-line">
+            <span class="prompt">user@yusa:~/contact$</span> ./send-message.sh --interactive
+          </div>
+          
+          <form action="https://formspree.io/f/xqezwrgz" method="POST" class="terminal-form" id="contact-form">
+            
+            <div class="form-group">
+              <label for="name"><span class="comment"># Adınız (Name):</span></label>
+              <div class="input-wrapper">
+                <span class="prompt">$</span>
+                <input type="text" id="name" name="name" placeholder="Adınızı yazın..." required autocomplete="off">
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label for="email"><span class="comment"># E-posta (Email):</span></label>
+              <div class="input-wrapper">
+                <span class="prompt">$</span>
+                <input type="email" id="email" name="email" placeholder="mail@ornek.com" required autocomplete="off">
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label for="message"><span class="comment"># Mesajınız (Message):</span></label>
+              <div class="input-wrapper textarea-wrapper">
+                <span class="prompt">$</span>
+                <textarea id="message" name="message" rows="4" placeholder="Mesajınızı buraya yazın..." required></textarea>
+              </div>
+            </div>
+    
+            <button type="submit" class="terminal-btn">
+              [ EXECUTE / GÖNDER ]
+            </button>
+    
+          </form>
+          <div id="form-status" class="form-status"></div>
+          <br>
+          
+          <div class="cmd-line">
+            <span class="prompt">user@yusa:~/contact$</span> ls ./social-media/
+          </div>
+          <p class="social-icons">
+            <a href="https://www.linkedin.com/in/yusaguverdik/" target="_blank">
+              <i class="fa-brands fa-linkedin-in fa-2x"></i>
+            </a>
+            <a href="https://www.instagram.com/yusaguverdik/" target="_blank">
+              <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+          </p>
+    
+        </div>
+      </div>
+    </section>
+
+    <footer id="status-bar">
+      <div class="footer-left">
+    
+        <div class="start-menu-wrapper">
+          
+          <div class="start-btn-trigger">
+            <img src="assets/favicon.svg" alt="Hasup OS" class="os-logo">
+            <span class="os-text">Hasup OS</span>
+          </div>
+    
+          <div class="start-popup">
+            
+            <div class="menu-header">
+              <div class="user-avatar">
+                <img src="assets/favicon.svg" alt="Hasup OS">
+              </div>
+              
+              <div class="user-details">
+                <span class="username">Hasup OS</span>
+                <span class="role">v1.0</span>
+              </div>
+            </div>
+    
+            <ul class="menu-links">
+              <li>
+                <a href="#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+              </li>
+              <li>
+                <a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+              </li>
+              <li>
+                <a href="#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+              </li>
+              
+              <li class="divider"></li> <li>
+                <a href="https://www.linkedin.com/in/yusaguverdik/" target="_blank">
+                  <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/yusaguverdik/" target="_blank">
+                  <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+              </li>
+    
+              <li class="divider"></li>
+    
+              <li>
+                <a href="javascript:location.reload()" class="shutdown">
+                  <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+                </a>
+              </li>
+            </ul>
+          </div>
+    
+        </div>
+        <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-code-branch"></i> main*</span>
+        <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-copyright"></i> Yuşa Göverdik - 2025</span>
+      </div>
+    
+      <div class="footer-right">
+        <span class="stat-item">Ln <span id="line-num">120</span>, Col <span id="col-num">45</span></span>
+        <span class="stat-item">UTF-8</span>
+        <span class="stat-item accent-text">CPU: <span id="cpu-usage">12</span>%</span>
+        <span class="stat-item">RAM: <span id="ram-usage">450</span>MB</span>
+        <span class="stat-item"><i class="fa-solid fa-wifi"></i> <span id="ping">24</span>ms</span>
+        <span class="stat-item bell"><i class="fa-regular fa-bell"></i></span>
+      </div>
+    </footer>
+
+
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Yukarı Çık">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+  <!-- JS -->
+  <script src="assets/script.js"></script>
+</body>
+</html>

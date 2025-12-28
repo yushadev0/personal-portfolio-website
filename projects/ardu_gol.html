@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Nano ile Game of Life | Hasup</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <link rel="stylesheet" href="assets/project-style.css">
+
+</head>
+<body class="project-page">
+
+  <nav class="detail-nav">
+    <div class="terminal-wrapper nav-content">
+      
+      <div class="nav-left">
+        <a href="../index.html#projects" class="back-link">
+          <span class="prompt">$</span> cd ..
+        </a>
+        <span class="path">/ home / projects / <span class="current-project">arduino-nano-gol</span></span>
+      </div>
+
+      <div class="theme-toggle" id="themeToggle"></div>
+
+    </div>
+  </nav>
+
+  <section id="project-detail">
+    <div class="terminal-wrapper">
+      
+      <div class="project-header">
+        <div class="header-left">
+          <h1 class="project-title">Arduino Nano ile Conway's Game of Life</h1>
+          <p>
+            Arduino Nano ile yaptığım bu projede Conway's Game of Life algoritmasını, toplam 1.6KB RAM harcayarak displayde gösteren basit ama keyifli bir gömülü sistem projesi.
+          </p>
+          <br>
+          <div class="tech-badges">
+            <span class="badge">Arduino Nano</span>
+            <span class="badge">C</span>
+            <span class="badge">Elektrik & Elektronik</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="readme-window">
+        <div class="window-bar">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn minimize"></span>
+            <span class="win-btn maximize"></span>
+          </div>
+          <div class="win-title">projectDetails.md</div>
+        </div>
+
+        <div class="readme-content">
+          
+          <h3><span class="hash">#</span> Proje Özeti</h3>
+          <p>
+            Bir tane Arduino Nano, bir tane SSD1306 0.96" OLED Display ve 3 tane butondan oluşan bu uygulama okuldaki 'Gömülü Sistemler' dersim için proje ödevimdi aslında. Ancak projenin çok hoşuma gitmesi ve biraz da fikir üzerine düşüp azıcık geliştirmeden sonra burası için iyi bir yazı olabileceğine karar verdim.
+          </p>
+
+          <div class="project-image-container">
+            <img src="assets/images/ardu.png" alt="Proje Ekran Görüntüsü">
+            <span class="img-caption">Resim 1: Devrenin breadboard üzerindeki görüntüsü.</span>
+          </div>
+
+          <div class="project-image-container">
+            <video id="myVideo" width="700" height="500" autoplay="" muted="" loop="">
+              <source src="assets/videos/ardu_gol.mp4" type="video/mp4">
+          Tarayıcınız video desteklememektedir.
+              </video>
+            <span class="img-caption">Video 1: Devrenin çalışma anındaki görüntüsü.</span>
+          </div>
+
+          <p>Uygulamam çok basit çalışıyor. İşlemci yükünü Nano'ya yükleyip hesaplamaları yaptırıyorum. Daha sonra bilgiyi displaye aktarıp kullanıcıya gösteriyorum. Tabii ilk önce ekrana gelen menü sayesinde hazır şablonlardan seçim yapabiliyoruz.
+            <br><br>
+            Conway's Game of Life algoritması 4 kuraldan oluşur, bunlar:</p>
+
+            <h2>Yalnızlık (Underpopulation):</h2>
+            Canlı bir hücre, iki veya daha az canlı komşuya sahipse bir sonraki nesilde ölür.
+            <h2>Hayatta Kalma (Survival):</h2>
+            Canlı bir hücre, iki veya üç canlı komşuya sahipse bir sonraki nesilde yaşamaya devam eder.
+            <h2>Aşırı Nüfus (Overpopulation):</h2>
+            Canlı bir hücre, üçten fazla canlı komşuya sahipse bir sonraki nesilde ölür.
+            <h2> Doğum (Reproduction):</h2>
+            Ölü bir hücre, tam olarak üç canlı komşuya sahipse bir sonraki nesilde canlı hale gelir.
+
+            <p>Bu kurallara göre kendi algoritmamda canlı hücreler '1', ölü hücreler '0' oldu. Böylece bir grid üzerinde gelecek nesilleri simule edebildim.
+              <br><br>
+              Şablon dizilerini PROGMEM'e kaydettim. Çünkü RAM miktarını çok fazla zorluyordu. SSD1306 çalışabilmek için en az 1kb RAM istiyor. Siz 2KB olan Nano RAM'inden 1025 byte RAM bile kullansanız display çalışmayacaktır.</p>
+
+              <div class="project-image-container">
+                <img src="assets/images/schematic-display.png" height="700" width="500" alt="Proje Ekran Görüntüsü">
+                <span class="img-caption">Şema 1: Devrenin bağlantı şeması.</span>
+              </div>
+
+          <h3><span class="hash">#</span> Kod</h3>
+          <div class="code-window">
+  
+            <div class="code-header">
+              <div class="file-info">
+                <i class="fa-regular fa-file-code"></i>
+                <span class="filename">ardu_gol.ino</span>
+                <span class="lang-badge">C</span>
+              </div>
+              <button class="copy-btn" title="Kodu Kopyala">
+                <i class="fa-regular fa-copy"></i>
+                <span class="btn-text">Kopyala</span>
+              </button>
+            </div>
+          
+            <div class="code-content">
+          <pre><code>#include <Wire.h> 
+#include <span><</span>Adafruit_GFX.h>
+#include <span><</span>Adafruit_SSD1306.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define GRID_W 64
+#define GRID_H 32
+#define CENTER_X 32
+#define CENTER_Y 16
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+#define BTN_UP     4
+#define BTN_DOWN   5
+#define BTN_OK     6
+
+uint8_t grid[GRID_H][GRID_W / 8];
+uint8_t newRow[GRID_W / 8];
+
+// Glider
+const int8_t seed0[] PROGMEM = { 0,-1, 1,0, -1,1, 0,1, 1,1 };
+
+// Blinker
+const int8_t seed1[] PROGMEM = { -1,0, 0,0, 1,0 };
+
+// Toad
+const int8_t seed2[] PROGMEM = { 0,-1, 1,-1, 2,-1, -1,0, 0,0, 1,0 };
+
+// Pulsar
+const int8_t seed3[] PROGMEM = {
+  -6,-4, -5,-4, -4,-4, -2,-4, -1,-4, 0,-4,
+  -6,-2, -1,-2, -6,-1, -1,-1, -6,0, -1,0,
+  -6,2, -5,2, -4,2, -2,2, -1,2, 0,2,
+  2,-4, 3,-4, 4,-4, 6,-4, 7,-4, 8,-4,
+  2,-2, 7,-2, 2,-1, 7,-1, 2,0, 7,0,
+  2,2, 3,2, 4,2, 6,2, 7,2, 8,2,
+  -4,-6, -3,-6, -2,-6, 4,-6, 5,-6, 6,-6,
+  -4,4, -3,4, -2,4, 4,4, 5,4, 6,4
+};
+
+// Spaceship LWSS
+const int8_t seed4[] PROGMEM = { -2,-1, 1,-1, -3,0, -3,1, 1,1, -3,2, -2,2, -1,2, 0,2 };
+
+// Glider Gun (Gosper)
+const int8_t seed5[] PROGMEM = {
+  -18,0, -18,1, -17,0, -17,1,
+  -8,-1, -8,0, -8,1, -7,-2, -7,2, -6,-3, -6,3, -5,-3, -5,3,
+  -4,0, -3,-2, -3,2, -2,-1, -2,0, -2,1, -1,0,
+  2,-3, 2,-2, 2,-1, 3,-3, 3,-2, 3,-1, 4,-4, 4,0,
+  6,-5, 6,-4, 6,0, 6,1,
+  16,-3, 16,-2, 17,-3, 17,-2
+};
+
+// myPattern
+const int8_t myPattern[] PROGMEM = { 3,-8, 5,-8, 6,-8, 8,-8, 9,-8, -7,-7, -6,-7, -5,-7, -4,-7, -3,-7, -2,-7, -1,-7, 0,-7, 1,-7, 2,-7, 3,-7, 4,-7, 5,-7, 6,-7, 10,-7, 11,-7, -9,-6, -8,-6, 13,-6, -10,-5, -9,-5, 14,-5, -10,-4, 15,-4, 16,-4, -11,-3, 16,-3, -11,-2, 17,-2, -11,-1, -1,-1, 0,-1, 17,-1, -11,0, -1,0, 0,0, 17,0, -11,1, 17,1, -10,2, 17,2, -10,3, -9,3, 17,3, -8,4, -7,5, -6,5, 15,5, -5,6, 14,6, -4,7, -2,7, 11,7, 12,7, -1,8, 1,8, 3,8, 4,8, 6,8, 9,8 };
+
+// Spear
+const int8_t spear[] PROGMEM = { 0,-1, -1,0, 0,0, 1,0, 2,0, 0,1 };
+
+const uint8_t seedCounts[] PROGMEM = { 5, 3, 6, 48, 9, 36, 65, 6 };
+const int8_t* const seeds[] PROGMEM = { seed0, seed1, seed2, seed3, seed4, seed5, myPattern, spear };
+
+// Menü ayarları
+int8_t currentMenu = 0;
+const int8_t menuCount = 9;
+const int8_t visibleItems = 5;
+int8_t menuOffset = 0;
+
+// Menü isimleri
+const char m0[] PROGMEM = "Glider";
+const char m1[] PROGMEM = "Blinker";
+const char m2[] PROGMEM = "Toad";
+const char m3[] PROGMEM = "Pulsar";
+const char m4[] PROGMEM = "Spaceship";
+const char m5[] PROGMEM = "Glider Gun";
+const char m6[] PROGMEM = "Deneme";
+const char m7[] PROGMEM = "Spear";
+const char m8[] PROGMEM = "Rastgele";
+const char* const menuItems[] PROGMEM = { m0, m1, m2, m3, m4, m5, m6, m7, m8 };
+
+#define MAX_MENU_CHARS 17
+
+inline bool getCell(uint8_t x, uint8_t y) {
+  if (x >= GRID_W || y >= GRID_H) return false;
+  return grid[y][x >> 3] & (1 << (x & 7));
+}
+
+inline void setCell(uint8_t x, uint8_t y, bool val) {
+  if (x >= GRID_W || y >= GRID_H) return;
+  if (val) grid[y][x >> 3] |= (1 << (x & 7));
+  else     grid[y][x >> 3] &= ~(1 << (x & 7));
+}
+
+void clearGrid() {
+  memset(grid, 0, sizeof(grid));
+}
+
+void applySeed(uint8_t seedIndex) {
+  clearGrid();
+  const int8_t* seed = (const int8_t*)pgm_read_ptr(&seeds[seedIndex]);
+  uint8_t count = pgm_read_byte(&seedCounts[seedIndex]);
+  for (uint8_t i = 0; i < count; i++) {
+    int8_t dx = pgm_read_byte(&seed[i * 2]);
+    int8_t dy = pgm_read_byte(&seed[i * 2 + 1]);
+    uint8_t x = CENTER_X + dx;
+    uint8_t y = CENTER_Y + dy;
+    setCell(x, y, true);
+  }
+}
+
+void applyRandomSeed() {
+  clearGrid();
+  uint16_t count = random(1000, 1501);
+  for (uint16_t i = 0; i < count; i++) {
+    setCell(random(GRID_W), random(GRID_H), true);
+  }
+}
+
+uint8_t neighbors(uint8_t x, uint8_t y) {
+  uint8_t n = 0;
+  for (int8_t dy = -1; dy <= 1; dy++) {
+    for (int8_t dx = -1; dx <= 1; dx++) {
+      if (dx == 0 && dy == 0) continue;
+      int8_t nx = x + dx;
+      int8_t ny = y + dy;
+      if (nx >= 0 && nx < GRID_W && ny >= 0 && ny < GRID_H) {
+        if (getCell(nx, ny)) n++;
+      }
+    }
+  }
+  return n;
+}
+
+void stepLife() {
+  uint8_t prevRow[GRID_W / 8];
+  bool hasPrev = false;
+  
+  for (uint8_t y = 0; y < GRID_H; y++) {
+    memset(newRow, 0, sizeof(newRow));
+    
+    for (uint8_t x = 0; x < GRID_W; x++) {
+      uint8_t n = neighbors(x, y);
+      bool alive = getCell(x, y);
+      bool next = alive ? (n == 2 || n == 3) : (n == 3);
+      
+      if (next) {
+        newRow[x >> 3] |= (1 << (x & 7));
+      }
+    }
+    
+    if (hasPrev) {
+      memcpy(grid[y - 1], prevRow, sizeof(prevRow));
+    }
+    
+    memcpy(prevRow, newRow, sizeof(newRow));
+    hasPrev = true;
+  }
+  
+  memcpy(grid[GRID_H - 1], prevRow, sizeof(prevRow));
+}
+
+void drawGrid() {
+  display.clearDisplay();
+  for (uint8_t y = 0; y < GRID_H; y++) {
+    for (uint8_t x = 0; x < GRID_W; x++) {
+      if (getCell(x, y)) {
+        uint8_t px = x * 2;
+        uint8_t py = y * 2;
+        display.drawPixel(px, py, SSD1306_WHITE);
+        display.drawPixel(px + 1, py, SSD1306_WHITE);
+        display.drawPixel(px, py + 1, SSD1306_WHITE);
+        display.drawPixel(px + 1, py + 1, SSD1306_WHITE);
+      }
+    }
+  }
+  display.display();
+}
+
+void drawMenu() {
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  
+  // Başlık
+  display.setCursor(0, 0);
+  display.print("Game of Life - Yusa G");
+  
+  // Başlık altı çizgi
+  display.drawLine(0, 10, 127, 10, SSD1306_WHITE);
+  
+  // Yukarı ok göstergesi 
+  if (menuOffset > 0) {
+    display.drawPixel(123, 14, SSD1306_WHITE);
+    display.drawPixel(122, 15, SSD1306_WHITE);
+    display.drawPixel(123, 15, SSD1306_WHITE);
+    display.drawPixel(124, 15, SSD1306_WHITE);
+    display.drawPixel(121, 16, SSD1306_WHITE);
+    display.drawPixel(122, 16, SSD1306_WHITE);
+    display.drawPixel(123, 16, SSD1306_WHITE);
+    display.drawPixel(124, 16, SSD1306_WHITE);
+    display.drawPixel(125, 16, SSD1306_WHITE);
+  }
+  
+  // Menü öğelerini çiz
+  char buf[32];
+  for (int8_t i = 0; i < visibleItems; i++) {
+    int8_t itemIndex = menuOffset + i;
+    if (itemIndex >= menuCount) break;
+    
+    display.setCursor(0, i * 10 + 14);
+    
+    if (itemIndex == currentMenu) {
+      display.print("-> ");
+    } else {
+      display.print("  ");
+    }
+    
+    // Menü ismini oku
+    strcpy_P(buf, (const char*)pgm_read_ptr(&menuItems[itemIndex]));
+    
+    // Uzunsa kes ve ".." ekle
+    if (strlen(buf) > MAX_MENU_CHARS) {
+      buf[MAX_MENU_CHARS - 2] = '.';
+      buf[MAX_MENU_CHARS - 1] = '.';
+      buf[MAX_MENU_CHARS] = '\0';
+    }
+    
+    display.print(buf);
+  }
+  
+  // Aşağı ok göstergesi 
+  if (menuOffset + visibleItems < menuCount) {
+    display.drawPixel(121, 57, SSD1306_WHITE);
+    display.drawPixel(122, 57, SSD1306_WHITE);
+    display.drawPixel(123, 57, SSD1306_WHITE);
+    display.drawPixel(124, 57, SSD1306_WHITE);
+    display.drawPixel(125, 57, SSD1306_WHITE);
+    display.drawPixel(122, 58, SSD1306_WHITE);
+    display.drawPixel(123, 58, SSD1306_WHITE);
+    display.drawPixel(124, 58, SSD1306_WHITE);
+    display.drawPixel(123, 59, SSD1306_WHITE);
+  }
+  
+  display.display();
+}
+
+void updateMenuOffset() {
+  if (currentMenu < menuOffset) {
+    menuOffset = currentMenu;
+  } else if (currentMenu >= menuOffset + visibleItems) {
+    menuOffset = currentMenu - visibleItems + 1;
+  }
+}
+
+void runLifeAnimation() {
+  while (digitalRead(BTN_OK)) {
+    stepLife();
+    drawGrid();
+    delay(100);
+  }
+  delay(200);
+}
+
+void setup() {
+  pinMode(BTN_UP, INPUT_PULLUP);
+  pinMode(BTN_DOWN, INPUT_PULLUP);
+  pinMode(BTN_OK, INPUT_PULLUP);
+  
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  randomSeed(analogRead(A0));
+  drawMenu();
+}
+
+void loop() {
+  if (!digitalRead(BTN_UP)) {
+    currentMenu--;
+    if (currentMenu < 0) {
+      currentMenu = menuCount - 1;
+      menuOffset = menuCount - visibleItems;
+      if (menuOffset < 0) menuOffset = 0;
+    } else {
+      updateMenuOffset();
+    }
+    drawMenu();
+    delay(200);
+  }
+  
+  if (!digitalRead(BTN_DOWN)) {
+    currentMenu++;
+    if (currentMenu >= menuCount) {
+      currentMenu = 0;
+      menuOffset = 0;
+    } else {
+      updateMenuOffset();
+    }
+    drawMenu();
+    delay(200);
+  }
+  
+  if (!digitalRead(BTN_OK)) {
+    delay(200);
+    if (currentMenu < menuCount - 1) {
+      applySeed(currentMenu);
+    } else {
+      applyRandomSeed();
+    }
+    drawGrid();
+    delay(1500);
+    runLifeAnimation();
+    drawMenu();
+  }
+}
+</code></pre>
+</div>
+</div>
+          
+         
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="status-bar">
+    <div class="footer-left">
+  
+      <div class="start-menu-wrapper">
+        
+        <div class="start-btn-trigger">
+          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <span class="os-text">Hasup OS</span>
+        </div>
+  
+        <div class="start-popup">
+          
+           <div class="menu-header">
+            <div class="user-avatar">
+              <img src="../assets/favicon.svg" alt="Hasup OS">
+            </div>
+            <div class="user-details">
+              <span class="username">Hasup OS</span>
+              <span class="role">v1.0</span>
+            </div>
+          </div>
+  
+          <ul class="menu-links">
+            <li>
+              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+            </li>
+            <li>
+              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+            </li>
+            <li>
+              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+            </li>
+            
+            <li class="divider"></li> <li>
+              <a href="https://www.linkedin.com/in/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+            </li>
+  
+            <li class="divider"></li>
+  
+            <li>
+              <a href="javascript:location.reload()" class="shutdown">
+                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-code-branch"></i> main*</span>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-copyright"></i> Yuşa Göverdik - 2025</span>
+    </div>
+  
+    <div class="footer-right">
+      <span class="stat-item">Ln <span id="line-num">120</span>, Col <span id="col-num">45</span></span>
+      <span class="stat-item">UTF-8</span>
+      <span class="stat-item accent-text">CPU: <span id="cpu-usage">12</span>%</span>
+      <span class="stat-item">RAM: <span id="ram-usage">450</span>MB</span>
+      <span class="stat-item"><i class="fa-solid fa-wifi"></i> <span id="ping">24</span>ms</span>
+      <span class="stat-item bell"><i class="fa-regular fa-bell"></i></span>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" title="Yukarı Çık">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

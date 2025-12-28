@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bomb Sniffer | Hasup</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <link rel="stylesheet" href="assets/project-style.css">
+
+</head>
+<body class="project-page">
+
+  <nav class="detail-nav">
+    <div class="terminal-wrapper nav-content">
+      
+      <div class="nav-left">
+        <a href="../index.html#projects" class="back-link">
+          <span class="prompt">$</span> cd ..
+        </a>
+        <span class="path">/ home / projects / <span class="current-project">bombsniffer</span></span>
+      </div>
+
+      <div class="theme-toggle" id="themeToggle"></div>
+
+    </div>
+  </nav>
+
+  <section id="project-detail">
+    <div class="terminal-wrapper">
+      
+      <div class="project-header">
+        <div class="header-left">
+          <h1 class="project-title">BombSniffer</h1>
+          <p>
+            Klasik Mayın Tarlası oyununu kendi başına başarılı olana kadar çözen bir yapay zeka botu.
+          </p>
+          <br>
+          <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">pyAutoGUI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="readme-window">
+        <div class="window-bar">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn minimize"></span>
+            <span class="win-btn maximize"></span>
+          </div>
+          <div class="win-title">projectDetails.md</div>
+        </div>
+
+        <div class="readme-content">
+          
+          <h3><span class="hash">#</span> Proje Özeti</h3>
+          <p>
+            Bir gün Youtube'da gezinirken 'Code Bullet' <a class="linkler" href="https://www.youtube.com/@CodeBullet">(https://www.youtube.com/@CodeBullet)</a>  kanalında gördüğüm, Mayın Tarlası çözme rekoru kırmak için bir bot geliştirdiği bir video gördüm. Bende oradan esinlenerek kendi botumu kendi algoritmamla geliştirmek istedim.
+          </p>
+
+          <div class="project-image-container">
+            <img src="assets/images/mayin-tarlasi.gif" alt="Proje Ekran Görüntüsü">
+            <span class="img-caption">Video 1: Uygulamanın aktif çalışma görüntüsü.</span>
+          </div>
+
+          <p>
+            Bot şu şekilde çalışıyor. İlk önce 16x16'lık bir mayın tarlası olduğunu yazılıma anlatmak için 16x16'lık bir matris oluşturup her hücrenin içeriğini (sayı veya bayrak gibi) bu matrise kaydediyoruz. Daha sonrasında PyAutoGUI <a class="linkler" href="https://pyautogui.readthedocs.io/">(https://pyautogui.readthedocs.io/)</a>  kütüphanesi ile ekrandaki fare imlecimizi güvenli hücrelere götüttürüp bastırıyoruz. Mayın tespit edilen hücrelere ise Bayrak koydurup oyunu kazanmaya çalışıyoruz. 
+          </p>
+
+          <p>Tabii ki bu bot her oyunda %100 kazanma vadetmiyor. Hiç bir mayın tarlası oyunu %100 olarak çözülecek diye bir şey yoktur çünkü. Belirli oyunlarda oyununuz açılmaz ve rastgele tıklamak zorunda kalırsınız. O rastgele tıkladığınız hücrenin mayın çıkma olasılığı 16x16'lık oyunda 40/216'dır. Yani hiç bir şekilde %100 olarak kazanamazsınız. Bu bot ise bunun birazcık önüne geçiyor ve her hücre komşuları için en güvenli hücreyi seçerek oyunda hızla ilerliyor. </p>
+
+          <p>Çalışma mantığı ise şöyle: İlk olarak rastgele bir hücre seçip oyuna başlıyor. Daha sonrasında eğer açılmış ise güvenli hücreleri tespit ederek klasik yöntemle mayın tarlasını çözüyor. Ama eğer açılmaz ve tek hücre açık olursa rastgele bir hücreye tıklıyor ve açılıp açılmama durumuna göre bu döngü devam ediyor. </p>
+
+          <p>Eğer yanarsa oyunu otomatik olarak yeniden başlatıyor ve kazanana kadar devam ediyor.</p>
+
+          <h3><span class="hash">#</span> Kullanımı</h3>
+          <p>Bu botu kullanmak için ilk önce bilgisayarınızda Python 3+ ve PyAutoGUI kütüphanesi kurulu olmalı. Daha sonrasında Windows görüntü ayarlarınızda 1920x1080 çözünürlük ve %125 ölçeğe getirmeniz gerekiyor. Sonrasında ise tarayıcınızdan <a class="linkler" href="https://minesweeper.online/">https://minesweeper.online/</a>  sitesine gidip 'Intermediate' seçeneğini seçiyoruz. Sadece sağ üstte bulunan ayarlar çarkına girip, 'Skin' seçeneğini 'Low Resolution' seçip altındaki 'Pixelated' seçeneğini seçiyoruz. Bu ayarlar botun çalışma mantığındaki pixel bulma fonksiyonlarının doğru çalışabilmesi için çok önemli. Bu ayarları yaptıktan sonra sayfanın altında bulunan 'Return to the game' seçeneği ile oyuna dönüyoruz. Artık botu kullanmaya hazırız. Oyun ekranda kalacak şekilde scripti çalıştırmanız yeterli olacaktır. Bot bazen bug'a girip hata yapmasına rağmen oyunu yeniden başlatıp tıklamalar yapmaya devam edecektir. Bu durumda farenizi ekranınızın sol üst köşesine götürürseniz bot duracaktır. Sonrasında yeniden botu başlatabilirsiniz.
+            <br><br>
+            Kullanamadığınız veya anlamadığınız durumda bana ulaşmaktan lütfen çekinmeyin. İyi çalışmalar.</p>
+          
+          
+          <h3><span class="hash">#</span> Scriptler</h3>
+
+          <div class="code-window">
+  
+            <div class="code-header">
+              <div class="file-info">
+                <i class="fa-regular fa-file-code"></i>
+                <span class="filename">bombsniffer.py</span>
+                <span class="lang-badge">python</span>
+              </div>
+              <button class="copy-btn" title="Kodu Kopyala">
+                <i class="fa-regular fa-copy"></i>
+                <span class="btn-text">Kopyala</span>
+              </button>
+            </div>
+          
+            <div class="code-content">
+          <pre><code>import pyautogui
+import time
+import random
+
+pyautogui.PAUSE = 0
+pyautogui.MINIMUM_DURATION = 0
+
+# Hücre içi sayılar için renk → sayı eşlemesi
+RENKLER = {
+    (0, 0, 247): 1,
+    (0, 119, 0): 2,
+    (236, 0, 0): 3,
+    (0, 0, 128): 4,
+    (128, 0, 0): 5,
+    (0, 128, 128): 6,
+    (0, 0, 0): 7,
+    (128, 128, 128): 8
+}
+
+# Sabit ayarlar
+check_offset_x = 601
+check_offset_y = 427
+cell_offset = 30
+probe_dx = 15
+probe_dy = 20
+GRID_SIZE = 16
+
+# Kazanma ve kaybetme pikselleri
+win_pixel = (838, 367)
+lose_pixel = (831, 378)
+restart_click = (839, 368)
+
+# İlk tıklama koordinatları
+first_x = check_offset_x + 7 * cell_offset
+first_y = check_offset_y + 7 * cell_offset
+
+# Oyun başlatıcı
+def oyunu_yeniden_baslat():
+    pyautogui.click(*restart_click)
+    time.sleep(0.2)
+    pyautogui.click(first_x, first_y)
+    time.sleep(0.2)
+
+# Oyun durumu kontrolü
+def oyun_durumu():
+    win = pyautogui.pixel(*win_pixel)
+    lose = pyautogui.pixel(*lose_pixel)
+    if win == (0, 0, 0):
+        return "win"
+    elif lose == (0, 0, 0):
+        return "lose"
+    return "ongoing"
+
+# Komşuları döndür
+def komsular(x, y):
+    return [
+        (x + dx, y + dy)
+        for dx in [-1, 0, 1]
+        for dy in [-1, 0, 1]
+        if not (dx == 0 and dy == 0) and 0 <= x + dx < GRID_SIZE and 0 <= y + dy < GRID_SIZE
+    ]
+
+# Hücre tıklama
+def tıkla(x, y, sağ=False):
+    cx = check_offset_x + x * cell_offset
+    cy = check_offset_y + y * cell_offset
+    if sağ:
+        pyautogui.rightClick(cx, cy)
+    else:
+        pyautogui.click(cx, cy)
+
+# Ana döngü
+while True:
+    oyunu_yeniden_baslat()
+
+    while True:
+        durum = oyun_durumu()
+        if durum == "win":
+            exit()
+        elif durum == "lose":
+            break
+
+        screenshot = pyautogui.screenshot()
+        matris = []
+
+        for y in range(GRID_SIZE):
+            satir = []
+            for x in range(GRID_SIZE):
+                cx = check_offset_x + x * cell_offset
+                cy = check_offset_y + y * cell_offset
+                renk = screenshot.getpixel((cx, cy))
+
+                if renk == (255, 255, 255):  # Kapalı hücre
+                    probe = screenshot.getpixel((cx + probe_dx, cy + probe_dy))
+                    if probe == (0, 0, 0):  # Bayrak
+                        satir.append('F')
+                    else:
+                        satir.append('-')
+                else:
+                    probe = screenshot.getpixel((cx + probe_dx, cy + probe_dy))
+                    sayi = RENKLER.get(probe, 0)
+                    satir.append(str(sayi))
+            matris.append(satir)
+
+        # Açık hücre çok azsa, rastgele tıkla
+        acik_sayisi = sum(1 for row in matris for h in row if h not in ('-', 'F'))
+        if acik_sayisi < 2:
+            kapali = [(x, y) for y in range(GRID_SIZE) for x in range(GRID_SIZE) if matris[y][x] == '-']
+            if kapali:
+                random.shuffle(kapali)
+                tıkla(*kapali[0])
+                time.sleep(0.01)
+            continue
+
+        sag_tikla = set()
+        sol_tikla = set()
+
+        for y in range(GRID_SIZE):
+            for x in range(GRID_SIZE):
+                merkez = matris[y][x]
+                if merkez in '12345678':
+                    m = int(merkez)
+                    kapali_komsu = []
+                    bayrak_say = 0
+
+                    for nx, ny in komsular(x, y):
+                        val = matris[ny][nx]
+                        if val == '-':
+                            kapali_komsu.append((nx, ny))
+                        elif val == 'F':
+                            bayrak_say += 1
+
+                    if bayrak_say == m:
+                        sol_tikla.update(kapali_komsu)
+                    elif len(kapali_komsu) + bayrak_say == m:
+                        sag_tikla.update(kapali_komsu)
+
+        for (x, y) in sag_tikla:
+            tıkla(x, y, sağ=True)
+            time.sleep(0.003)
+
+        for (x, y) in sol_tikla:
+            tıkla(x, y)
+            time.sleep(0.003)
+
+        # Eğer tıklanacak hücre kalmadıysa, rastgele seç
+        if not sag_tikla and not sol_tikla:
+            kapali = [(x, y) for y in range(GRID_SIZE) for x in range(GRID_SIZE) if matris[y][x] == '-']
+            if kapali:
+                random.shuffle(kapali)
+                tıkla(*kapali[0])
+                time.sleep(0.005)</code></pre>
+</div>
+  <div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="status-bar">
+    <div class="footer-left">
+  
+      <div class="start-menu-wrapper">
+        
+        <div class="start-btn-trigger">
+          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <span class="os-text">Hasup OS</span>
+        </div>
+  
+        <div class="start-popup">
+          
+          <div class="menu-header">
+            <div class="user-avatar">
+              <img src="../assets/favicon.svg" alt="Hasup OS">
+            </div>
+            <div class="user-details">
+              <span class="username">Hasup OS</span>
+              <span class="role">v1.0</span>
+            </div>
+          </div>
+  
+          <ul class="menu-links">
+            <li>
+              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+            </li>
+            <li>
+              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+            </li>
+            <li>
+              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+            </li>
+            
+            <li class="divider"></li> <li>
+              <a href="https://www.linkedin.com/in/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+            </li>
+  
+            <li class="divider"></li>
+  
+            <li>
+              <a href="javascript:location.reload()" class="shutdown">
+                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-code-branch"></i> main*</span>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-copyright"></i> Yuşa Göverdik - 2025</span>
+    </div>
+  
+    <div class="footer-right">
+      <span class="stat-item">Ln <span id="line-num">120</span>, Col <span id="col-num">45</span></span>
+      <span class="stat-item">UTF-8</span>
+      <span class="stat-item accent-text">CPU: <span id="cpu-usage">12</span>%</span>
+      <span class="stat-item">RAM: <span id="ram-usage">450</span>MB</span>
+      <span class="stat-item"><i class="fa-solid fa-wifi"></i> <span id="ping">24</span>ms</span>
+      <span class="stat-item bell"><i class="fa-regular fa-bell"></i></span>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" title="Yukarı Çık">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

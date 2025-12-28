@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wissio | Hasup</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <link rel="stylesheet" href="assets/project-style.css">
+
+</head>
+<body class="project-page">
+
+  <nav class="detail-nav">
+    <div class="terminal-wrapper nav-content">
+      
+      <div class="nav-left">
+        <a href="../index.html#projects" class="back-link">
+          <span class="prompt">$</span> cd ..
+        </a>
+        <span class="path">/ home / projects / <span class="current-project">wissio</span></span>
+      </div>
+
+      <div class="theme-toggle" id="themeToggle"></div>
+
+    </div>
+  </nav>
+
+  <section id="project-detail">
+    <div class="terminal-wrapper">
+      
+      <div class="project-header">
+        <div class="header-left">
+          <h1 class="project-title">Wissio</h1>
+          <p>
+            Wissio bir bilgi yarışması uygulaması. Topluluğumla düzenlediğimiz 'Quiz Night' etkinlikleri için kendimize ait bir uygulama kullanmak istemiştik bundan dolayı bu uygulamayı geliştirdim.
+          </p>
+          <br>
+          <div class="tech-badges">
+            <span class="badge">Delphi</span>
+            <span class="badge">UniGUI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="readme-window">
+        <div class="window-bar">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn minimize"></span>
+            <span class="win-btn maximize"></span>
+          </div>
+          <div class="win-title">projectDetails.md</div>
+        </div>
+
+        <div class="readme-content">
+          
+          <h3><span class="hash">#</span> Proje Özeti</h3>
+          <p>
+            Aksaray Üniversitesi Sanayi ve Teknoloji Topluluğu <a class="linkler" href="https://www.linkedin.com/company/sanayiveteknolojitoplulugu">(https://www.linkedin.com/company/sanayiveteknolojitoplulugu)</a>  olarak 'Quiz Night' etkinlikleri düzenliyoruz. Bu etkinliklerde katılımcı oylamalarıyla bir film veya dizi seçilir, yönetim tarafından hazırlanan sorularla katılımcılara eğlenceli bir aktivite sunmak amaçlanır. Biz de topluluk olarak kendi düzenlediğimiz etkinlikte kendi uygulamamızı kullanmak istedik. Bu görevi üstlenerek tüm algoritmaları ve UI bileşenleri özgün olan 'Wissio' ortaya çıkmış oldu.
+          </p>
+
+          <div class="project-image-container">
+            <img src="assets/images/wissio.png" alt="Proje Ekran Görüntüsü">
+            <span class="img-caption">Resim 1: Uygulamanın menü ekran görüntüsü.</span>
+          </div>
+
+          <p>
+            'Wiss' kelimesi Almanca 'bilmek' anlamına geliyor. Bende sonuna 'io' ekleyerek 'Wissio' ismini bulmuş oldum.
+            <br><br>
+            Nihai amacı, bilgi yarışmaları için tamamen soru göstermek olan Wissio Delphi ve UniGUI ile yazıldı. Kullanıcılar kendi sorularını Wissio'ya yükleyebilirler. Bunu ise JSON formatındaki sorular sayesinde başarabiliyoruz. JSON formatı (Javascript Object Notation) günümüzde; sunucu ve istemci arasında bilgi alış-verişi, API'ler, konfigrasyon dosyaları, yerel veritabanları gibi oldukça geniş ve esnek bir çalışma yelpazesine sahiptir.
+            <br><br>
+            Benim de kullanım amacım aslında 'yerel veritabanı' kategorisine giriyor desek yalnış olmaz. Kullanıcılar soru ve cevaplarını belirli bir formatta bir JSON dosyasına kaydeder ve Wissio'ya yükler. Wissio ise bu JSON dosyasını parse (ayrıştırarak) ederek soruları gizli bir listeye kaydeder. Listeye kaydetmenin nedeni ise, JSON dosyasınıı sunucuda sürekli tutmaktan kurtarmak ve tüm yükü sunucudan istemciye yüklemektir. Yani ne kadar uzun sorularınız da olsa, milyonlarca karakter kullansanız bile, sadece dosya yükleme aşamasında bekleme yaşayacaksınız. Yarışma sırasında soruların tamamı çoktan listelere kaydedildiğinden dolayı yarışma esnasında asla bekleme yaşamayacaksınız demektir. Çok güzel bir optimizasyon örneği desek yanlış olmaz.
+            <br><br>
+            Bu şekilde kullanıcılar istedikleri yarışmayı yine Wissio içerisinde bulunan JSON editörü (buradan ulaşabilirsiniz.) ile oluşturabilir ve Wissio ile kullanabilir.
+            <br><br>
+            Bu proje benim için şu yönden önemli oldu: Yeni teknikler deneyip başarılı oldum. Yani kendimi geliştirdim. Benim için çok büyük bir gelişme bu çünkü UniGUI ile dinamik web siteleri tasarlarken sadece Delphi'nin bize sunduğu UI elementlerini (butonlar, textarea'lar, label'lar gibi) kullanıyorken bu uygulama özelinde tamamen HTML ve CSS ile ürettiğim elementleri kullandım. Uygulama üzerinde gördüğünüz tüm bu UI elementleri Delphi'nin sunduğu değil, benim özel olarak ürettiğim elementlerdir.
+            <br><br>
+            Bu yöntemin daha önceden zaten mümkün olduğunu biliyordum ama denemeye biraz korkuyordum. Bu uygulamayla konfor alanımdan çıkıp yeni şeyler denemek istedim ve aldığım sonuçtan çooook memnunum. - Özellikle de 'Soruları Göster' butonundan :) -
+          </p>
+
+          <div class="project-image-container">
+            <img src="assets/images/wissio2.png" alt="Proje Ekran Görüntüsü">
+            <span class="img-caption">Resim 2: Uygulamanın aktif ekran görüntüsü.</span>
+          </div>
+
+          <p>Uygulamayı kullanmak ise çook basit. İlk önce daha önceden JSON editörü ile oluşturduğunuz ve içerisinde sorularını içeren JSON dosyanızı Wissio'ya 'JSON Yükle' butonu ile seçip yüklüyorsunuz. (Yükleme sırasında iptal ederseniz yükleniyor ekranında kalacaktır. Bu sorunu çözemedim sayfayı yenileyebilirsiniz.). Sonrasında sorularını kontrol edebilmeniz için soruları size gösterir. Bu esnada soruları gizleyebilirsiniz. Soru gizleme özelliği ekledim çünkü kalabalık ortamlarda bazen projeksiyonla yansıtıldığında ilk birkaç soru yarışmacılara gösterilmiş olabiliyor. Bu yüzden soruları gizleyip yükleme yaparsanız hiç bir yarışmacı sorularınızı göremez. Sonrasında tercih ettiğiniz soru süresini giriyorsunuz. Varsayılan olarak 1 dakika yani 60 saniyeye ayarlı. Bunu istediğiniz gibi ayarlayabilirsiniz. En sonunda artık yarışmaya başlamaya hazırsınız. 
+            <br><br>
+            'Yarışmaya Başlat' butonuna tıkladığınız andan itibaren artık Yarışma ekranındasınız demektir. Bu ekranda en üstte yeşil bir bar bulunur. Bu bar süre barıdır ve rengi yavaşça kırmızıya dönüşür. Tamamen bittiğinde ise cevap otomatik olarak ekrana yazılır. Kontrollerinizi sağlamanız için bu ekranda istediğiniz kadar bekleyebilirsiniz. (Aslında istediğiniz kadar bekleyemezsiniz çünkü uygulamanın timeout süresi 100 dakika :P) Kontrollerinizi sağladıktan sonra 'Sıradaki Soru' butonuyla sonraki soruya geçebilir ve döngüye yeniden başlayabilirsiniz.
+            <br><br><br>
+        Aşağıdaki linklerle sizler de Wissio'yu kullanabilir arkadaşlarınızla, ailenizle, sevdiklerinizde kaliteli ve eğlenceli zamanlar yaşayabilirsiniz.</p>
+
+          <h3><span class="hash">#</span> Linkler</h3>
+
+          <p>Uygulamayı <a class="linkler" target="_blank" href="https://hasup.net/wissio">buradan</a> test edebilirsiniz.</p>
+          <p>Editörü de <a class="linkler" target="_blank" href="https://hasup.net/wissio/json_editoru.html">buradan</a> kullanabilirsiniz.</p>
+          
+          <p>Kaynak kodları için lütfen özel olarak ulaşın.</p>  
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="status-bar">
+    <div class="footer-left">
+  
+      <div class="start-menu-wrapper">
+        
+        <div class="start-btn-trigger">
+          <img src="../assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <span class="os-text">Hasup OS</span>
+        </div>
+  
+        <div class="start-popup">
+          
+          <div class="menu-header">
+            <div class="user-avatar">
+              <img src="../assets/favicon.svg" alt="Hasup OS">
+            </div>
+            <div class="user-details">
+              <span class="username">Hasup OS</span>
+              <span class="role">v1.0</span>
+            </div>
+          </div>
+  
+          <ul class="menu-links">
+            <li>
+              <a href="../index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+            </li>
+            <li>
+              <a href="../index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+            </li>
+            <li>
+              <a href="../index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+            </li>
+            
+            <li class="divider"></li> <li>
+              <a href="https://www.linkedin.com/in/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+            </li>
+  
+            <li class="divider"></li>
+  
+            <li>
+              <a href="javascript:location.reload()" class="shutdown">
+                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-code-branch"></i> main*</span>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-copyright"></i> Yuşa Göverdik - 2025</span>
+    </div>
+  
+    <div class="footer-right">
+      <span class="stat-item">Ln <span id="line-num">120</span>, Col <span id="col-num">45</span></span>
+      <span class="stat-item">UTF-8</span>
+      <span class="stat-item accent-text">CPU: <span id="cpu-usage">12</span>%</span>
+      <span class="stat-item">RAM: <span id="ram-usage">450</span>MB</span>
+      <span class="stat-item"><i class="fa-solid fa-wifi"></i> <span id="ping">24</span>ms</span>
+      <span class="stat-item bell"><i class="fa-regular fa-bell"></i></span>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" title="Yukarı Çık">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

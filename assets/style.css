@@ -1,0 +1,939 @@
+html {
+  -webkit-text-size-adjust: 100%; /* iOS Otomatik Büyütmeyi Engelle */
+  text-size-adjust: 100%;
+}
+
+:root {
+  --bg: #363636;
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22c55e;
+  --font: "JetBrains Mono", monospace;  
+
+  /* TERMINAL (Dark) */
+  --term-bg: #020617;
+  --term-shadow: 0 0 40px rgba(0,0,0,0.6);
+
+  /* IDE (Dark) */
+  --proj-bg: #1e1e1e;
+  --proj-sidebar: #252526;
+  --proj-border: #333333;
+  --proj-tab-bg: #2d2d2d;
+  --proj-fg: #d4d4d4;
+  --proj-fg-muted: #9ca3af;
+  --proj-hover: #2a2d2e;
+  --proj-active: #37373d;
+  
+  /* Syntax Highlighting (Dark) */
+  --sh-comment: #6a9955;
+  --sh-keyword: #569cd6;
+  --sh-string: #ce9178;
+  --sh-func: #dcdcaa;
+  --sh-tag: #4ec9b0;
+  
+  --proj-watermark: rgba(255, 255, 255, 0.03);
+}
+
+body.light {
+  --bg: #ccc9c9;
+  --fg: #020617;
+  --muted: #475569;
+  --accent: #246123;
+
+  /* TERMINAL (Light) */
+  --term-bg: #e5e7eb; 
+  --term-shadow: 0 0 20px rgba(0,0,0,0.15);
+
+  /* IDE (Light) */
+  --proj-bg: #ffffff;
+  --proj-sidebar: #f3f4f6;
+  --proj-border: #e5e7eb;
+  --proj-tab-bg: #e5e7eb;
+  --proj-fg: #374151;
+  --proj-fg-muted: #6b7280;
+  --proj-hover: #e5e7eb;
+  --proj-active: #dbeafe; 
+
+  /* Syntax Highlighting (Light) */
+  --sh-comment: #008000;       
+  --sh-keyword: #0000ff;      
+  --sh-string: #a31515;       
+  --sh-func: #795e26;          
+  --sh-tag: #2b91af;           
+
+  --proj-watermark: rgba(0, 0, 0, 0.05);
+}
+
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  line-height: 1.6;
+}
+
+section { padding: 80px 10%; }
+
+/* ===== HERO ===== */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 40px;
+  width: 100%;
+}
+
+.terminal-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+}
+
+.terminal {
+  background: var(--term-bg);
+  box-shadow: var(--term-shadow);
+  border-radius: 10px;
+  padding: 24px;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.line { margin-bottom: 10px; }
+.prompt { color: var(--accent); }
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1em;
+  background: var(--fg);
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.theme-toggle:hover { color: var(--accent); }
+
+/* ===== ASCII ART ===== */
+.ascii-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+  width: 100%; 
+  margin-top: 10px; 
+}
+
+.ascii-wrapper h2 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+  color: var(--fg);
+}
+  
+.ascii {
+  display: inline-block;
+  color: var(--accent);
+  
+  /* DEĞİŞTİ: Alt sınır 7px -> 11px yapıldı. Mobilde artık daha büyük. */
+  font-size: clamp(11px, 2.5vw, 14px);
+  
+  line-height: 1.1;
+  white-space: pre;
+  user-select: none;
+  text-align: center;
+  
+  /* Mobilde taşmayı önlemek için kaydırma ekleyelim (Güvenlik) */
+  max-width: 100%;
+  overflow-x: auto; 
+}
+
+@media (max-width: 768px) {
+  .ascii-wrapper {
+    /* Mobilde taşarsa yana kaydırılabilsin */
+    overflow-x: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .ascii {
+    /* Mobilde sabit ve okunaklı bir boyut */
+    font-size: 11px !important; 
+  }
+}
+
+.ascii-text {
+  margin-top: 15px; 
+  font-size: clamp(6px, 1.2vw, 10px) !important; 
+  opacity: 0.8; 
+  color: var(--fg); 
+  font-weight: bold;
+}
+
+body.light .ascii-text { color: #333; }
+ 
+/* ===== NAVBAR ===== */
+.terminal-nav {
+  margin-top: 20px; 
+  display: flex;
+  gap: 25px; 
+}
+
+.terminal-nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.terminal-nav a .prompt { margin-right: 5px; color: var(--accent); }
+.terminal-nav a:hover { color: var(--fg); }
+
+/* ===== GENERAL SECTION STYLES ===== */
+#about p { max-width: 600px; color: var(--muted); }
+#contact a { color: var(--accent); text-decoration: none; }
+
+#contact a i {
+  color: var(--fg);
+  transition: all 0.3s ease;
+  margin-left: 5px; 
+  margin-right: 15px;
+}
+
+#contact a i:hover {
+  color: var(--accent); 
+  transform: scale(1.2);
+}
+
+.run-btn {
+  display: inline-block; 
+  transition: transform 0.3s ease;
+}
+.run-btn:hover { transform: scale(1.1); }
+
+/* ===== PROJECT WINDOW ===== */
+.project-window {
+  border: 1px solid var(--proj-border);
+  background: var(--proj-bg);
+  border-radius: 10px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  overflow: hidden;
+  margin-top: 10px;
+  font-family: "JetBrains Mono", monospace;
+  transition: all 0.3s ease;
+}
+
+.window-bar {
+  background: var(--proj-tab-bg);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--proj-border);
+}
+
+.project-container {
+  display: flex;
+  background: var(--proj-bg);
+  min-height: 450px; 
+}
+
+/* Sidebar */
+.project-sidebar {
+  width: 250px;
+  background: var(--proj-sidebar);       
+  border-right: 1px solid var(--proj-border); 
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+.sidebar-header {
+  font-size: 0.8rem;
+  color: var(--proj-fg-muted);           
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.file-tree { list-style: none; padding-left: 0; }
+.file-tree .custom-icon {
+  height: 18px; width: 18px; margin-right: 8px; vertical-align: middle; object-fit: contain;
+} 
+.file-tree li { margin: 5px 0; cursor: pointer; color: var(--proj-fg-muted); transition: color 0.2s; }
+.file-tree .folder-name { font-weight: bold; color: var(--proj-fg); }
+.file-tree ul { list-style: none; padding-left: 20px; margin-top: 5px; }
+.file-tree .file { display: flex; align-items: center; padding: 4px 8px; border-radius: 4px; }
+.file-tree .file:hover { background: var(--proj-hover); color: var(--proj-fg); }
+.file-tree .file.active { background: var(--proj-active); color: var(--proj-fg); font-weight: 500; }
+
+/* Viewer & Tabs */
+.project-viewer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+  overflow: hidden;   
+}
+
+.editor-tabs {
+  background: var(--proj-tab-bg);        
+  display: flex;
+  height: 35px;
+  border-bottom: 1px solid var(--proj-border); 
+}
+
+.editor-tabs .tab {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  background: var(--proj-bg);            
+  color: var(--proj-fg);                 
+  font-size: 0.9rem;
+  border-right: 1px solid var(--proj-border); 
+  border-top: 2px solid var(--accent);
+}
+
+.editor-content {
+  display: flex;
+  align-items: stretch; 
+  padding: 0;
+  background: var(--proj-bg);
+  font-family: "JetBrains Mono", monospace;
+  overflow: hidden; /* Dış taşmayı gizle */
+}
+
+.line-numbers {
+  flex-shrink: 0;
+  min-width: 45px; /* Biraz genişlik verelim */
+  
+  /* --- KRİTİK EŞİTLEME AYARLARI --- */
+  padding: 20px 10px 20px 0; /* Üst boşluk: 20px (Kod ile AYNI olmalı) */
+  font-size: 0.9rem;         /* Yazı boyutu: 0.9rem (Kod ile AYNI olmalı) */
+  line-height: 1.6;          /* Satır yüksekliği: 1.6 (Kod ile AYNI olmalı) */
+  font-family: inherit;      /* Font ailesi: Aynı */
+  /* ------------------------------- */
+  
+  text-align: right;
+  color: var(--proj-fg-muted);
+  opacity: 0.5;
+  border-right: 1px solid var(--proj-border);
+  background: rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.code-display {
+  flex-grow: 1;
+  /* Flexbox içinde scrollun çalışması için bu SİHİRLİ koddur: */
+  min-width: 0; 
+  overflow-x: auto; /* Yatay scroll */
+}
+
+.code-cursor {
+  display: inline-block;
+  
+  /* 1. İnce Çizgi Ayarı */
+  width: 2px;  /* 8px yerine 2px yaptık. Artık incecik. */
+  
+  /* 2. Yükseklik Ayarı */
+  height: 1.2em; /* Satır yüksekliğine tam otursun */
+  
+  /* 3. Renk ve Konum */
+  background: var(--fg); /* İstersen var(--fg) yapıp gri de yapabilirsin */
+  margin-left: 1px;        /* Harfe yapışmasın */
+  vertical-align: text-bottom; /* Yazının tabanına hizala */
+  
+  /* 4. Yanıp Sönme Efekti */
+  animation: blink 1s step-end infinite; /* step-end ile daha keskin yanıp söner */
+}
+
+/* Eğer blink animasyonu dosyanın yukarısında tanımlı değilse bunu da ekle: */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Syntax Highlighting */
+.code-block {
+  display: none; /* Varsayılan gizli */
+  
+  /* --- HİZALAMA AYARLARI (KORUNDU) --- */
+  white-space: pre;  /* Kodlar alt satıra kaymasın */
+  padding: 20px;     
+  font-size: 0.9rem; 
+  line-height: 1.6;  
+  font-family: inherit;
+  color: var(--proj-fg);
+}
+
+/* Aktif Olduğunda (Görünür Olunca) */
+.code-block.active {
+  display: block;
+  
+  /* --- GERİ GELEN ANİMASYON --- */
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Animasyon Tanımı (Aşağıdan Yukarı Süzülme) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px); /* 15px aşağıdan başla */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* Yerine otur */
+  }
+}
+
+.comment { color: var(--sh-comment); font-style: italic; }
+.keyword { color: var(--sh-keyword); font-weight: bold; }
+.string { color: var(--sh-string); }
+.function { color: var(--sh-func); }
+.tag { color: var(--sh-tag); }
+.selector { color: var(--sh-keyword); }
+
+.project-viewer a { color: var(--accent); text-decoration: underline; }
+.code-block.active a { text-decoration: none; color: inherit; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bg-icon {
+  position: absolute; bottom: -20px; right: -20px;
+  font-size: 150px; color: var(--proj-watermark);          
+  pointer-events: none; transform: rotate(-15deg); z-index: 0;
+}
+
+/* ===== NEOFETCH WINDOW ===== */
+.neofetch-win {
+  border: 1px solid var(--proj-border); 
+  background: var(--proj-bg);           
+  border-radius: 10px;                  
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25); 
+  overflow: hidden;                     
+  font-family: "JetBrains Mono", monospace;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.neofetch-content {
+  display: flex;
+  padding: 30px;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Sol Sütun: Widget Alanı */
+.neofetch-art {
+  display: flex;
+  flex-direction: column; 
+  width: 240px;           
+  gap: 15px;              
+  height: 100%;           
+}
+
+.neofetch-art .profile-img {
+  width: 100%;           
+  height: auto;          
+  aspect-ratio: 1/1;     
+  border-radius: 12px;
+  border: 4px solid var(--proj-border);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* Sağ Sütun: Bilgi Alanı */
+.neofetch-info { flex: 1; color: var(--proj-fg); }
+.cmd-line { margin-bottom: 20px; font-weight: bold; }
+.info-grid { display: grid; gap: 8px; }
+.info-row { font-size: 0.95rem; }
+.info-row .key { color: var(--accent); font-weight: bold; min-width: 100px; display: inline-block; }
+.info-row .val { color: var(--proj-fg); }
+.bio-text { margin-top: 15px; line-height: 1.6; color: var(--proj-fg-muted); font-size: 0.9rem; }
+
+/* Renk Blokları & Butonlar */
+.color-blocks { margin-top: 25px; display: flex; gap: 6px; }
+.c-blk { width: 25px; height: 15px; border-radius: 3px; }
+.c1{background:#000}.c2{background:#ff5f56}.c3{background:#ffbd2e}.c4{background:#27c93f}.c5{background:#22c55e}.c6{background:#fff}
+
+.win-buttons { display: flex; gap: 8px; margin-right: 15px; }
+.win-btn { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.close{background:#ff5f56}.minimize{background:#ffbd2e}.maximize{background:#27c93f}
+.win-title { color: var(--muted); font-size: 0.85rem; flex: 1; text-align: center; opacity: 0.7; }
+
+/* ===== WIDGETS: SYSTEM MONITOR & WEATHER (LIGHT UYUMLU) ===== */
+
+/* Ortak Widget Stili */
+.sys-monitor-wrapper, .weather-wrapper {
+  background: var(--term-bg); /* Temaya göre değişir */
+  border: 1px solid var(--proj-border);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  font-family: "JetBrains Mono", monospace;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Hafif gölge */
+  color: var(--fg); /* Yazı rengi */
+}
+
+/* System Monitor */
+.sys-monitor-wrapper { margin-top: 20px; width: 100%; height: 110px; }
+.sys-header {
+  background: var(--proj-tab-bg);
+  padding: 4px 8px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.7rem; color: var(--proj-fg-muted);
+  border-bottom: 1px solid var(--proj-border);
+}
+.sys-dots { display: flex; gap: 4px; }
+.s-dot { width: 5px; height: 5px; background: var(--muted); border-radius: 50%; transition: 0.3s; }
+.s-dot.active { background: var(--accent); }
+.sys-track { display: flex; height: calc(100% - 24px); transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+.sys-slide { min-width: 100%; padding: 10px; display: flex; flex-direction: column; justify-content: center; gap: 5px; }
+.sys-icon { font-size: 0.75rem; color: var(--accent); font-weight: bold; display: flex; align-items: center; gap: 8px; }
+.sys-val { align-self: flex-end; font-size: 1rem; color: var(--fg); font-weight: bold; }
+.sys-graph-container { display: flex; align-items: flex-end; gap: 2px; height: 25px; border-bottom: 1px solid var(--proj-border); padding-bottom: 2px; }
+.bar-col { flex: 1; background: var(--accent); opacity: 0.6; transition: height 0.2s ease; }
+.progress-bar-bg { width: 100%; height: 8px; background: rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: var(--sh-func); transition: width 0.5s ease; }
+.sys-info-row { display: flex; justify-content: space-between; font-size: 0.6rem; color: var(--proj-fg-muted); }
+.ping-visual { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; color: var(--proj-fg-muted); justify-content: center; height: 30px; }
+.ping-text { font-size: 0.7rem; }
+
+/* Weather Widget */
+.weather-wrapper {
+  flex-grow: 1; 
+  min-height: 160px;
+  
+  background: var(--term-bg);
+  border: 1px solid var(--proj-border);
+  border-radius: 6px;
+  
+  /* DEĞİŞTİ: Padding 15px -> 25px yapıldı (Daha ferah) */
+  padding: 15px;
+  
+  font-family: "JetBrains Mono", monospace;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: var(--fg);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+.weather-header {
+  font-size: 0.75rem; color: var(--sh-comment); margin-bottom: 10px;
+  border-bottom: 1px solid var(--proj-border); padding-bottom: 5px;
+}
+.weather-content { flex-grow: 1; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.weather-ascii { font-size: 0.7rem; line-height: 1.1; white-space: pre; color: var(--sh-keyword); font-weight: bold; }
+.weather-info {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* YENİ: Sağ taraftan ekstra boşluk bırakalım */
+  padding-right: 5px; 
+}
+.w-temp { font-size: 1.8rem; font-weight: bold; color: var(--accent); }
+.w-desc { font-size: 0.8rem; color: var(--fg); text-transform: capitalize; }
+.w-detail { font-size: 0.7rem; color: var(--muted); }
+.location-tag {
+  margin-top: auto; padding-top: 10px; font-size: 0.7rem;
+  color: var(--sh-string); text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+
+/* ===== MAN PAGE / CONTACT / FORM ===== */
+.hasup-win { margin-top: 30px; }
+.hasup-content { padding: 40px; color: var(--proj-fg); font-family: "JetBrains Mono", monospace; line-height: 1.6; }
+.man-section { font-weight: bold; color: var(--accent); font-size: 1.1rem; margin-bottom: 8px; margin-top: 25px; }
+.man-section:first-child { margin-top: 0; }
+.man-text { margin-left: 30px; color: var(--proj-fg); font-size: 0.95rem; }
+.man-text p { margin-bottom: 10px; }
+.accent-text { font-weight: bold; color: var(--fg); }
+.cmd { font-weight: bold; color: var(--sh-keyword); }
+.flag { color: var(--sh-string); font-weight: bold; }
+.man-footer { margin-top: 40px; border-top: 1px solid var(--proj-border); padding-top: 10px; font-size: 0.8rem; color: var(--proj-fg-muted); display: flex; justify-content: space-between; }
+
+.contact-content { padding: 40px; font-family: "JetBrains Mono", monospace; color: var(--proj-fg); text-align: center; }
+.contact-content .cmd-line { text-align: left; background: rgba(0,0,0,0.1); padding: 5px 10px; border-radius: 4px; display: inline-block; width: 100%; }
+.contact-link { color: var(--fg); text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: color 0.3s ease; }
+.contact-link:hover { color: var(--accent); text-decoration: underline; }
+.social-icons { display: flex; justify-content: center; gap: 20px; margin-top: 10px; }
+.social-icons a { color: var(--fg); transition: transform 0.3s ease, color 0.3s ease; }
+.social-icons a:hover { color: var(--accent); transform: scale(1.2); }
+
+.terminal-form { margin-top: 20px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; font-weight: bold; }
+.input-wrapper { display: flex; align-items: center; background: rgba(0,0,0,0.05); border-bottom: 2px solid var(--proj-border); padding: 5px 10px; transition: border-color 0.3s; }
+.textarea-wrapper { align-items: flex-start; padding-top: 10px; }
+.input-wrapper:focus-within { border-bottom: 2px solid var(--accent); }
+.input-wrapper .prompt { margin-right: 10px; user-select: none; }
+.terminal-form input, .terminal-form textarea { width: 100%; background: transparent; border: none; color: var(--fg); font-family: "JetBrains Mono", monospace; font-size: 1rem; outline: none; }
+.terminal-form input::placeholder, .terminal-form textarea::placeholder { color: var(--proj-fg-muted); opacity: 0.5; font-style: italic; }
+.terminal-btn { background: transparent; color: var(--accent); border: 2px solid var(--accent); padding: 10px 20px; font-family: "JetBrains Mono", monospace; font-weight: bold; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 10px; transition: all 0.3s ease; text-transform: uppercase; }
+.terminal-btn:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 15px var(--accent); }
+.form-status { margin-top: 15px; font-family: "JetBrains Mono", monospace; font-size: 0.95rem; min-height: 40px; }
+
+/* ===== FOOTER & UTILS ===== */
+.scroll-top-btn { position: fixed; bottom: 30px; right: 30px; z-index: 999; width: 45px; height: 45px; background: var(--bg); border: 2px solid var(--accent); color: var(--accent); border-radius: 8px; cursor: pointer; font-size: 1.2rem; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+.scroll-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.scroll-top-btn:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 20px var(--accent); transform: translateY(-5px); }
+
+#status-bar { position: fixed; bottom: 0; left: 0; width: 100%; height: 30px; background: var(--proj-tab-bg); border-top: 1px solid var(--proj-border); display: flex; justify-content: space-between; align-items: center; padding: 0 15px; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--proj-fg); z-index: 1000; user-select: none; }
+.footer-left, .footer-right { display: flex; align-items: center; gap: 15px; }
+.footer-logo img { height: 18px; vertical-align: middle; filter: grayscale(100%); transition: filter 0.3s; }
+.footer-logo:hover img { filter: grayscale(0%); }
+.branch { color: var(--proj-fg-muted); }
+.accent-text { color: var(--accent); }
+.footer-socials { display: flex; gap: 10px; margin-right: 10px; padding-right: 10px; border-right: 1px solid var(--proj-border); }
+.footer-socials a { color: var(--proj-fg-muted); font-size: 0.85rem; text-decoration: none; transition: all 0.2s ease; display: flex; align-items: center; }
+.footer-socials a:hover { color: var(--accent); transform: translateY(-2px); }
+
+/* Start Menu */
+.start-menu-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center; /* Dikeyde ortalar, uzatmaz */
+  height: 100%;
+}
+
+.start-btn-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  /* 2. Sabit ve Kibar Yükseklik */
+  height: 26px !important; /* Footer'dan (30px) daha küçük olsun */
+  padding: 0 10px;
+  margin-left: 5px;
+  
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--proj-border);
+  border-radius: 4px;
+  
+  /* Yazı Stili */
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: var(--fg);
+  font-size: 0.8rem;
+  
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+/* Logo Ayarı */
+.os-logo {
+  height: 20px; /* Logoyu biraz küçültelim, butona sığsın */
+  width: 20px;
+  object-fit: contain;
+  transition: all 0.2s ease;
+}
+
+/* --- HOVER (ÜZERİNE GELİNCE) EFEKTLERİ --- */
+
+.start-btn-trigger:hover {
+  /* Arka plan: Yeşil */
+  background: var(--accent);
+  border-color: var(--accent);
+  
+  /* Yazı rengi: Koyu (Okunabilirlik için) */
+  color: var(--bg) !important; 
+  
+  /* Hafif Parlama */
+  box-shadow: 0 0 10px var(--accent);
+  transform: translateY(-1px);
+}
+
+.start-btn-trigger:hover .os-text {
+  color: var(--bg); /* Yazıyı da koyu yap */
+}
+
+.start-btn-trigger:hover .os-logo { 
+ transform: rotate(-15deg) scale(1.1); 
+ 
+ transition: all 0.3s ease;
+}
+
+/* Tıklama Efekti */
+.start-btn-trigger:active {
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
+
+.start-popup { position: absolute; bottom: 45px; left: 0; width: 240px; background: var(--proj-bg); border: 1px solid var(--accent); border-radius: 6px; box-shadow: 0 0 30px rgba(0,0,0,0.5); display: none; flex-direction: column; overflow: hidden; z-index: 1001; }
+.start-popup.show { display: flex; animation: popUp 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+@keyframes popUp { from { opacity: 0; transform: translateY(20px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.menu-links { list-style: none; padding: 5px 0; margin: 0; }
+.menu-links li a { display: flex; align-items: center; gap: 10px; padding: 10px 15px; color: var(--proj-fg); text-decoration: none; font-size: 0.9rem; transition: background 0.2s; }
+.menu-links li a:hover { background: var(--proj-active); color: var(--accent); }
+.divider { height: 1px; background: var(--proj-border); margin: 5px 0; }
+
+/* ================= MOBIL (RESPONSIVE) ================= */
+/* ================= MOBİL (RESPONSIVE) AYARLAR ================= */
+/* ================= MOBİL (RESPONSIVE) AYARLAR ================= */
+@media (max-width: 768px) {
+  section { padding: 60px 5%; }
+  .hero-grid { grid-template-columns: 1fr; gap: 60px; align-items: flex-start; }
+  .terminal-wrapper, .terminal { height: auto; }
+  .ascii-wrapper { overflow-x: hidden; }
+  .terminal-nav { justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+  
+  /* Project Container Mobil */
+  .project-container { flex-direction: column; }
+  .project-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--proj-border); max-height: 200px; overflow-y: auto; }
+  .project-window { margin-top: 0; }
+
+  /* Neofetch Mobil */
+  .neofetch-content { flex-direction: column; align-items: center; padding: 20px; padding-top: 35px; }
+  .neofetch-art { width: 100%; max-width: 300px; height: auto; }
+  .neofetch-art .profile-img { width: 160px; height: 160px; margin-bottom: 25px; align-self: center; box-shadow: 0 5px 20px rgba(0,0,0,0.4); }
+  .win-title { text-align: center; padding-left: 0; }
+  .neofetch-info { width: 100%; }
+  
+  /* Widgetlar Mobilde */
+  .sys-monitor-wrapper, .weather-wrapper { width: 100%; }
+
+  /* Man Page Mobil */
+  .man-text, .man-list { margin-left: 10px; }
+
+  /* Footer Mobil */
+  .errors, .warnings, #line-num, #col-num { display: none; }
+  #status-bar { font-size: 0.65rem; padding: 0 10px; }
+
+
+  /* --------------------------------------------------------- */
+  /* --- FOOTER ÖZEL AYAR (SOLDA BUTON, ORTADA COPYRIGHT) --- */
+  /* --------------------------------------------------------- */
+  
+  /* 1. Sağ tarafı tamamen yok et */
+  .footer-right {
+    display: none !important;
+  }
+
+  /* 2. Sol taraf tüm alanı kaplasın */
+  .footer-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative; /* Ortalamayı buna göre yapacağız */
+  }
+
+  /* 3. Hasup OS Butonu (En solda kalsın) */
+  .start-menu-wrapper {
+    z-index: 10; /* Yazının üstünde kalsın, tıklanabilsin */
+  }
+
+  /* 4. Tüm 'branch' class'lı elemanları önce gizle (main* yazısı gitsin diye) */
+  .branch {
+    display: none;
+  }
+
+  /* 5. Sadece SONUNCU branch elemanını (Copyright olanı) göster ve ortala */
+  .footer-left .branch:last-child {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Tam ortaya çeker */
+    white-space: nowrap;         /* Alt satıra inmesin */
+    width: auto;
+    margin: 0 !important;        /* Inline gelen margin'i ezmek için */
+    text-align: center;
+    font-size: 0.7rem;           /* Mobilde sığması için fontu ayarla */
+  }
+}
+
+.detail-nav {
+  padding: 20px 0;
+  font-family: "JetBrains Mono", monospace;
+  background: var(--bg);
+}
+
+.terminal-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navigasyon İçeriğini Yatayda Hizala */
+.nav-content {
+  display: flex;
+  justify-content: space-between; /* Sol ve Sağ uca yasla */
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 15px;
+}
+
+.back-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: opacity 0.3s;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+
+.menu-header {
+  padding: 20px 15px; /* Biraz daha geniş boşluk */
+  background: var(--proj-tab-bg);
+  border-bottom: 1px solid var(--proj-border);
+  
+  /* DİKEY YERLEŞİM AYARLARI */
+  display: flex;
+  flex-direction: column; /* Alt alta diz */
+  align-items: center;    /* Ortala */
+  justify-content: center;
+  gap: 10px;              /* Logo ile yazı arası boşluk */
+}
+
+/* Logo Çerçevesi */
+.user-avatar {
+  width: 60px;  /* Mobilde de Masaüstünde de SABİT boyut */
+  height: 60px;
+  background: var(--proj-bg); /* Hafif koyu bir zemin */
+  border: 1px solid var(--proj-border);
+  border-radius: 50%; /* Tam yuvarlak */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Logonun Kendisi */
+.user-avatar img {
+  width: 30px; /* Çerçevenin içinde ne kadar yer kaplasın */
+  height: 30px;
+  object-fit: contain;
+  /* İstersen logoyu beyazlatmak için: filter: brightness(0) invert(1); */
+}
+
+.username {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--fg);
+}
+
+.role {
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: rgba(255,255,255,0.05);
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+
+/* ================= MOBİL İÇİN KESİN ÇÖZÜM (V3.0) ================= */
+/* ================= MOBİL İÇİN KESİN ÇÖZÜM (V4.0 - SCROLL FIXED) ================= */
+/* ================= MOBİL: SATIR KAYDIRMA (WORD WRAP) MODU ================= */
+@media (max-width: 768px) {
+  
+  /* 1. Editör Yapısı: Tek Sütun */
+  .editor-content {
+    display: block !important; /* Grid yerine Block yapıyoruz */
+    width: 100% !important;
+    overflow: hidden !important;
+    border: 1px solid var(--proj-border);
+  }
+
+  /* 2. Satır Numaralarını GİZLE (Hizayı bozacağı için) */
+  .line-numbers {
+    display: none !important;
+  }
+
+  /* 3. Kod Alanı */
+  .code-display {
+    width: 100% !important;
+    display: block !important;
+    overflow-x: hidden !important; /* Yatay scroll'u kapat */
+  }
+
+  /* 4. Kod Bloğu (İçerik) - KRİTİK KISIM */
+  .code-block {
+    /* Yazı Boyutu */
+    font-size: 12px !important;   /* Okunabilir boyut */
+    line-height: 1.5 !important;
+    
+    /* Boşluklar */
+    padding: 15px !important;
+    
+    /* --- SATIRLARI AŞAĞI KAYDIR --- */
+    white-space: pre-wrap !important;  /* Yan yana değil, sığmazsa alta in */
+    word-break: break-word !important; /* Çok uzun kelimeleri de böl */
+    overflow-wrap: break-word !important;
+  }
+
+  /* 5. Diğer Mobil Ayarlar (Footer ve Genel) */
+  section { padding: 60px 5%; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .project-container { flex-direction: column; }
+  .project-sidebar { width: 100%; max-height: 200px; border-right: none; border-bottom: 1px solid var(--proj-border); }
+  
+  /* Footer Gizlemeleri */
+  .footer-right, .errors, .warnings, #line-num, #col-num { display: none !important; }
+  
+  /* Footer Düzeni */
+  .footer-left { width: 100%; display: flex; align-items: center; position: relative; }
+  .start-menu-wrapper { z-index: 10; }
+  .branch { display: none !important; }
+  
+  /* Copyright Ortada */
+  .footer-left .branch:last-child {
+    display: block !important;
+    
+    /* Konumlandırma */
+    position: absolute;
+    right: 0;       /* En sağa yapış */
+    left: auto;     /* Sol tarafı serbest bırak (Ortalamayı iptal et) */
+    transform: none;/* Transform'u iptal et */
+    
+    /* Görünüm */
+    white-space: nowrap;
+    margin: 0 !important;
+    padding-right: 15px; /* Kenara çok yapışmasın, boşluk bırakalım */
+    font-size: 0.65rem;
+    color: var(--proj-fg-muted);
+  }
+}

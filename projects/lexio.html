@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lexio | Hasup</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <link rel="stylesheet" href="assets/project-style.css">
+
+</head>
+<body class="project-page">
+
+  <nav class="detail-nav">
+    <div class="terminal-wrapper nav-content">
+      
+      <div class="nav-left">
+        <a href="../index.html#projects" class="back-link">
+          <span class="prompt">$</span> cd ..
+        </a>
+        <span class="path">/ home / projects / <span class="current-project">lexio</span></span>
+      </div>
+
+      <div class="theme-toggle" id="themeToggle"></div>
+
+    </div>
+  </nav>
+
+  <section id="project-detail">
+    <div class="terminal-wrapper">
+      
+      <div class="project-header">
+        <div class="header-left">
+          <h1 class="project-title">Lexio</h1>
+          <p>
+            Lexio bir kelime oyunu yarışması uygulaması. Yıllarca televizyonda izlediğimiz formatın kendi yöntemlerimle yeniden uyarlaması.
+          </p>
+          <br>
+          <div class="tech-badges">
+            <span class="badge">Delphi</span>
+            <span class="badge">UniGUI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="readme-window">
+        <div class="window-bar">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn minimize"></span>
+            <span class="win-btn maximize"></span>
+          </div>
+          <div class="win-title">projectDetails.md</div>
+        </div>
+
+        <div class="readme-content">
+          
+          <h3><span class="hash">#</span> Proje Özeti</h3>
+          <p>
+            Bir gün Youtube'da gezinirken zamanında Ali İhsan Varol beyin sunduğu 'Kelime Oyunu' yarışmasına denk geldim. Eskiden çok fazla izlerdim bu yarışmayı ve hep de yarışmacı olarak katılmak istedim. Sonrasında yakın zamanda yine benzer formatta bir uygulama geliştirdiğimden kendi kendime ben bunu yaparım dediğim için bu uygulamayı geliştirdim.
+          </p>
+
+          <div class="project-image-container">
+            <img src="assets/images/lexio.png" alt="Proje Ekran Görüntüsü">
+            <span class="img-caption">Resim 1: Uygulamanın menü ekran görüntüsü.</span>
+          </div>
+
+          <p>
+            'Lex' kelimesi Latince 'kelime' anlamına geliyor. Bende sonuna 'io' ekleyerek 'Lexio' ismini bulmuş oldum.
+            <br><br>
+            Uygulamanın amacı Kelime Oyunu formatında olan yarışmanın sorularına bir ekran olmak ve puan takibi yapmak. Oyunun kuralları formattakiyle aynı: 4:30 dakika süre, her harf için 100 puan. 
+            <br><br>
+           Teknik yapısına gelecek olursak, Wissio gibi JSON formatı ile soru yüklenmesini bu sefer istemedim. Neden bilmiyorum aslında JSON ile daha kolay olurdu ama bu sefer böyle olmasını tercih ettim. Sorunuzu ve cevabınızı yazıp 'Soru Ekle' butonu ile soru ekliyoruz. Sonrasında eklediğiniz soruları kontrol etmeniz ve silebilmeniz için hemen yukarıdaki kısımda görebilirsiniz.
+           <br><br>
+            En az 2 soru ekledikten sonra 'Yarışmayı Başlat' butonu ile yarışma ekranına geçiş yapıyoruz.
+            <br><br>
+            Bu proje de aynı 'Wissio' gibi tamamen benim oluşturduğum UI elementlerinden oluşuyor. Sonuçtan çoook memnunum..
+          </p>
+
+          <div class="project-image-container">
+            <img src="assets/images/lexio2.png" alt="Proje Ekran Görüntüsü">
+            <span class="img-caption">Resim 2: Uygulamanın aktif ekran görüntüsü.</span>
+          </div>
+
+          <p>
+            Yukarıda yarışma ekranını görüyorsunuz. Sol alt tarafta 'Süreyi Başlat/Durdur' butonu, 'Harf Al' butonu, 'Kelimeyi Aç' butonu bulunmakta. İşlevleri tam da üzerlerinde yazdığı gibi. Süreyi başlatıp/durdurur, harf aldırır, kelimeyi tamamen  açar.
+            <br><br>
+            Yarışma senaryosu şöyle yaşanır. Sunucu (moderatör) 'Sıradaki Soru' butonu ile yarışmayı başlatır. Soru ekrana çıkar ve sunucu soruyu okur. Yarışmacı düşünmeye başlar, cevap vermeye hazır olduğunu belirttiğinde 'Süreyi Durdur' butonu ile süre durdurulur. Buradaki cevap süresi sunucunun inisiyatifindedir. Yarışmacı cevabını verir, sunucu kelimeyi açar ve sonraki soruyla bu döngü devam eder.
+            <br><br>
+            Sorularınız bitince otomatik olarak yarışma ekranı kapanır ve ekrana yarışmacının kasasındaki toplam puan yazılır. Kullanması çook basit.
+            <br><br><br>
+        Aşağıdaki linklerle sizler de Lexio'yu kullanabilir arkadaşlarınızla, ailenizle, sevdiklerinizde kaliteli ve eğlenceli zamanlar yaşayabilirsiniz.
+          </p>
+          <h3><span class="hash">#</span> Linkler</h3>
+
+          <p>Uygulamayı <a class="linkler" target="_blank" href="https://hasup.net/lexio">buradan</a> test edebilirsiniz.</p>
+        
+          <p>Kaynak kodları için lütfen özel olarak ulaşın.</p>  
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="status-bar">
+    <div class="footer-left">
+  
+      <div class="start-menu-wrapper">
+        
+        <div class="start-btn-trigger">
+          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <span class="os-text">Hasup OS</span>
+        </div>
+  
+        <div class="start-popup">
+          
+          <div class="menu-header">
+            <div class="user-avatar">
+              <img src="../assets/favicon.svg" alt="Hasup OS">
+            </div>
+            <div class="user-details">
+              <span class="username">Hasup OS</span>
+              <span class="role">v1.0</span>
+            </div>
+          </div>
+  
+          <ul class="menu-links">
+            <li>
+              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+            </li>
+            <li>
+              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+            </li>
+            <li>
+              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+            </li>
+            
+            <li class="divider"></li> <li>
+              <a href="https://www.linkedin.com/in/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/yusaguverdik/" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+            </li>
+  
+            <li class="divider"></li>
+  
+            <li>
+              <a href="javascript:location.reload()" class="shutdown">
+                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-code-branch"></i> main*</span>
+      <span class="branch" style="margin-left: 15px;"><i class="fa-solid fa-copyright"></i> Yuşa Göverdik - 2025</span>
+    </div>
+  
+    <div class="footer-right">
+      <span class="stat-item">Ln <span id="line-num">120</span>, Col <span id="col-num">45</span></span>
+      <span class="stat-item">UTF-8</span>
+      <span class="stat-item accent-text">CPU: <span id="cpu-usage">12</span>%</span>
+      <span class="stat-item">RAM: <span id="ram-usage">450</span>MB</span>
+      <span class="stat-item"><i class="fa-solid fa-wifi"></i> <span id="ping">24</span>ms</span>
+      <span class="stat-item bell"><i class="fa-regular fa-bell"></i></span>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" title="Yukarı Çık">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/favicon.svg">
+  <title>404</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================= SADE 404 STYLE ================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-image: url('assets/404.jpg'); 
+      
+      background-size: cover;     
+      background-position: center; 
+      background-repeat: no-repeat;
+      background-color: #1e1e1e;  
+
+      height: 100vh;
+      width: 100%;
+      
+   
+      display: flex;
+      justify-content: center;
+      
+      position: relative;
+      overflow: hidden;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+
+    .back-btn {
+      position: absolute; 
+      bottom: 60px;      
+      z-index: 2;       
+      
+      text-decoration: none;
+      color: #22c55e;           
+      border: 2px solid #22c55e;
+      background: rgba(0, 0, 0, 0.6); 
+      
+      padding: 10px 50px;      
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 50px;     
+      
+      backdrop-filter: blur(5px); 
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .back-btn:hover {
+      background: #22c55e;      
+      color: #000;              
+      box-shadow: 0 0 25px #22c55e; 
+      transform: translateY(-5px);  
+    }
+
+    /* Mobil Ayarı */
+    @media (max-width: 768px) {
+      .back-btn {
+        bottom: 40px;
+        padding: 12px 40px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">
+    Geri Dön
+  </a>
+
+</body>
+</html>
