@@ -195,7 +195,7 @@ section { padding: 80px 10%; }
   /* Mobilde taşmayı önlemek için kaydırma ekleyelim (Güvenlik) */
   max-width: 100%;
 }
-
+ 
 @media (max-width: 768px) {
   .ascii-wrapper {
     /* Mobilde taşarsa yana kaydırılabilsin */
