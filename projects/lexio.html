@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lexio | Hasup</title>
+  <title data-i18n="pages.lexio.browserTitle">Lexio | Hasup</title>
   
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <link rel="stylesheet" href="../assets/style.css">
-
   <link rel="stylesheet" href="assets/project-style.css">
-
 </head>
 <body class="project-page">
 
@@ -36,8 +32,8 @@
       
       <div class="project-header">
         <div class="header-left">
-          <h1 class="project-title">Lexio</h1>
-          <p>
+          <h1 class="project-title" data-i18n="pages.lexio.title">Lexio</h1>
+          <p data-i18n="pages.lexio.shortDesc">
             Lexio bir kelime oyunu yarışması uygulaması. Yıllarca televizyonda izlediğimiz formatın kendi yöntemlerimle yeniden uyarlaması.
           </p>
           <br>
@@ -60,47 +56,34 @@
 
         <div class="readme-content">
           
-          <h3><span class="hash">#</span> Proje Özeti</h3>
-          <p>
-            Bir gün Youtube'da gezinirken zamanında Ali İhsan Varol beyin sunduğu 'Kelime Oyunu' yarışmasına denk geldim. Eskiden çok fazla izlerdim bu yarışmayı ve hep de yarışmacı olarak katılmak istedim. Sonrasında yakın zamanda yine benzer formatta bir uygulama geliştirdiğimden kendi kendime ben bunu yaparım dediğim için bu uygulamayı geliştirdim.
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.summaryHeader">Proje Özeti</span></h3>
+          <p data-i18n="pages.lexio.content.p1">
+            Bir gün Youtube'da gezinirken zamanında Ali İhsan Varol beyin sunduğu 'Kelime Oyunu' yarışmasına denk geldim...
           </p>
 
           <div class="project-image-container">
-            <img src="assets/images/lexio.png" alt="Proje Ekran Görüntüsü">
-            <span class="img-caption">Resim 1: Uygulamanın menü ekran görüntüsü.</span>
+            <img src="assets/images/lexio.png" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.lexio.ui.imgAlt1">
+            <span class="img-caption" data-i18n="pages.lexio.ui.imgCaption1">Resim 1: Uygulamanın menü ekran görüntüsü.</span>
           </div>
 
-          <p>
-            'Lex' kelimesi Latince 'kelime' anlamına geliyor. Bende sonuna 'io' ekleyerek 'Lexio' ismini bulmuş oldum.
-            <br><br>
-            Uygulamanın amacı Kelime Oyunu formatında olan yarışmanın sorularına bir ekran olmak ve puan takibi yapmak. Oyunun kuralları formattakiyle aynı: 4:30 dakika süre, her harf için 100 puan. 
-            <br><br>
-           Teknik yapısına gelecek olursak, Wissio gibi JSON formatı ile soru yüklenmesini bu sefer istemedim. Neden bilmiyorum aslında JSON ile daha kolay olurdu ama bu sefer böyle olmasını tercih ettim. Sorunuzu ve cevabınızı yazıp 'Soru Ekle' butonu ile soru ekliyoruz. Sonrasında eklediğiniz soruları kontrol etmeniz ve silebilmeniz için hemen yukarıdaki kısımda görebilirsiniz.
-           <br><br>
-            En az 2 soru ekledikten sonra 'Yarışmayı Başlat' butonu ile yarışma ekranına geçiş yapıyoruz.
-            <br><br>
-            Bu proje de aynı 'Wissio' gibi tamamen benim oluşturduğum UI elementlerinden oluşuyor. Sonuçtan çoook memnunum..
+          <p data-i18n="pages.lexio.content.p2">
+            'Lex' kelimesi Latince 'kelime' anlamına geliyor...
           </p>
 
           <div class="project-image-container">
-            <img src="assets/images/lexio2.png" alt="Proje Ekran Görüntüsü">
-            <span class="img-caption">Resim 2: Uygulamanın aktif ekran görüntüsü.</span>
+            <img src="assets/images/lexio2.png" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.lexio.ui.imgAlt2">
+            <span class="img-caption" data-i18n="pages.lexio.ui.imgCaption2">Resim 2: Uygulamanın aktif ekran görüntüsü.</span>
           </div>
 
-          <p>
-            Yukarıda yarışma ekranını görüyorsunuz. Sol alt tarafta 'Süreyi Başlat/Durdur' butonu, 'Harf Al' butonu, 'Kelimeyi Aç' butonu bulunmakta. İşlevleri tam da üzerlerinde yazdığı gibi. Süreyi başlatıp/durdurur, harf aldırır, kelimeyi tamamen  açar.
-            <br><br>
-            Yarışma senaryosu şöyle yaşanır. Sunucu (moderatör) 'Sıradaki Soru' butonu ile yarışmayı başlatır. Soru ekrana çıkar ve sunucu soruyu okur. Yarışmacı düşünmeye başlar, cevap vermeye hazır olduğunu belirttiğinde 'Süreyi Durdur' butonu ile süre durdurulur. Buradaki cevap süresi sunucunun inisiyatifindedir. Yarışmacı cevabını verir, sunucu kelimeyi açar ve sonraki soruyla bu döngü devam eder.
-            <br><br>
-            Sorularınız bitince otomatik olarak yarışma ekranı kapanır ve ekrana yarışmacının kasasındaki toplam puan yazılır. Kullanması çook basit.
-            <br><br><br>
-        Aşağıdaki linklerle sizler de Lexio'yu kullanabilir arkadaşlarınızla, ailenizle, sevdiklerinizde kaliteli ve eğlenceli zamanlar yaşayabilirsiniz.
+          <p data-i18n="pages.lexio.content.p3">
+            Yukarıda yarışma ekranını görüyorsunuz...
           </p>
-          <h3><span class="hash">#</span> Linkler</h3>
 
-          <p>Uygulamayı <a class="linkler" target="_blank" href="https://hasup.net/lexio">buradan</a> test edebilirsiniz.</p>
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.linksHeader">Linkler</span></h3>
+
+          <p data-i18n="pages.lexio.content.linksText">Uygulamayı <a class="linkler" target="_blank" href="https://hasup.net/lexio">buradan</a> test edebilirsiniz.</p>
         
-          <p>Kaynak kodları için lütfen özel olarak ulaşın.</p>  
+          <p data-i18n="pages.lexio.content.sourceCodeNote">Kaynak kodları için lütfen özel olarak ulaşın.</p>  
         </div>
       </div>
 
@@ -113,7 +96,7 @@
       <div class="start-menu-wrapper">
         
         <div class="start-btn-trigger">
-          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <img src="../assets/favicon.svg" alt="Hasup OS" class="os-logo">
           <span class="os-text">Hasup OS</span>
         </div>
   
@@ -123,6 +106,7 @@
             <div class="user-avatar">
               <img src="../assets/favicon.svg" alt="Hasup OS">
             </div>
+            
             <div class="user-details">
               <span class="username">Hasup OS</span>
               <span class="role">v1.0</span>
@@ -131,13 +115,13 @@
   
           <ul class="menu-links">
             <li>
-              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+              <a href="#hero"><i class="fa-solid fa-house"></i> <span data-i18n="start-menu.home"></span></a>
             </li>
             <li>
-              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+              <a href="#projects"><i class="fa-solid fa-diagram-project"></i> <span data-i18n="start-menu.projects"></span></a>
             </li>
             <li>
-              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+              <a href="#contact"><i class="fa-solid fa-address-book"></i> <span data-i18n="start-menu.contact"></span></a>
             </li>
             
             <li class="divider"></li> <li>
@@ -150,12 +134,17 @@
                 <i class="fa-brands fa-instagram"></i> Instagram
               </a>
             </li>
+            <li>
+              <a href="https://github.com/yushadev0/" target="_blank">
+                <i class="fa-brands fa-github"></i> Github
+              </a>
+            </li>
   
             <li class="divider"></li>
   
             <li>
               <a href="javascript:location.reload()" class="shutdown">
-                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+                <i class="fa-solid fa-power-off"></i> <span data-i18n="start-menu.shutdown"></span>
               </a>
             </li>
           </ul>
@@ -181,5 +170,6 @@
   </button>
 
   <script src="../assets/script.js"></script>
+  <script src="../assets/i18n.js"></script>
 </body>
 </html>

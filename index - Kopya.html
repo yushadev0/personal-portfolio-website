@@ -15,12 +15,8 @@
   <section id="hero">
     <div class="hero-grid">
         <div class="terminal-wrapper">
-          
-          <div class="top-toggles">
-            <div class="theme-toggle" id="themeToggle"></div>
-            <div class="lang-toggle" id="langToggle"></div>
-          </div>
-
+            <div class="theme-toggle" id="themeToggle"></div>  
+            
             <div class="terminal">
               <div class="line"> <h2 data-i18n="hero.hi"></h2></div>
               <div class="line"><span class="prompt">$</span> <span data-i18n="hero.terminalLine1">değişmiş</span></div>
@@ -225,7 +221,7 @@
   </section>
 
   <section id="projects">
-    <h2 id="projects1"><span data-i18n="projects.title"></span></h2>
+    <h2 id="projects1"><span data-i18n="projects.title">Projelerim</span></h2>
     
     <div class="project-window">
       
@@ -247,28 +243,28 @@
               <span class="folder-name"><i class="fa-regular fa-folder-open"></i> my-projects</span>
               <ul>
                 <li class="file active" data-target="p1">
-                  <img class="custom-icon" src="assets/icon-images/python.svg" alt=""> <span data-i18n="projects.Listp1"></span> 
+                  <img class="custom-icon" src="assets/icon-images/python.svg" alt=""> Minecraft MIDI & Pixelart Painter
                 </li>
                 <li class="file" data-target="p2">
-                  <img class="custom-icon" src="assets/icon-images/delphi.svg" alt=""> <span data-i18n="projects.Listp2"></span>
+                  <img class="custom-icon" src="assets/icon-images/delphi.svg" alt=""> Teknoloji Atölyesi Yoklama Sistemi
                 </li>
                 <li class="file" data-target="p3">
-                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> <span data-i18n="projects.Listp3"></span>
+                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> UniGUI ile SweetAlert ve Ajax İstekleri
                 </li>
                 <li class="file" data-target="p4">
-                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> <span data-i18n="projects.Listp4"></span>
+                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> PolyBank WEB
                 </li>
                 <li class="file" data-target="p5">
-                  <img class="custom-icon" src="assets/icon-images/python.svg" alt=""> <span data-i18n="projects.Listp5"></span>
+                  <img class="custom-icon" src="assets/icon-images/python.svg" alt=""> BombSniffer
                 </li>
                 <li class="file" data-target="p6">
-                  <img class="custom-icon" src="assets/icon-images/arduino.png" alt=""> <span data-i18n="projects.Listp6"></span>
+                  <img class="custom-icon" src="assets/icon-images/arduino.png" alt=""> Arduino Nano ile Game of Life
                 </li>
                 <li class="file" data-target="p7">
-                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> <span data-i18n="projects.Listp7"></span>
+                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> Wissio
                 </li>
                 <li class="file" data-target="p8">
-                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> <span data-i18n="projects.Listp8"></span>
+                  <img class="custom-icon" src="assets/icon-images/unigui.png" alt=""> Lexio
                 </li>
               </ul>
             </li>
@@ -289,17 +285,17 @@
 <span class="keyword">var</span>
   ProjectInfo: <span class="tag">TProjectRecord</span>;
 <span class="keyword">begin</span>
-  <span class="comment" data-i18n="projects.commentLine1"></span>
-  ProjectInfo.Category := <span class="string">'Game Tool / Scripting'</span>;
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Oyun Aracı / Scripting'</span>;
   ProjectInfo.TechStack := [
     <span class="string">'Python'</span>, 
     <span class="string">'MCRCON Library'</span>, 
-    <span class="string">'Image Processing'</span>, 
-    <span class="string">'Sound Processing'</span>
+    <span class="string">'Görüntü İşleme'</span>, 
+    <span class="string">'Ses İşleme'</span>
   ];
-  ProjectInfo.Desc := <span class="string">'An automation tool that creates images with blocks'</span> + 
-                      <span class="string">' and plays MIDI in Minecraft.'</span>;
-  <span class="comment" data-i18n="projects.commentLine2"></span>
+  ProjectInfo.Desc := <span class="string">'Minecraft üzerinde bloklarla resim çizen'</span> + 
+                      <span class="string">' ve MIDI çalan otomasyon aracı.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
   <a href="projects/mcpp_main.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
   <a href="https://github.com/yushadev0/mmpp" target="_blank"  class="run-btn"><span class="function">openProjectInGithub</span>();</a>
 <span class="keyword">end</span>.</div>
@@ -309,16 +305,16 @@
 <span class="keyword">var</span>
   ProjectInfo: <span class="tag">TProjectRecord</span>;
 <span class="keyword">begin</span>
-  <span class="comment" data-i18n="projects.commentLine1"></span>
-  ProjectInfo.Category := <span class="string">'Web Application / Automation'</span>;
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Web Application / Otomasyon'</span>;
   ProjectInfo.TechStack := [
     <span class="string">'Delphi'</span>, 
     <span class="string">'UniGUI'</span>, 
     <span class="string">'SQL Server'</span>
   ];
-  ProjectInfo.Desc := <span class="string">'It's an app I developed to make it easier to keep track'</span> + 
-                      <span class="string">'of the events we do with my community.'</span>;
-  <span class="comment" data-i18n="projects.commentLine2"></span>
+  ProjectInfo.Desc := <span class="string">'Topluluğumla yaptığımız etkinliklerin takibini'</span> + 
+                      <span class="string">'kolaylaştırmak için geliştirdiğim bir uygulama.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
   <a href="projects/tayoksis.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
   <a href="https://github.com/yushadev0/tayoksis" target="_blank"  class="run-btn"><span class="function">openProjectInGithub</span>();</a>
 <span class="keyword">end</span>.</div>
@@ -327,17 +323,17 @@
 <span class="keyword">var</span>
   ProjectInfo: <span class="tag">TProjectRecord</span>;
 <span class="keyword">begin</span>
-  <span class="comment" data-i18n="projects.commentLine1"></span>
-  ProjectInfo.Category := <span class="string">'Auxiliary Tool'</span>;
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Yardımcı Araç'</span>;
   ProjectInfo.TechStack := [
     <span class="string">'Delph'</span>, 
     <span class="string">'UniGUI'</span>, 
     <span class="string">'SweetAlert'</span>, 
     <span class="string">'JavaScript'</span>
   ];
-  ProjectInfo.Desc := <span class="string">'A small application demonstrating how to integrate'</span> + 
-                      <span class="string">'SweetAlert into applications built with UniGUI.'</span>;
-  <span class="comment" data-i18n="projects.commentLine2"></span>
+  ProjectInfo.Desc := <span class="string">'UniGUI ile yapılan uygulamarda nasıl '</span> + 
+                      <span class="string">'SweetAlert entegrasyonu yapılabildiğini gösteren küçük bir uygulama.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
   <a href="projects/delphi_sweetalert.html" class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
   <a href="https://github.com/yushadev0/unigui-based-sweetalert-demo" target="_blank"  class="run-btn"><span class="function">openProjectInGithub</span>();</a>                        
 <span class="keyword">end</span>.</div>
@@ -346,15 +342,15 @@
 <span class="keyword">var</span>
   ProjectInfo: <span class="tag">TProjectRecord</span>;
 <span class="keyword">begin</span>
-  <span class="comment" data-i18n="projects.commentLine1"></span>
-  ProjectInfo.Category := <span class="string">'Auxiliary Tool / Economy'</span>;
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Yardımcı Araç / Ekonomi'</span>;
   ProjectInfo.TechStack := [
     <span class="string">'Delphi'</span>, 
     <span class="string">'UniGUI'</span> 
   ];
-  ProjectInfo.Desc := <span class="string">'This is a web port of an app my classmate developed to'</span> + 
-                      <span class="string">'make tracking money easier while playing Monopoly.'</span>;
-  <span class="comment" data-i18n="projects.commentLine2"></span>
+  ProjectInfo.Desc := <span class="string">'Monopoly oynarken para takibini kolaylaştırmak'</span> + 
+                      <span class="string">'amacıyla sınıf arkadaşımın geliştirdiği uygulamanın web portu.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
   <a href="projects/polybank.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
   <a href="https://github.com/yushadev0/polybank-web" target="_blank"  class="run-btn"><span class="function">openProjectInGithub</span>();</a>                        
 <span class="keyword">end</span>.</div>
@@ -363,15 +359,15 @@
 <span class="keyword">var</span>
   ProjectInfo: <span class="tag">TProjectRecord</span>;
 <span class="keyword">begin</span>
-  <span class="comment" data-i18n="projects.commentLine1"></span>
-  ProjectInfo.Category := <span class="string">'Automation / Scripting'</span>;
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Otomasyon / Scripting'</span>;
   ProjectInfo.TechStack := [
     <span class="string">'Python'</span>, 
     <span class="string">'pyAutoGUI'</span> 
   ];
-  ProjectInfo.Desc := <span class="string">'A Python script that attempts to solve a'</span> + 
-                      <span class="string">'minesweeper on its own until it succeeds.'</span>;
-  <span class="comment" data-i18n="projects.commentLine2"></span>
+  ProjectInfo.Desc := <span class="string">'Mayın tarlasını kendi kendine başarılı'</span> + 
+                      <span class="string">'olana kadar çözmeye çalışan bir python script'i.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
   <a href="projects/bombsniffer.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
 <span class="keyword">end</span>.</div>
               
@@ -379,16 +375,16 @@
 <span class="keyword">var</span>
   ProjectInfo: <span class="tag">TProjectRecord</span>;
 <span class="keyword">begin</span>
-  <span class="comment" data-i18n="projects.commentLine1"></span>
-  ProjectInfo.Category := <span class="string">'Embedded Systems / Cellular Automation'</span>;
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Gömülü Sistemler / Hücresel Otomasyon'</span>;
   ProjectInfo.TechStack := [
     <span class="string">'Arduino Nano'</span>, 
     <span class="string">'Conway's Game of Life'</span>, 
-    <span class="string">'Line-based buffering'</span>
+    <span class="string">'Satır tabanlı Buffering.'</span>
   ];
-  ProjectInfo.Desc := <span class="string">'This is an algorithm implementation that balances the'</span> + 
-                      <span class="string">'limited RAM capacity of the Arduino Nano with software optimizations.'</span>;
-  <span class="comment" data-i18n="projects.commentLine2"></span>
+  ProjectInfo.Desc := <span class="string">'Arduino Nano'nun sınırlı RAM kapasitesini yazılımsal'</span> + 
+                      <span class="string">'optimizasyonlarla dengeleyip, çalıştırılmış bir algoritma uygulaması.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
   <a href="projects/ardu_gol.html" class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
 <span class="keyword">end</span>.</div>
               
@@ -396,15 +392,15 @@
 <span class="keyword">var</span>
   ProjectInfo: <span class="tag">TProjectRecord</span>;
 <span class="keyword">begin</span>
-  <span class="comment" data-i18n="projects.commentLine1"></span>
-  ProjectInfo.Category := <span class="string">'Quiz Night Application'</span>;
+  <span class="comment">// Proje detaylarını yükle</span>
+  ProjectInfo.Category := <span class="string">'Quiz Night Uygulaması'</span>;
   ProjectInfo.TechStack := [
     <span class="string">'Delphi'</span>, 
     <span class="string">'UniGUI'</span>
   ];
-  ProjectInfo.Desc := <span class="string">'This is a web application I developed for'</span> + 
-                      <span class="string">'our "Quiz Night" events with my community.'</span>;
-  <span class="comment" data-i18n="projects.commentLine2"></span>
+  ProjectInfo.Desc := <span class="string">'Topluluğumla gerçekleştirdiğimiz ''Quiz Night'' etkinlikleri için'</span> + 
+                      <span class="string">'geliştirdiğim bir web uygulaması.'</span>;
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
   <a href="projects/wissio.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
   <a href="https://github.com/yushadev0/wissio" target="_blank"  class="run-btn"><span class="function">openProjectInGithub</span>();</a>                        
 <span class="keyword">end</span>.</div>
@@ -413,14 +409,14 @@
 <span class="keyword">var</span>
   ProjectInfo: <span class="tag">TProjectRecord</span>;
 <span class="keyword">begin</span>
-  <span class="comment" data-i18n="projects.commentLine1"></span>
+  <span class="comment">// Proje detaylarını yükle</span>
   ProjectInfo.Category := <span class="string">'Kelime Oyunu'</span>;
   ProjectInfo.TechStack := [
     <span class="string">'Delphi'</span>, 
     <span class="string">'UniGUI'</span> 
   ];
-  ProjectInfo.Desc := <span class="string">'My own reinterpretation of the famous game show we watch on television.'</span>                  
-  <span class="comment" data-i18n="projects.commentLine2"></span>
+  ProjectInfo.Desc := <span class="string">'Televizyonda izlediğimiz meşhur yarışmanın kendimce yeniden yorumu.'</span>                  
+  <span class="comment">// Detaylı olarak incelemek için; (tıklayabilirsiniz)</span>
   <a href="projects/lexio.html"  class="run-btn"><span class="function">OpenProjectDetails</span>();</a>
   <a href="https://github.com/yushadev0/wissio" target="_blank"  class="run-btn"><span class="function">openProjectInGithub</span>();</a>                        
 <span class="keyword">end</span>.</div>
@@ -433,7 +429,7 @@
 
 
     <section id="contact">
-      <h2 data-i18n="contact.title"></h2>
+      <h2>İletişim</h2>
     
       <div class="neofetch-win">
         
@@ -462,31 +458,31 @@
           <form action="https://formspree.io/f/xqezwrgz" method="POST" class="terminal-form" id="contact-form">
             
             <div class="form-group">
-              <label for="name"><span class="comment"><span data-i18n="contact.nameLbl"></span></span></label>
+              <label for="name"><span class="comment"># Adınız (Name):</span></label>
               <div class="input-wrapper">
                 <span class="prompt">$</span>
-                <input type="text" id="name" name="name" placeholder="" data-i18n-placeholder="contact.namePh" required autocomplete="off">
+                <input type="text" id="name" name="name" placeholder="Adınızı yazın..." required autocomplete="off">
               </div>
             </div>
     
             <div class="form-group">
-              <label for="email"><span class="comment"><span data-i18n="contact.emailLbl"></span></span></label>
+              <label for="email"><span class="comment"># E-posta (Email):</span></label>
               <div class="input-wrapper">
                 <span class="prompt">$</span>
-                <input type="email" id="email" name="email" placeholder="" data-i18n-placeholder="contact.emailPh" required autocomplete="off">
+                <input type="email" id="email" name="email" placeholder="mail@ornek.com" required autocomplete="off">
               </div>
             </div>
     
             <div class="form-group">
-              <label for="message"><span class="comment"><span data-i18n="contact.  messageLbl"></span></span></label>
+              <label for="message"><span class="comment"># Mesajınız (Message):</span></label>
               <div class="input-wrapper textarea-wrapper">
                 <span class="prompt">$</span>
-                <textarea id="message" name="message" rows="4" placeholder="" data-i18n-placeholder="contact.messagePh" required></textarea>
+                <textarea id="message" name="message" rows="4" placeholder="Mesajınızı buraya yazın..." required></textarea>
               </div>
             </div>
     
             <button type="submit" class="terminal-btn">
-              <span data-i18n="contact.sumbitBtn"></span>
+              [ EXECUTE / GÖNDER ]
             </button>
     
           </form>
@@ -538,13 +534,13 @@
     
             <ul class="menu-links">
               <li>
-                <a href="#hero"><i class="fa-solid fa-house"></i> <span data-i18n="start-menu.home"></span></a>
+                <a href="#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
               </li>
               <li>
-                <a href="#projects"><i class="fa-solid fa-diagram-project"></i> <span data-i18n="start-menu.projects"></span></a>
+                <a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
               </li>
               <li>
-                <a href="#contact"><i class="fa-solid fa-address-book"></i> <span data-i18n="start-menu.contact"></span></a>
+                <a href="#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
               </li>
               
               <li class="divider"></li> <li>
@@ -567,7 +563,7 @@
     
               <li>
                 <a href="javascript:location.reload()" class="shutdown">
-                  <i class="fa-solid fa-power-off"></i> <span data-i18n="start-menu.shutdown"></span>
+                  <i class="fa-solid fa-power-off"></i> Sistemi Kapat
                 </a>
               </li>
             </ul>

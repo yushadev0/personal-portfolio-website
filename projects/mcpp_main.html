@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minecraft Pixelart | Hasup</title>
+  <title data-i18n="pages.mcpp.browserTitle">Minecraft Pixelart | Hasup</title>
   
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <link rel="stylesheet" href="../assets/style.css">
-
   <link rel="stylesheet" href="assets/project-style.css">
-
 </head>
 <body class="project-page">
 
@@ -36,8 +32,8 @@
       
       <div class="project-header">
         <div class="header-left">
-          <h1 class="project-title">Minecraft MIDI & Pixelart Painter</h1>
-          <p>Minecraft dünyanızda müzik çalabileceğiniz ve pixelart oluşturabileceğiniz bir uygulama.</p>
+          <h1 class="project-title" data-i18n="pages.mcpp.title">Minecraft MIDI & Pixelart</h1>
+          <p data-i18n="pages.mcpp.shortDesc">Minecraft dünyanızda müzik çalabileceğiniz ve pixelart oluşturabileceğiniz bir uygulama.</p>
           <br>
           <div class="tech-badges">
             <span class="badge">Python</span>
@@ -60,72 +56,62 @@
 
         <div class="readme-content">
           
-          <h3><span class="hash">#</span> Proje Özeti</h3>
-          <p>
-            2 sekmeden oluşan uygulamam size hem müzik çalmanızı hem de resim çizmenizi sağlıyor. Bu uygulama bi html dosyası üzerinden size ya programlanmış ses dizisi verir ya da programlanmış resim matrisi. 
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.summaryHeader">Proje Özeti</span></h3>
+          
+          <p data-i18n="pages.mcpp.content.p1">
+            2 sekmeden oluşan uygulamam size hem müzik çalmanızı hem de resim çizmenizi sağlıyor...
           </p>
 
           <div class="project-image-container">
-            <img src="assets/images/mcpp.png" alt="Proje Ekran Görüntüsü">
-            <span class="img-caption">Resim 1: Editörlerin ekran görüntüsü.</span>
+            <img src="assets/images/mcpp.png" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.mcpp.ui.imgAlt">
+            <span class="img-caption" data-i18n="pages.mcpp.content.imgCaption">Resim 1: Editörlerin ekran görüntüsü.</span>
           </div>
 
-          <p>
-            Uygulamayı kendi bilgisayarınızda çalıştırmak için ilk önce bir Spigot / Bukkit sunucunuz olması gerekir. Bu <a class="linkler" href="https://www.spigotmc.org/">$ xdg-open (https://www.spigotmc.org/)</a>  siteden gerekli makaleleri okuyarak kendinize bir tane edinebilirsiniz. Bu sunucu lokalde de çalışabilir, globalde de sizin ihtiyacınız olan RCON kullanıcı adı ve şifresidir. RCON Spigot / Bukkit sunucularında bulunan özel bir komut gönderme protokolüdür. RCON kullanarak 3. taraf uygulamalarla sunucuya komut göndermeyi mümkün kılar. İşte tam da bu anda bu dönüştürücü/gönderici scriptleri devreye giriyor. Dönüştürücü web uygulaması sizin MIDI dosyanızdan veya resim dosyanızdan elde edilen bilgilerle dizi oluştururlar. Bu dizileri python scriptine girdiğinizde MCRCON <a class="linkler" href="https://pypi.org/project/mcrcon/">$ xdg-open (https://pypi.org/project/mcrcon/)</a>  kütüphanesi sunucuya uygun komutları gönderek müziğinizin ve resminizin oluşmasını sağlar.
+          <p data-i18n="pages.mcpp.content.p2">
+            Uygulamayı çalıştırmak için...
           </p>
 
-          <p>MIDI çalarken python scripti ile aynı dizinde 'music.txt' diye bir dosya oluşturup müzik dizinizi içine yapıştırmanız gerekmektedir.
-            <br><br>
-            (Scriptte RCON Sunucu IP'sini ve şifresini değiştirebilirsiniz. Kendi sunucunuzun RCON ip ve şifrenizi 'server.properties' dosyasından öğrenip, değiştirebilirsiniz. Mevcut scriptte default olarak 127.0.0.1 ve 12345 kullanıldı.)
-            <br><br>
-            Daha önceki yazılarımda bu uygulamanın sadece resimle çalışan halini yapmıştım. O uygulama sadece tek Minecraft sürümüne bağlıyken bu uygulama daha dinamik bir yapı sunmakta. RCON sunucusu açılabilen her sürümde çalışmaktadır.
+          <p data-i18n="pages.mcpp.content.p3">
+            MIDI çalarken python scripti ile aynı dizinde 'music.txt'...
           </p>
         
-
           <div class="code-window">
-  
             <div class="code-header">
               <div class="file-info">
                 <i class="fa-regular fa-file-code"></i>
                 <span class="filename">bash command</span>
                 <span class="lang-badge">BASH</span>
               </div>
-              <button class="copy-btn" title="Kodu Kopyala">
+              <button class="copy-btn" title="Kodu Kopyala" data-i18n-title="pages.common.copyBtn">
                 <i class="fa-regular fa-copy"></i>
-                <span class="btn-text">Kopyala</span>
+                <span class="btn-text" data-i18n="pages.common.copyBtn">Kopyala</span>
               </button>
             </div>
-          
             <div class="code-content">
-          <pre><code>pip install mcrcon</code></pre>
+              <pre><code>pip install mcrcon</code></pre>
             </div>
           </div>
           
-          <p>Bu komutla ilk önce kütüphaneyi kurmanız gerekmektedir.
-            <br><br>
-            <a class="linkler" href="https://hasup.net/mmpp.html" target="_blank">Buradan</a> editörü kullanabilirsiniz.
-          <br><br>  
-            <a class="linkler"  href="../assets/files/world.rar">Buradan</a> da Minecraft dünyasını indirebilirsiniz.
+          <p data-i18n="pages.mcpp.content.p4">
+            Bu komutla ilk önce kütüphaneyi kurmanız gerekmektedir...
           </p>
 
-          <h3><span class="hash">#</span> Scriptler</h3>
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.scriptsHeader">Scriptler</span></h3>
 
           <div class="code-window">
-  
             <div class="code-header">
               <div class="file-info">
                 <i class="fa-regular fa-file-code"></i>
                 <span class="filename">midi.py</span>
                 <span class="lang-badge">python</span>
               </div>
-              <button class="copy-btn" title="Kodu Kopyala">
+              <button class="copy-btn" title="Kodu Kopyala" data-i18n-title="pages.common.copyBtn">
                 <i class="fa-regular fa-copy"></i>
-                <span class="btn-text">Kopyala</span>
+                <span class="btn-text" data-i18n="pages.common.copyBtn">Kopyala</span>
               </button>
             </div>
-          
             <div class="code-content">
-          <pre><code>from mcrcon import MCRcon
+              <pre><code>from mcrcon import MCRcon
 import time
 import ast
 import os
@@ -332,26 +318,25 @@ if __name__ == "__main__":
         print("\n⏹️ Müzik durduruldu!")
     except Exception as e:
         print(f"❌ Bağlantı hatası: {e}")
-                </code></pre>
+                                
+              </code></pre>
             </div>
           </div>
 
           <div class="code-window">
-  
             <div class="code-header">
               <div class="file-info">
                 <i class="fa-regular fa-file-code"></i>
                 <span class="filename">mcpp.py</span>
                 <span class="lang-badge">python</span>
               </div>
-              <button class="copy-btn" title="Kodu Kopyala">
+              <button class="copy-btn" title="Kodu Kopyala" data-i18n-title="pages.common.copyBtn">
                 <i class="fa-regular fa-copy"></i>
-                <span class="btn-text">Kopyala</span>
+                <span class="btn-text" data-i18n="pages.common.copyBtn">Kopyala</span>
               </button>
             </div>
-          
             <div class="code-content">
-          <pre><code>from mcrcon import MCRcon
+              <pre><code>from mcrcon import MCRcon
 import time
 
 sunucuIP = "127.0.0.1"
@@ -399,16 +384,13 @@ with MCRcon(sunucuIP, sunucuPASS) as mcr:
             time.sleep(0.001)
         x = 32
         y += 1
-        time.sleep(0.01)</code></pre>
+        time.sleep(0.01)
+              </code></pre>
             </div>
           </div>
          
-
-          
-
         </div>
       </div>
-
     </div>
   </section>
 
@@ -418,7 +400,7 @@ with MCRcon(sunucuIP, sunucuPASS) as mcr:
       <div class="start-menu-wrapper">
         
         <div class="start-btn-trigger">
-          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <img src="../assets/favicon.svg" alt="Hasup OS" class="os-logo">
           <span class="os-text">Hasup OS</span>
         </div>
   
@@ -428,6 +410,7 @@ with MCRcon(sunucuIP, sunucuPASS) as mcr:
             <div class="user-avatar">
               <img src="../assets/favicon.svg" alt="Hasup OS">
             </div>
+            
             <div class="user-details">
               <span class="username">Hasup OS</span>
               <span class="role">v1.0</span>
@@ -436,13 +419,13 @@ with MCRcon(sunucuIP, sunucuPASS) as mcr:
   
           <ul class="menu-links">
             <li>
-              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+              <a href="#hero"><i class="fa-solid fa-house"></i> <span data-i18n="start-menu.home"></span></a>
             </li>
             <li>
-              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+              <a href="#projects"><i class="fa-solid fa-diagram-project"></i> <span data-i18n="start-menu.projects"></span></a>
             </li>
             <li>
-              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+              <a href="#contact"><i class="fa-solid fa-address-book"></i> <span data-i18n="start-menu.contact"></span></a>
             </li>
             
             <li class="divider"></li> <li>
@@ -455,12 +438,17 @@ with MCRcon(sunucuIP, sunucuPASS) as mcr:
                 <i class="fa-brands fa-instagram"></i> Instagram
               </a>
             </li>
+            <li>
+              <a href="https://github.com/yushadev0/" target="_blank">
+                <i class="fa-brands fa-github"></i> Github
+              </a>
+            </li>
   
             <li class="divider"></li>
   
             <li>
               <a href="javascript:location.reload()" class="shutdown">
-                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+                <i class="fa-solid fa-power-off"></i> <span data-i18n="start-menu.shutdown"></span>
               </a>
             </li>
           </ul>
@@ -486,5 +474,6 @@ with MCRcon(sunucuIP, sunucuPASS) as mcr:
   </button>
 
   <script src="../assets/script.js"></script>
+  <script src="../assets/i18n.js"></script>
 </body>
 </html>

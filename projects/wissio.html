@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wissio | Hasup</title>
+  <title data-i18n="pages.wissio.browserTitle">Wissio | Hasup</title>
   
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <link rel="stylesheet" href="../assets/style.css">
-
   <link rel="stylesheet" href="assets/project-style.css">
-
 </head>
 <body class="project-page">
 
@@ -36,8 +32,8 @@
       
       <div class="project-header">
         <div class="header-left">
-          <h1 class="project-title">Wissio</h1>
-          <p>
+          <h1 class="project-title" data-i18n="pages.wissio.title">Wissio</h1>
+          <p data-i18n="pages.wissio.shortDesc">
             Wissio bir bilgi yarışması uygulaması. Topluluğumla düzenlediğimiz 'Quiz Night' etkinlikleri için kendimize ait bir uygulama kullanmak istemiştik bundan dolayı bu uygulamayı geliştirdim.
           </p>
           <br>
@@ -60,47 +56,35 @@
 
         <div class="readme-content">
           
-          <h3><span class="hash">#</span> Proje Özeti</h3>
-          <p>
-            Aksaray Üniversitesi Sanayi ve Teknoloji Topluluğu <a class="linkler" href="https://www.linkedin.com/company/sanayiveteknolojitoplulugu">(https://www.linkedin.com/company/sanayiveteknolojitoplulugu)</a>  olarak 'Quiz Night' etkinlikleri düzenliyoruz. Bu etkinliklerde katılımcı oylamalarıyla bir film veya dizi seçilir, yönetim tarafından hazırlanan sorularla katılımcılara eğlenceli bir aktivite sunmak amaçlanır. Biz de topluluk olarak kendi düzenlediğimiz etkinlikte kendi uygulamamızı kullanmak istedik. Bu görevi üstlenerek tüm algoritmaları ve UI bileşenleri özgün olan 'Wissio' ortaya çıkmış oldu.
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.summaryHeader">Proje Özeti</span></h3>
+          <p data-i18n="pages.wissio.content.p1">
+            Aksaray Üniversitesi Sanayi ve Teknoloji Topluluğu...
           </p>
 
           <div class="project-image-container">
-            <img src="assets/images/wissio.png" alt="Proje Ekran Görüntüsü">
-            <span class="img-caption">Resim 1: Uygulamanın menü ekran görüntüsü.</span>
+            <img src="assets/images/wissio.png" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.wissio.ui.imgAlt1">
+            <span class="img-caption" data-i18n="pages.wissio.ui.imgCaption1">Resim 1: Uygulamanın menü ekran görüntüsü.</span>
           </div>
 
-          <p>
-            'Wiss' kelimesi Almanca 'bilmek' anlamına geliyor. Bende sonuna 'io' ekleyerek 'Wissio' ismini bulmuş oldum.
-            <br><br>
-            Nihai amacı, bilgi yarışmaları için tamamen soru göstermek olan Wissio Delphi ve UniGUI ile yazıldı. Kullanıcılar kendi sorularını Wissio'ya yükleyebilirler. Bunu ise JSON formatındaki sorular sayesinde başarabiliyoruz. JSON formatı (Javascript Object Notation) günümüzde; sunucu ve istemci arasında bilgi alış-verişi, API'ler, konfigrasyon dosyaları, yerel veritabanları gibi oldukça geniş ve esnek bir çalışma yelpazesine sahiptir.
-            <br><br>
-            Benim de kullanım amacım aslında 'yerel veritabanı' kategorisine giriyor desek yalnış olmaz. Kullanıcılar soru ve cevaplarını belirli bir formatta bir JSON dosyasına kaydeder ve Wissio'ya yükler. Wissio ise bu JSON dosyasını parse (ayrıştırarak) ederek soruları gizli bir listeye kaydeder. Listeye kaydetmenin nedeni ise, JSON dosyasınıı sunucuda sürekli tutmaktan kurtarmak ve tüm yükü sunucudan istemciye yüklemektir. Yani ne kadar uzun sorularınız da olsa, milyonlarca karakter kullansanız bile, sadece dosya yükleme aşamasında bekleme yaşayacaksınız. Yarışma sırasında soruların tamamı çoktan listelere kaydedildiğinden dolayı yarışma esnasında asla bekleme yaşamayacaksınız demektir. Çok güzel bir optimizasyon örneği desek yanlış olmaz.
-            <br><br>
-            Bu şekilde kullanıcılar istedikleri yarışmayı yine Wissio içerisinde bulunan JSON editörü (buradan ulaşabilirsiniz.) ile oluşturabilir ve Wissio ile kullanabilir.
-            <br><br>
-            Bu proje benim için şu yönden önemli oldu: Yeni teknikler deneyip başarılı oldum. Yani kendimi geliştirdim. Benim için çok büyük bir gelişme bu çünkü UniGUI ile dinamik web siteleri tasarlarken sadece Delphi'nin bize sunduğu UI elementlerini (butonlar, textarea'lar, label'lar gibi) kullanıyorken bu uygulama özelinde tamamen HTML ve CSS ile ürettiğim elementleri kullandım. Uygulama üzerinde gördüğünüz tüm bu UI elementleri Delphi'nin sunduğu değil, benim özel olarak ürettiğim elementlerdir.
-            <br><br>
-            Bu yöntemin daha önceden zaten mümkün olduğunu biliyordum ama denemeye biraz korkuyordum. Bu uygulamayla konfor alanımdan çıkıp yeni şeyler denemek istedim ve aldığım sonuçtan çooook memnunum. - Özellikle de 'Soruları Göster' butonundan :) -
+          <p data-i18n="pages.wissio.content.p2">
+            'Wiss' kelimesi Almanca 'bilmek' anlamına geliyor...
           </p>
 
           <div class="project-image-container">
-            <img src="assets/images/wissio2.png" alt="Proje Ekran Görüntüsü">
-            <span class="img-caption">Resim 2: Uygulamanın aktif ekran görüntüsü.</span>
+            <img src="assets/images/wissio2.png" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.wissio.ui.imgAlt2">
+            <span class="img-caption" data-i18n="pages.wissio.ui.imgCaption2">Resim 2: Uygulamanın aktif ekran görüntüsü.</span>
           </div>
 
-          <p>Uygulamayı kullanmak ise çook basit. İlk önce daha önceden JSON editörü ile oluşturduğunuz ve içerisinde sorularını içeren JSON dosyanızı Wissio'ya 'JSON Yükle' butonu ile seçip yüklüyorsunuz. (Yükleme sırasında iptal ederseniz yükleniyor ekranında kalacaktır. Bu sorunu çözemedim sayfayı yenileyebilirsiniz.). Sonrasında sorularını kontrol edebilmeniz için soruları size gösterir. Bu esnada soruları gizleyebilirsiniz. Soru gizleme özelliği ekledim çünkü kalabalık ortamlarda bazen projeksiyonla yansıtıldığında ilk birkaç soru yarışmacılara gösterilmiş olabiliyor. Bu yüzden soruları gizleyip yükleme yaparsanız hiç bir yarışmacı sorularınızı göremez. Sonrasında tercih ettiğiniz soru süresini giriyorsunuz. Varsayılan olarak 1 dakika yani 60 saniyeye ayarlı. Bunu istediğiniz gibi ayarlayabilirsiniz. En sonunda artık yarışmaya başlamaya hazırsınız. 
-            <br><br>
-            'Yarışmaya Başlat' butonuna tıkladığınız andan itibaren artık Yarışma ekranındasınız demektir. Bu ekranda en üstte yeşil bir bar bulunur. Bu bar süre barıdır ve rengi yavaşça kırmızıya dönüşür. Tamamen bittiğinde ise cevap otomatik olarak ekrana yazılır. Kontrollerinizi sağlamanız için bu ekranda istediğiniz kadar bekleyebilirsiniz. (Aslında istediğiniz kadar bekleyemezsiniz çünkü uygulamanın timeout süresi 100 dakika :P) Kontrollerinizi sağladıktan sonra 'Sıradaki Soru' butonuyla sonraki soruya geçebilir ve döngüye yeniden başlayabilirsiniz.
-            <br><br><br>
-        Aşağıdaki linklerle sizler de Wissio'yu kullanabilir arkadaşlarınızla, ailenizle, sevdiklerinizde kaliteli ve eğlenceli zamanlar yaşayabilirsiniz.</p>
+          <p data-i18n="pages.wissio.content.p3">
+            Uygulamayı kullanmak ise çook basit...
+          </p>
 
-          <h3><span class="hash">#</span> Linkler</h3>
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.linksHeader">Linkler</span></h3>
 
-          <p>Uygulamayı <a class="linkler" target="_blank" href="https://hasup.net/wissio">buradan</a> test edebilirsiniz.</p>
-          <p>Editörü de <a class="linkler" target="_blank" href="https://hasup.net/wissio/json_editoru.html">buradan</a> kullanabilirsiniz.</p>
+          <p data-i18n="pages.wissio.content.linksText1">Uygulamayı <a class="linkler" target="_blank" href="https://hasup.net/wissio">buradan</a> test edebilirsiniz.</p>
+          <p data-i18n="pages.wissio.content.linksText2">Editörü de <a class="linkler" target="_blank" href="https://hasup.net/wissio/json_editoru.html">buradan</a> kullanabilirsiniz.</p>
           
-          <p>Kaynak kodları için lütfen özel olarak ulaşın.</p>  
+          <p data-i18n="pages.wissio.content.sourceCodeNote">Kaynak kodları için lütfen özel olarak ulaşın.</p>  
         </div>
       </div>
 
@@ -123,6 +107,7 @@
             <div class="user-avatar">
               <img src="../assets/favicon.svg" alt="Hasup OS">
             </div>
+            
             <div class="user-details">
               <span class="username">Hasup OS</span>
               <span class="role">v1.0</span>
@@ -131,13 +116,13 @@
   
           <ul class="menu-links">
             <li>
-              <a href="../index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+              <a href="#hero"><i class="fa-solid fa-house"></i> <span data-i18n="start-menu.home"></span></a>
             </li>
             <li>
-              <a href="../index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+              <a href="#projects"><i class="fa-solid fa-diagram-project"></i> <span data-i18n="start-menu.projects"></span></a>
             </li>
             <li>
-              <a href="../index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+              <a href="#contact"><i class="fa-solid fa-address-book"></i> <span data-i18n="start-menu.contact"></span></a>
             </li>
             
             <li class="divider"></li> <li>
@@ -150,12 +135,17 @@
                 <i class="fa-brands fa-instagram"></i> Instagram
               </a>
             </li>
+            <li>
+              <a href="https://github.com/yushadev0/" target="_blank">
+                <i class="fa-brands fa-github"></i> Github
+              </a>
+            </li>
   
             <li class="divider"></li>
   
             <li>
               <a href="javascript:location.reload()" class="shutdown">
-                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+                <i class="fa-solid fa-power-off"></i> <span data-i18n="start-menu.shutdown"></span>
               </a>
             </li>
           </ul>
@@ -181,5 +171,6 @@
   </button>
 
   <script src="../assets/script.js"></script>
+  <script src="../assets/i18n.js"></script>
 </body>
 </html>

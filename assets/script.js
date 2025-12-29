@@ -14,6 +14,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ================= 1.5 LANG TOGGLE ================= */
+const langToggle = document.getElementById("langToggle");
+
+function getCurrentLang() {
+  const path = window.location.pathname.toLowerCase();
+  if (path.startsWith("/en")) return "en";
+  return "tr";
+}
+
+function updateLangToggleText(lang) {
+  if (!langToggle) return;
+  langToggle.innerHTML =
+    `<span class="prompt">$</span> lang --${lang.toUpperCase()}`;
+}
+
+if (langToggle) {
+  const currentLang = getCurrentLang();
+  updateLangToggleText(currentLang);
+
+  langToggle.addEventListener("click", () => {
+    const nextLang = currentLang === "tr" ? "en" : "tr";
+    window.location.href = "/" + nextLang;
+  });
+}
+
+
   /* ================= 2. PROJE GEÇİŞ SİSTEMİ ================= */
   const projectFiles = document.querySelectorAll(".file-tree .file");
   const projectBlocks = document.querySelectorAll(".code-block");
@@ -673,11 +699,49 @@ if(ppBtn) {
 }
 
 /* ========================================= */
-/* REAL WEATHER FETCH (GÜNCEL - DAHA KARARLI API) */
+/* REAL WEATHER FETCH (URL TABANLI MULTILINGUAL) */
 /* ========================================= */
 
-// ... (Üstteki değişkenler ve weatherAscii objesi aynı kalabilir) ...
+// 1. URL'DEN DİLİ ALGILA (Kesin Çözüm)
+function getLangFromUrl() {
+  const path = window.location.pathname.toLowerCase();
+  
+  // Eğer URL '/en' ile başlıyorsa 'en' döndür, yoksa varsayılan 'tr'
+  if (path.startsWith('/en') || path.includes('/en/')) {
+    return 'en';
+  }
+  return 'tr';
+}
 
+// 2. KÜÇÜK SÖZLÜK (Çeviriler)
+const weatherTerms = {
+  tr: {
+    wind: "Rüzgar",
+    hum: "Nem",
+    clear: "Açık",
+    cloudy: "Bulutlu",
+    rain: "Yağmurlu",
+    snow: "Karlı",
+    storm: "Fırtına",
+    fog: "Sisli",
+    connError: "Bağlantı Yok",
+    locFinding: "Konum bulunuyor..."
+  },
+  en: {
+    wind: "Wind",
+    hum: "Humidity",
+    clear: "Clear",
+    cloudy: "Cloudy",
+    rain: "Rainy",
+    snow: "Snowy",
+    storm: "Storm",
+    fog: "Foggy",
+    connError: "No Connection",
+    locFinding: "Locating..."
+  }
+};
+
+// ... (HTML Element Seçicileri - Değişmedi) ...
 const wTemp = document.getElementById('w-temp');
 const wDesc = document.getElementById('w-desc');
 const wLoc = document.getElementById('w-loc');
@@ -713,8 +777,13 @@ const weatherAscii = {
    ⚡⚡⚡`
 };
 
-// 1. BAŞLAT
+// 3. BAŞLAT (Init)
 function initWeather() {
+  const lang = getLangFromUrl(); // URL'den dili al
+  const t = weatherTerms[lang];  // Sözlükten ilgili dili seç
+
+  if(wLoc) wLoc.innerText = t.locFinding; // "Konum bulunuyor..." mesajını dile göre yaz
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (pos) => fetchWeather(pos.coords.latitude, pos.coords.longitude),
@@ -726,75 +795,76 @@ function initWeather() {
   }
 }
 
-// 2. Varsayılan Konum (Aksaray)
+// 4. Varsayılan Konum
 function loadDefaultWeather() {
   fetchWeather(38.3687, 34.0297, "Aksaray");
 }
 
-// 3. Verileri Çek
+// 5. Verileri Çek (Fetch)
 async function fetchWeather(lat, lon, manualCity = null) {
+  const lang = getLangFromUrl(); // Dili tekrar kontrol et
+  const t = weatherTerms[lang];
+
   try {
-    // A) ŞEHİR İSMİNİ BUL (YENİ VE DAHA GÜÇLÜ API)
+    // A) ŞEHİR İSMİNİ BUL
     let cityName = manualCity;
     
     if (!cityName) {
         try {
-            // BigDataCloud API: Daha hızlı ve engellenme riski yok
-            const cityRes = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=tr`);
+            // API isteğine localityLanguage=${lang} ekledik
+            const cityRes = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=${lang}`);
             const cityData = await cityRes.json();
             
-            // Şehir ismini yakalamak için farklı alanları kontrol et
             cityName = cityData.city || cityData.locality || cityData.principalSubdivision || "Konum Bulundu";
-            
-            // Bazen "Aksaray Merkez" gibi uzun gelebilir, sadeleştirebiliriz
             cityName = cityName.replace(" Merkez", "").replace(" Province", "");
             
         } catch (e) {
-            // Yine de bulamazsa koordinat yaz (Çok düşük ihtimal)
-            console.error("Şehir ismi alınamadı:", e);
+            console.error("Şehir ismi hatası:", e);
             cityName = `${lat.toFixed(1)}, ${lon.toFixed(1)}`;
         }
     }
 
-    // B) HAVA DURUMU VE NEMİ ÇEK
+    // B) HAVA DURUMU VERİSİ
     const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`);
     const weatherData = await weatherRes.json();
     
-    // C) ARAYÜZÜ GÜNCELLE
-    updateWeatherUI(weatherData.current, cityName);
+    // C) ARAYÜZÜ GÜNCELLE (Sözlüğü gönderiyoruz)
+    updateWeatherUI(weatherData.current, cityName, t);
 
   } catch (error) {
     console.error("Hava durumu hatası:", error);
-    if(wDesc) wDesc.innerText = "Bağlantı Yok";
+    if(wDesc) wDesc.innerText = t.connError; 
   }
 }
 
-// 4. Ekrana Bas
-function updateWeatherUI(current, city) {
+// 6. Arayüzü Güncelle (UI)
+function updateWeatherUI(current, city, t) {
   if(!wTemp) return;
 
   wTemp.innerText = `${Math.round(current.temperature_2m)}°C`;
-  wWind.innerText = `Rüzgar: ${current.wind_speed_10m} km/s`;
-  wHum.innerText  = `Nem: %${current.relative_humidity_2m}`;
+  
+  // "Rüzgar" ve "Nem" kelimeleri artık dinamik (t.wind / t.hum)
+  wWind.innerText = `${t.wind}: ${current.wind_speed_10m} km/s`;
+  wHum.innerText  = `${t.hum}: %${current.relative_humidity_2m}`;
   wLoc.innerText = city; 
 
   const code = current.weather_code;
   
-  // Varsayılan: Açık
-  let condition = "Açık"; 
+  // Hava durumu açıklamaları dinamik (t.clear, t.cloudy vb.)
+  let condition = t.clear; 
   let art = weatherAscii.clear;
   let color = "#facc15";
 
   if (code >= 1 && code <= 3) {
-    condition = "Bulutlu"; art = weatherAscii.cloudy; color = "#9ca3af";
+    condition = t.cloudy; art = weatherAscii.cloudy; color = "#9ca3af";
   } else if (code >= 45 && code <= 48) {
-    condition = "Sisli"; art = weatherAscii.cloudy; color = "#6b7280";
+    condition = t.fog; art = weatherAscii.cloudy; color = "#6b7280";
   } else if ((code >= 51 && code <= 67) || (code >= 80 && code <= 82)) {
-    condition = "Yağmurlu"; art = weatherAscii.rain; color = "#60a5fa";
+    condition = t.rain; art = weatherAscii.rain; color = "#60a5fa";
   } else if ((code >= 71 && code <= 77) || code >= 85) {
-    condition = "Karlı"; art = weatherAscii.snow; color = "#e8eaed";
+    condition = t.snow; art = weatherAscii.snow; color = "#e8eaed";
   } else if (code >= 95) {
-    condition = "Fırtına"; art = weatherAscii.thunder; color = "#fbbf24";
+    condition = t.storm; art = weatherAscii.thunder; color = "#fbbf24";
   }
 
   wDesc.innerText = condition;
@@ -886,5 +956,77 @@ function updateEditorVisuals() {
 // Sayfa yüklendiğinde çalıştır
 document.addEventListener("DOMContentLoaded", updateEditorVisuals);
 
-// Sekme (Tab) değiştiğinde de çalışması lazım
-// Mevcut "click" event listener'ının içine bu fonksiyonu ekleyeceğiz.
+/* ========================================= */
+/* DİNAMİK LİNK YÖNETİMİ (PROJELER İÇİN)     */
+/* ========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Mevcut dili URL'den kesin olarak algıla
+  // Eğer URL '/en' içeriyorsa dil 'en', aksi takdirde 'tr' kabul et.
+  const path = window.location.pathname;
+  const currentLang = path.includes('/en') ? 'en' : 'tr';
+
+  // 2. Tüm proje butonlarını seç (.run-btn class'ına sahip olanlar)
+  // Senin HTML'inde: <a href="projects/..." class="run-btn">...</a>
+  const projectLinks = document.querySelectorAll('.run-btn');
+
+  projectLinks.forEach(link => {
+    const originalHref = link.getAttribute('href');
+
+    // Sadece geçerli, iç linkleri değiştir (Dış linklere dokunma)
+    if (originalHref && !originalHref.startsWith('http') && !originalHref.startsWith('#')) {
+      
+      // Linkin başındaki '/' işaretini temizle (çift slash olmasın diye)
+      // Örn: "/projects/abc.html" -> "projects/abc.html"
+      const cleanHref = originalHref.startsWith('/') ? originalHref.substring(1) : originalHref;
+
+      // 3. Yeni Linki Oluştur: /dil/klasör/dosya
+      // Örn: /tr/projects/mcpp_main.html
+      link.setAttribute('href', `/${currentLang}/${cleanHref}`);
+    }
+  });
+});
+
+/* script.js - EN ALTA EKLE */
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Ortam ve Dil Kontrolü
+  const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  
+  // URL '/en' içeriyorsa veya parametrede varsa dili EN yap
+  let currentLang = 'tr'; 
+  if (window.location.pathname.includes('/en') || window.location.search.includes('lang=en')) {
+    currentLang = 'en';
+  }
+
+  const projectLinks = document.querySelectorAll('.run-btn');
+
+  projectLinks.forEach(link => {
+    let rawHref = link.getAttribute('href');
+
+    // Sadece geçerli iç linkler için çalış
+    if (rawHref && !rawHref.startsWith('http') && !rawHref.startsWith('#')) {
+      
+      // ADIM 1: Başındaki Slash'ı temizle
+      // "/projects/abc.html" -> "projects/abc.html"
+      if (rawHref.startsWith('/')) {
+        rawHref = rawHref.substring(1);
+      }
+
+      // ADIM 2: KORUMA (Varsa eski dil ekini sök at)
+      // "en/projects/abc.html" -> "projects/abc.html"
+      // "tr/projects/abc.html" -> "projects/abc.html"
+      // Bu regex, başındaki en/ veya tr/ ifadesini siler.
+      const cleanHref = rawHref.replace(/^(en|tr)\//, '');
+
+      // ADIM 3: Temiz linke doğru dili ekle
+      if (isLocalhost) {
+        // LOCALHOST: /projects/abc.html?lang=en
+        link.setAttribute('href', `/${cleanHref}?lang=${currentLang}`);
+      } else {
+        // SUNUCU: /en/projects/abc.html
+        link.setAttribute('href', `/${currentLang}/${cleanHref}`);
+      }
+    }
+  });
+});

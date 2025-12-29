@@ -1,0 +1,220 @@
+{
+  "hero":{
+     "hi":"Hello, I’m Yuşa.",
+     "terminalLine1":"I am a software engineer who values learning and continuous improvement, and who turns acquired knowledge into production.",
+     "terminalLine2":"Here you can find my skills in software development and the projects I have completed. I provide support in many areas, from web, mobile, and desktop software to custom solutions.",
+     "terminalLine3":"I hope you enjoy the details and design throughout my site. I look forward to your feedback..."
+  },
+  "terminal-nav":{
+     "cdAbout":"cd ./about",
+     "cdProjects":"cd ./projects",
+     "cdContact":"cd ./contact"
+  },
+  "ascii-wrapper":{
+     "title":"My Skills"
+  },
+  "about":{
+     "title":"About Me",
+     "about-text-title":"# About Me",
+     "about-text1":"Hello, I’m Yuşa",
+     "about-text2":"I started with a curiosity for software, and over time this curiosity turned into producing, experimenting, and improving. Creating something new, turning an idea into a working solution, or improving a small detail are some of the things that motivate me. So far, I have developed projects in different fields. I have worked on automation tools, game logic, desktop, and web-based applications. I mainly build with Python and Delphi.",
+     "about-text3":"What matters most to me in my work is that the result is truly useful and understandable for the person on the other side. My relationship with technology is not about consuming quickly, but about progressing through learning. That’s why I enjoy trying new things, researching, and gradually doing things better. Every project adds something new to me, both technically and intellectually.",
+     "about-text4":"This site exists to share what I’m interested in, what I produce, and how I develop over time. If you’re here, I hope what I do gives you at least a small idea.",
+     "about-text-info-title":"# Information",
+     "about-text-info-text1":"The 'System Information' shown on the site — such as CPU and RAM usage or internet latency — is representative and not real.",
+     "about-text-info-text2":"The 'weather information' you see on the side (or at the top if you are on mobile) will display your local weather if permission is granted; otherwise, it will show the weather in Aksaray."
+  },
+  "hasup-content":{
+     "title":"What Does Hasup Mean?",
+     "p1":"The word 'Hasup' is of Arabic origin and means <strong>'one who calculates, performs calculations'</strong>. In classical literature and modern usage, it is used to refer to devices that perform operations, such as a <strong>'Computer'</strong> or <strong>'Calculator'</strong>.",
+     "p2-title":"# Reason for Choice:",
+     "p2":"The reason for choosing this name is that it directly references my <strong>Engineer</strong> identity (calculation and analytical thinking). With its origin, it represents technical competence, while also offering a memorable and unique phonetic sound.",
+     "p3-title":"Pronunciation",
+     "p3":"/ha-sup/ — The word is pronounced as it is written in Turkish.",
+     "footer":"What does Hasup mean?"
+  },
+  "projects":{
+     "title":"My Projects",
+     "Listp1":"Minecraft MIDI & Pixelart Painter",
+     "Listp2":"Technology Workshop Attendance System",
+     "Listp3":"SweetAlert and Ajax Requests with UniGUI",
+     "Listp4":"PolyBank WEB",
+     "Listp5":"BombSniffer",
+     "Listp6":"Game of Life with Arduino Nano",
+     "Listp7":"Wissio",
+     "Listp8":"Lexio",
+     "commentLine1":"// Load project details",
+     "commentLine2":"// Click to view detailed information"
+  },
+  "contact":{
+     "title":"Contact",
+     "nameLbl":"# Your Name :",
+     "namePh":"Your name...",
+     "emailLbl":"# Email :",
+     "emailPh":"mail@example.com",
+     "messageLbl":"# Your Message :",
+     "messagePh":"Your message...",
+     "sumbitBtn":"EXECUTE"
+  },
+  "start-menu":{
+     "home":"Home",
+     "projects":"Projects",
+     "contact":"Contact",
+     "shutdown":"Shutdown"
+  },
+  "pages":{
+     "common":{
+        "summaryHeader":"Project Summary",
+        "scriptsHeader":"Scripts",
+        "codeHeader":"Code",
+        "copyBtn":"Copy",
+        "linksHeader":"Links",
+        "thanksHeader":"Special Thanks",
+        "usageHeader":"Usage"
+     },
+     "mcpp":{
+        "browserTitle":"Minecraft Pixelart | Hasup",
+        "title":"Minecraft MIDI & Pixelart",
+        "shortDesc":"An application that allows you to play music and create pixel art in your Minecraft world.",
+        "ui":{
+           "imgAlt":"Project Screenshot"
+        },
+        "content":{
+           "p1":"My application, consisting of 2 tabs, allows you to both play music and draw pictures. This application gives you either a programmed sound sequence or a programmed image matrix via an HTML file.",
+           "imgCaption":"Figure 1: Screenshot of the editors.",
+           "p2":"To run the application on your own computer, you first need a Spigot / Bukkit server. You can get one by reading the necessary articles from this <a class='linkler' href='https://www.spigotmc.org/'>$ xdg-open (https://www.spigotmc.org/)</a> site. This server can run locally or globally. What you need is the RCON username and password. RCON is a special command sending protocol found in Spigot / Bukkit servers. Using RCON makes it possible to send commands to the server with 3rd party applications. This is exactly where these converter/sender scripts come into play. The converter web application creates a sequence with information obtained from your MIDI file or image file. When you enter these sequences into the python script, the MCRCON <a class='linkler' href='https://pypi.org/project/mcrcon/'>$ xdg-open (https://pypi.org/project/mcrcon/)</a> library sends the appropriate commands to the server, creating your music and picture.",
+           "p3":"When playing MIDI, you need to create a file named 'music.txt' in the same directory as the python script and paste your music sequence into it.<br><br>(You can change the RCON Server IP and password in the script. You can learn and change your own server's RCON ip and password from the 'server.properties' file. 127.0.0.1 and 12345 were used as default in the current script.)<br><br>In my previous articles, I made a version of this application that only worked with pictures. While that application depended on a single Minecraft version, this application offers a more dynamic structure. It works on any version where an RCON server can be opened.",
+           "p4":"You must first install the library with this command.<br><br>You can use the editor <a class='linkler' href='https://hasup.net/mmpp.html' target='_blank'>from here</a>.<br><br>You can download the Minecraft world <a class='linkler' href='../assets/files/world.rar'>from here</a>."
+        }
+     },
+     "tayoksis":{
+        "browserTitle":"TAYOKSIS | Hasup",
+        "title":"Technology Workshop Attendance System",
+        "shortDesc":"An application I developed for the student community where I am in the management team, used to easily track students in the events we organize.",
+        "ui":{
+           "imgAlt":"Project Screenshot",
+           "imgCaption":"Figure 1: Active screenshot of the application."
+        },
+        "content":{
+           "p1":"A project I developed to facilitate tracking whether students from inside and outside the province participated in the events, how many students came from which university, and the participation rate of students from each university at the TA Fest student summit held in April 2025 by Aksaray University Technology Workshop (New name, Industry and Technology Community) <a class='linkler' href='https://www.linkedin.com/company/sanayiveteknolojitoplulugu'> <br> $ xpd-open https://www.linkedin.com/company/sanayiveteknolojitoplulugu</a>. The project works as a web app using Delphi 12, UniGUI <a class='linkler' href='https://www.unigui.com/'>(https://www.unigui.com/)</a> library and MSSQL database.",
+           "p2":"Students enter the event code projected on a huge screen in the area by logging in with their own accounts, and their attendance is taken. The same student cannot enter the same event twice. Before each event, administrators reset the 'participation_status' column of all users to '0', allowing users to participate in the event again.",
+           "linksText":"You can test the application <a class='linkler' target='_blank' href='https://hasup.net/tayoksis'>here</a>.",
+           "note":"(The event code is set to change every minute and the code screen can only be shown by administrators. So you will not have access to the event code in the current test.)",
+           "thanksText":"I would like to specially thank our (Former) Community President SAFA RAHMAN CENKCİ <a class='linkler' href='https://www.linkedin.com/in/safarahmancenkci'>(https://www.linkedin.com/in/safarahmancenkci/)</a> for the realization of the project and sharing this article."
+        }
+     },
+     "delphi_sweetalert":{
+        "browserTitle":"SweetAlert & Ajax with Delphi | Hasup",
+        "title":"SweetAlert and Ajax Requests with Delphi UniGUI",
+        "shortDesc":"With this application, you can test the Sweet Alert library, which improves UI and UX for your web applications running on the Delphi UniGUI library, and integrate it into your own applications.",
+        "ui":{
+           "imgAlt":"Project Screenshot",
+           "imgCaption":"Figure 1: Active screenshot of the application."
+        },
+        "content":{
+           "p1":"In this application, which I combined from all the examples I could find after not being able to find a proper example after my research, we also get involved with Ajax requests. I wanted to use Sweet Alert because the Message box offered by UniGUI does not appeal to most of us, including me. However, although its usage seems easy, retrieving information from the buttons on Sweet Alert is unfortunately not possible without Ajax requests. Therefore, I developed this application to understand Ajax requests and use them in at least one project. This open-source application was made using Delphi 12.3 and UniGUI version 1597. (It has <strong>not been tested</strong> whether it works on computers with older versions of UniGUI installed.)",
+           "p2":"When you open it in the Designer part, you will see texts unlike the buttons shown in the picture. Those texts are HTML codes and are UniLabel components. I preferred UniLabel because it can process HTML code directly. (You can use UniHTMLFrame if you wish.) Some events occur with Javascript codes and Ajax requests. You can observe Delphi events from the 'Events' window as usual, and JS functions from the 'ClientEvents -> ExtEvents -> click' event.",
+           "linksText":"You can test the application <a class='linkler' target='_blank' href='https://hasup.net/delphi_sweetalert'>here</a>.",
+           "sourceCodeNote":"Please look up github for source codes."
+        }
+     },
+     "polybank":{
+        "browserTitle":"PolyBank Web | Hasup",
+        "title":"PolyBank Web Port",
+        "shortDesc":"Actually a web port of a project developed to provide a solution for money flying in the wind for a simple board game.",
+        "ui":{
+           "imgAlt":"Project Screenshot",
+           "imgCaption":"Figure 1: Active screenshot of the application."
+        },
+        "content":{
+           "p1":"The application, developed by my valuable friend Ahmet Aydos (<a class='linkler' href='https://www.linkedin.com/in/ahmet-aydos/ '>$ xdg-open https://www.linkedin.com/in/ahmet-aydos/ </a> | <a class='linkler' href='https://github.com/SgrAhmet'>$ xdg-open https://github.com/SgrAhmet</a>), who is the first version developer and main idea owner, was actually an alternative solution for money flying in the wind. Since the first version developed with JS was not available on the IOS platform, I developed the web version with Delphi UniGUI to reach more users and out of personal curiosity.",
+           "p2":"Using the application is very simple. Add player names using the box below. Each user is set to start the game with 15000₺. You can change this yourself if you want. The '+' and '-' buttons next to each user represent the transaction type for that user. For example, let 'User 1' be selected as '+' and 'User 2' be selected as '-'. Let's determine the transaction fee as 250₺ from the box above. When we press the 'Change' button next to the box, a transfer of 250₺ occurs from 'User 2's balance to 'User 1's balance. Likewise, these transfers can be made for everyone, including the 'Bank'. The Bank has unlimited money, you can add and subtract as much as you want.<br><br><br>If you want to use the original PolyBank application that I referenced and ported, you can contact Ahmet Aydos. (Necessary links are available.)",
+           "linksText":"You can test the application <a class='linkler' target='_blank' href='https://hasup.net/polybank'>here</a>.",
+           "sourceCodeNote":"Please lookup github for source codes.",
+           "thanksText":"I would like to thank my very precious and valuable classmate Ahmet Aydos for allowing me to create and share this application myself."
+        }
+     },
+     "bombsniffer":{
+        "browserTitle":"Bomb Sniffer | Hasup",
+        "title":"BombSniffer",
+        "shortDesc":"An AI bot that solves the classic Minesweeper game on its own until it succeeds.",
+        "ui":{
+           "imgAlt":"Project Screenshot",
+           "imgCaption":"Video 1: Active working view of the application."
+        },
+        "content":{
+           "p1":"While browsing Youtube one day, I saw a video on 'Code Bullet' <a class='linkler' href='https://www.youtube.com/@CodeBullet'>$ xdg-open (https://www.youtube.com/@CodeBullet)</a> channel where he developed a bot to break the Minesweeper solving record. Inspired by that, I wanted to develop my own bot with my own algorithm.",
+           "p2":"The bot works like this. First, to tell the software that there is a 16x16 minesweeper field, we create a 16x16 matrix and save the content of each cell (like number or flag) to this matrix. Then, using the PyAutoGUI <a class='linkler' href='https://pyautogui.readthedocs.io/'>$ xdg-open (https://pyautogui.readthedocs.io/)</a> library, we move our mouse cursor to safe cells and click. We try to win the game by putting Flags on the cells detected as mines.",
+           "p3":"Of course, this bot does not promise 100% winning in every game. Because there is no such thing as every minesweeper game being 100% solvable. In certain games, your game does not open and you have to click randomly. The probability of that randomly clicked cell being a mine is 40/216 in a 16x16 game. So you can't win 100% in any way. This bot goes a bit ahead of this and progresses rapidly in the game by selecting the safest cell for each cell's neighbors.",
+           "p4":"The working logic is as follows: It starts the game by first selecting a random cell. Then, if it is opened, it detects safe cells and solves the minesweeper with the classic method. But if it doesn't open and only one cell is open, it clicks on a random cell and this loop continues depending on whether it opens or not.",
+           "p5":"If it fails, it automatically restarts the game and continues until it wins.",
+           "usageText":"To use this bot, you must first have Python 3+ and PyAutoGUI library installed on your computer. Then you need to set your Windows display settings to 1920x1080 resolution and 125% scale. Then go to <a class='linkler' href='https://minesweeper.online/'>https://minesweeper.online/</a> from your browser and select the 'Intermediate' option. Just go to the settings gear in the upper right, select the 'Skin' option as 'Low Resolution' and select the 'Pixelated' option under it. These settings are very important for the pixel finding functions in the bot's working logic to work correctly. After making these settings, we return to the game with the 'Return to the game' option at the bottom of the page. We are now ready to use the bot. Running the script with the game on the screen will be enough. Although the bot sometimes bugs out and makes mistakes, it will restart the game and continue clicking. In this case, if you move your mouse to the upper left corner of your screen, the bot will stop. Then you can restart the bot.<br><br>Please do not hesitate to contact me if you cannot use it or do not understand. Good work."
+        }
+     },
+     "ardu_gol":{
+        "browserTitle":"Game of Life with Arduino Nano | Hasup",
+        "title":"Conway's Game of Life with Arduino Nano",
+        "shortDesc":"A simple but enjoyable embedded system project where I display Conway's Game of Life algorithm on a display using a total of 1.6KB RAM on Arduino Nano.",
+        "badges":{
+           "electronics":"Electricity & Electronics"
+        },
+        "ui":{
+           "imgAlt1":"Project Screenshot",
+           "imgCaption1":"Figure 1: View of the circuit on the breadboard.",
+           "videoCaption1":"Video 1: View of the circuit during operation.",
+           "imgAlt2":"Circuit Schematic",
+           "imgCaption2":"Schema 1: Wiring diagram of the circuit."
+        },
+        "content":{
+           "p1":"This application, consisting of one Arduino Nano, one SSD1306 0.96\" OLED Display and 3 buttons, was actually my project assignment for the 'Embedded Systems' course at school. However, since I liked the project very much and after thinking about the idea and improving it a bit, I decided that it could be a good article for here.",
+           "p2":"My application works very simply. I put the processor load on the Nano and make it do the calculations. Then I transfer the information to the display and show it to the user. Of course, thanks to the menu that appears on the screen first, we can choose from ready-made templates.<br><br>Conway's Game of Life algorithm consists of 4 rules, these are:",
+           "rule1Title":"Underpopulation:",
+           "rule1Desc":"A live cell dies in the next generation if it has two or fewer live neighbors.",
+           "rule2Title":"Survival:",
+           "rule2Desc":"A live cell continues to live in the next generation if it has two or three live neighbors.",
+           "rule3Title":"Overpopulation:",
+           "rule3Desc":"A live cell dies in the next generation if it has more than three live neighbors.",
+           "rule4Title":"Reproduction:",
+           "rule4Desc":"A dead cell becomes alive in the next generation if it has exactly three live neighbors.",
+           "p3":"According to these rules, live cells became '1' and dead cells became '0' in my own algorithm. Thus, I was able to simulate future generations on a grid.<br><br>I saved the template arrays to PROGMEM. Because it was pushing the RAM amount too much. SSD1306 asks for at least 1kb RAM to work. Even if you use 1025 bytes of RAM from the 2KB Nano RAM, the display will not work."
+        }
+     },
+     "wissio":{
+        "browserTitle":"Wissio | Hasup",
+        "title":"Wissio",
+        "shortDesc":"Wissio is a quiz application. We wanted to use an application of our own for the 'Quiz Night' events we organized with my community, so I developed this application.",
+        "ui":{
+           "imgAlt1":"Project Screenshot",
+           "imgCaption1":"Figure 1: Menu screenshot of the application.",
+           "imgAlt2":"Project Screenshot",
+           "imgCaption2":"Figure 2: Active screenshot of the application."
+        },
+        "content":{
+           "p1":"As Aksaray University Industry and Technology Community <a class='linkler' href='https://www.linkedin.com/company/sanayiveteknolojitoplulugu'>$ xdg-open (https://www.linkedin.com/company/sanayiveteknolojitoplulugu)</a>, we organize 'Quiz Night' events. In these events, a movie or series is selected by participant votes, and it is aimed to present a fun activity to the participants with questions prepared by the management. As a community, we wanted to use our own application in the event we organized ourselves. By undertaking this task, 'Wissio', with all its unique algorithms and UI components, emerged.",
+           "p2":"The word 'Wiss' means 'to know' in German. I added 'io' to the end and found the name 'Wissio'.<br><br>Wissio, whose ultimate goal is purely to show questions for quiz contests, was written with Delphi and UniGUI. Users can upload their own questions to Wissio. We can achieve this thanks to the questions in JSON format. JSON format (Javascript Object Notation) has a very wide and flexible working range today; such as information exchange between server and client, APIs, configuration files, local databases.<br><br>It wouldn't be wrong to say that my intended use actually falls into the 'local database' category. Users save questions and answers in a certain format to a JSON file and upload it to Wissio. Wissio parses this JSON file and saves the questions to a hidden list. The reason for saving to the list is to save the JSON file from being constantly kept on the server and to load all the load from the server to the client. So no matter how long your questions are, even if you use millions of characters, you will only experience waiting during the file upload phase. Since all the questions are already saved in the lists during the competition, it means that you will never experience waiting during the competition. It wouldn't be wrong to call it a very good optimization example.<br><br>In this way, users can create the competition they want with the JSON editor (you can reach it here) located inside Wissio and use it with Wissio.<br><br>This project was important to me in this respect: I tried new techniques and succeeded. So I improved myself. This is a huge development for me because while designing dynamic websites with UniGUI, I was only using the UI elements offered to us by Delphi (like buttons, textareas, labels), but specifically for this application, I used elements I produced entirely with HTML and CSS. All these UI elements you see on the application are not offered by Delphi, but are elements I produced specially.<br><br>I knew this method was already possible before, but I was a little afraid to try it. With this application, I wanted to get out of my comfort zone and try new things, and I am veeeery satisfied with the result I got. - Especially the 'Show Questions' button :) -",
+           "p3":"Using the application is veeery simple. First, you select and upload your JSON file, which you created with the JSON editor before and which contains your questions, to Wissio with the 'Upload JSON' button. (If you cancel during the upload, it will stay on the loading screen. I couldn't solve this problem, you can refresh the page.). Then it shows you the questions so you can check them. You can hide the questions at this time. I added the question hiding feature because in crowded environments, sometimes when projected, the first few questions may have been shown to the contestants. So if you hide the questions and upload, no contestant can see your questions. Then you enter your preferred question duration. By default, it is set to 1 minute, that is, 60 seconds. You can adjust this as you wish. Finally, you are ready to start the competition.<br><br>From the moment you click the 'Start Competition' button, it means you are on the Competition screen. There is a green bar at the top of this screen. This bar is the time bar and its color slowly turns red. When it is completely finished, the answer is automatically written on the screen. You can wait as long as you want on this screen to ensure your checks. (Actually, you can't wait as long as you want because the application's timeout is 100 minutes :P) After checking, you can move on to the next question with the 'Next Question' button and start the cycle again.<br><br><br>With the links below, you can also use Wissio and have quality and fun times with your friends, family and loved ones.",
+           "linksText1":"You can test the application <a class='linkler' target='_blank' href='https://hasup.net/wissio'>here</a>.",
+           "linksText2":"You can also use the editor <a class='linkler' target='_blank' href='https://hasup.net/wissio/json_editoru.html'>here</a>.",
+           "sourceCodeNote":"Please lookup github for source codes."
+        }
+     },
+     "lexio":{
+        "browserTitle":"Lexio | Hasup",
+        "title":"Lexio",
+        "shortDesc":"Lexio is a word game competition application. A reinterpretation of the format we watched on TV for years with my own methods.",
+        "ui":{
+           "imgAlt1":"Project Screenshot",
+           "imgCaption1":"Figure 1: Menu screenshot of the application.",
+           "imgAlt2":"Project Screenshot",
+           "imgCaption2":"Figure 2: Active screenshot of the application."
+        },
+        "content":{
+           "p1":"One day while browsing Youtube, I came across the 'Word Game' (Kelime Oyunu) competition hosted by Ali İhsan Varol. I used to watch this competition a lot and I always wanted to participate as a contestant. Then, since I recently developed a similar application, I developed this application because I said to myself that I can do this.",
+           "p2":"The word 'Lex' means 'word' in Latin. I added 'io' to the end and found the name 'Lexio'.<br><br>The purpose of the application is to be a screen for the questions of the competition in the Word Game format and to track points. The rules of the game are the same as in the format: 4:30 minutes time, 100 points for each letter.<br><br>As for its technical structure, I did not want to upload questions with JSON format like Wissio this time. I don't know why, actually it would be easier with JSON, but I preferred it this way this time. We write your question and answer and add a question with the 'Add Question' button. Then you can see the questions you added in the section just above to check and delete them.<br><br>After adding at least 2 questions, we switch to the competition screen with the 'Start Competition' button.<br><br>This project, just like 'Wissio', consists entirely of UI elements I created. I am veeeery satisfied with the result..",
+           "p3":"You see the competition screen above. There is a 'Start/Stop Time' button, 'Get Letter' button, 'Reveal Word' button on the bottom left. Their functions are exactly as written on them. It starts/stops the time, gets a letter, reveals the word completely.<br><br>The competition scenario happens like this. The host (moderator) starts the competition with the 'Next Question' button. The question appears on the screen and the host reads the question. The contestant starts thinking, when he/she states that he/she is ready to answer, the time is stopped with the 'Stop Time' button. The response time here is at the discretion of the host. The contestant gives his/her answer, the host reveals the word and this cycle continues with the next question.<br><br>When your questions are finished, the competition screen closes automatically and the total score in the contestant's safe is written on the screen. Very simple to use.<br><br><br>With the links below, you can also use Lexio and have quality and fun times with your friends, family and loved ones.",
+           "linksText":"You can test the application <a class='linkler' target='_blank' href='https://hasup.net/lexio'>here</a>.",
+           "sourceCodeNote":"Please lookup github for source codes."
+        }
+     }
+  }
+}

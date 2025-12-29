@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arduino Nano ile Game of Life | Hasup</title>
+  <title data-i18n="pages.ardu_gol.browserTitle">Arduino Nano ile Game of Life | Hasup</title>
   
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <link rel="stylesheet" href="../assets/style.css">
-
   <link rel="stylesheet" href="assets/project-style.css">
-
 </head>
 <body class="project-page">
 
@@ -36,15 +32,15 @@
       
       <div class="project-header">
         <div class="header-left">
-          <h1 class="project-title">Arduino Nano ile Conway's Game of Life</h1>
-          <p>
+          <h1 class="project-title" data-i18n="pages.ardu_gol.title">Arduino Nano ile Conway's Game of Life</h1>
+          <p data-i18n="pages.ardu_gol.shortDesc">
             Arduino Nano ile yaptığım bu projede Conway's Game of Life algoritmasını, toplam 1.6KB RAM harcayarak displayde gösteren basit ama keyifli bir gömülü sistem projesi.
           </p>
           <br>
           <div class="tech-badges">
             <span class="badge">Arduino Nano</span>
             <span class="badge">C</span>
-            <span class="badge">Elektrik & Elektronik</span>
+            <span class="badge" data-i18n="pages.ardu_gol.badges.electronics">Elektrik & Elektronik</span>
           </div>
         </div>
       </div>
@@ -61,47 +57,48 @@
 
         <div class="readme-content">
           
-          <h3><span class="hash">#</span> Proje Özeti</h3>
-          <p>
-            Bir tane Arduino Nano, bir tane SSD1306 0.96" OLED Display ve 3 tane butondan oluşan bu uygulama okuldaki 'Gömülü Sistemler' dersim için proje ödevimdi aslında. Ancak projenin çok hoşuma gitmesi ve biraz da fikir üzerine düşüp azıcık geliştirmeden sonra burası için iyi bir yazı olabileceğine karar verdim.
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.summaryHeader">Proje Özeti</span></h3>
+          <p data-i18n="pages.ardu_gol.content.p1">
+            Bir tane Arduino Nano, bir tane SSD1306 0.96" OLED Display ve 3 tane butondan oluşan bu uygulama...
           </p>
 
           <div class="project-image-container">
-            <img src="assets/images/ardu.png" alt="Proje Ekran Görüntüsü">
-            <span class="img-caption">Resim 1: Devrenin breadboard üzerindeki görüntüsü.</span>
+            <img src="assets/images/ardu.png" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.ardu_gol.ui.imgAlt1">
+            <span class="img-caption" data-i18n="pages.ardu_gol.ui.imgCaption1">Resim 1: Devrenin breadboard üzerindeki görüntüsü.</span>
           </div>
 
           <div class="project-image-container">
             <video id="myVideo" width="700" height="500" autoplay="" muted="" loop="">
               <source src="assets/videos/ardu_gol.mp4" type="video/mp4">
-          Tarayıcınız video desteklememektedir.
-              </video>
-            <span class="img-caption">Video 1: Devrenin çalışma anındaki görüntüsü.</span>
+              Tarayıcınız video desteklememektedir.
+            </video>
+            <span class="img-caption" data-i18n="pages.ardu_gol.ui.videoCaption1">Video 1: Devrenin çalışma anındaki görüntüsü.</span>
           </div>
 
-          <p>Uygulamam çok basit çalışıyor. İşlemci yükünü Nano'ya yükleyip hesaplamaları yaptırıyorum. Daha sonra bilgiyi displaye aktarıp kullanıcıya gösteriyorum. Tabii ilk önce ekrana gelen menü sayesinde hazır şablonlardan seçim yapabiliyoruz.
-            <br><br>
-            Conway's Game of Life algoritması 4 kuraldan oluşur, bunlar:</p>
+          <p data-i18n="pages.ardu_gol.content.p2">Uygulamam çok basit çalışıyor. İşlemci yükünü Nano'ya yükleyip...</p>
 
-            <h2>Yalnızlık (Underpopulation):</h2>
-            Canlı bir hücre, iki veya daha az canlı komşuya sahipse bir sonraki nesilde ölür.
-            <h2>Hayatta Kalma (Survival):</h2>
-            Canlı bir hücre, iki veya üç canlı komşuya sahipse bir sonraki nesilde yaşamaya devam eder.
-            <h2>Aşırı Nüfus (Overpopulation):</h2>
-            Canlı bir hücre, üçten fazla canlı komşuya sahipse bir sonraki nesilde ölür.
-            <h2> Doğum (Reproduction):</h2>
-            Ölü bir hücre, tam olarak üç canlı komşuya sahipse bir sonraki nesilde canlı hale gelir.
+          <h2 data-i18n="pages.ardu_gol.content.rule1Title">Yalnızlık (Underpopulation):</h2>
+          <span data-i18n="pages.ardu_gol.content.rule1Desc">Canlı bir hücre, iki veya daha az canlı komşuya sahipse bir sonraki nesilde ölür.</span>
+          
+          <h2 data-i18n="pages.ardu_gol.content.rule2Title">Hayatta Kalma (Survival):</h2>
+          <span data-i18n="pages.ardu_gol.content.rule2Desc">Canlı bir hücre, iki veya üç canlı komşuya sahipse bir sonraki nesilde yaşamaya devam eder.</span>
+          
+          <h2 data-i18n="pages.ardu_gol.content.rule3Title">Aşırı Nüfus (Overpopulation):</h2>
+          <span data-i18n="pages.ardu_gol.content.rule3Desc">Canlı bir hücre, üçten fazla canlı komşuya sahipse bir sonraki nesilde ölür.</span>
+          
+          <h2 data-i18n="pages.ardu_gol.content.rule4Title">Doğum (Reproduction):</h2>
+          <span data-i18n="pages.ardu_gol.content.rule4Desc">Ölü bir hücre, tam olarak üç canlı komşuya sahipse bir sonraki nesilde canlı hale gelir.</span>
 
-            <p>Bu kurallara göre kendi algoritmamda canlı hücreler '1', ölü hücreler '0' oldu. Böylece bir grid üzerinde gelecek nesilleri simule edebildim.
-              <br><br>
-              Şablon dizilerini PROGMEM'e kaydettim. Çünkü RAM miktarını çok fazla zorluyordu. SSD1306 çalışabilmek için en az 1kb RAM istiyor. Siz 2KB olan Nano RAM'inden 1025 byte RAM bile kullansanız display çalışmayacaktır.</p>
+          <p style="margin-top: 20px;" data-i18n="pages.ardu_gol.content.p3">
+              Bu kurallara göre kendi algoritmamda canlı hücreler '1', ölü hücreler '0' oldu...
+          </p>
 
-              <div class="project-image-container">
-                <img src="assets/images/schematic-display.png" height="700" width="500" alt="Proje Ekran Görüntüsü">
-                <span class="img-caption">Şema 1: Devrenin bağlantı şeması.</span>
-              </div>
+          <div class="project-image-container">
+            <img src="assets/images/schematic-display.png" height="700" width="500" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.ardu_gol.ui.imgAlt2">
+            <span class="img-caption" data-i18n="pages.ardu_gol.ui.imgCaption2">Şema 1: Devrenin bağlantı şeması.</span>
+          </div>
 
-          <h3><span class="hash">#</span> Kod</h3>
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.codeHeader">Kod</span></h3>
           <div class="code-window">
   
             <div class="code-header">
@@ -110,15 +107,14 @@
                 <span class="filename">ardu_gol.ino</span>
                 <span class="lang-badge">C</span>
               </div>
-              <button class="copy-btn" title="Kodu Kopyala">
+              <button class="copy-btn" title="Kodu Kopyala" data-i18n-title="pages.common.copyBtn">
                 <i class="fa-regular fa-copy"></i>
-                <span class="btn-text">Kopyala</span>
+                <span class="btn-text" data-i18n="pages.common.copyBtn">Kopyala</span>
               </button>
             </div>
           
             <div class="code-content">
-          <pre><code>#include <Wire.h> 
-#include <span><</span>Adafruit_GFX.h>
+              <pre><code>#include <span><</span>Adafruit_GFX.h>
 #include <span><</span>Adafruit_SSD1306.h>
 
 #define SCREEN_WIDTH 128
@@ -430,10 +426,10 @@ void loop() {
     drawMenu();
   }
 }
+                
 </code></pre>
-</div>
-</div>
-          
+            </div>
+          </div>
          
         </div>
       </div>
@@ -447,16 +443,17 @@ void loop() {
       <div class="start-menu-wrapper">
         
         <div class="start-btn-trigger">
-          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <img src="../assets/favicon.svg" alt="Hasup OS" class="os-logo">
           <span class="os-text">Hasup OS</span>
         </div>
   
         <div class="start-popup">
           
-           <div class="menu-header">
+          <div class="menu-header">
             <div class="user-avatar">
               <img src="../assets/favicon.svg" alt="Hasup OS">
             </div>
+            
             <div class="user-details">
               <span class="username">Hasup OS</span>
               <span class="role">v1.0</span>
@@ -465,13 +462,13 @@ void loop() {
   
           <ul class="menu-links">
             <li>
-              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+              <a href="#hero"><i class="fa-solid fa-house"></i> <span data-i18n="start-menu.home"></span></a>
             </li>
             <li>
-              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+              <a href="#projects"><i class="fa-solid fa-diagram-project"></i> <span data-i18n="start-menu.projects"></span></a>
             </li>
             <li>
-              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+              <a href="#contact"><i class="fa-solid fa-address-book"></i> <span data-i18n="start-menu.contact"></span></a>
             </li>
             
             <li class="divider"></li> <li>
@@ -484,12 +481,17 @@ void loop() {
                 <i class="fa-brands fa-instagram"></i> Instagram
               </a>
             </li>
+            <li>
+              <a href="https://github.com/yushadev0/" target="_blank">
+                <i class="fa-brands fa-github"></i> Github
+              </a>
+            </li>
   
             <li class="divider"></li>
   
             <li>
               <a href="javascript:location.reload()" class="shutdown">
-                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+                <i class="fa-solid fa-power-off"></i> <span data-i18n="start-menu.shutdown"></span>
               </a>
             </li>
           </ul>
@@ -515,5 +517,6 @@ void loop() {
   </button>
 
   <script src="../assets/script.js"></script>
+  <script src="../assets/i18n.js"></script>
 </body>
 </html>

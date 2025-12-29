@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bomb Sniffer | Hasup</title>
+  <title data-i18n="pages.bombsniffer.browserTitle">Bomb Sniffer | Hasup</title>
   
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <link rel="stylesheet" href="../assets/style.css">
-
   <link rel="stylesheet" href="assets/project-style.css">
-
 </head>
 <body class="project-page">
 
@@ -36,8 +32,8 @@
       
       <div class="project-header">
         <div class="header-left">
-          <h1 class="project-title">BombSniffer</h1>
-          <p>
+          <h1 class="project-title" data-i18n="pages.bombsniffer.title">BombSniffer</h1>
+          <p data-i18n="pages.bombsniffer.shortDesc">
             Klasik Mayın Tarlası oyununu kendi başına başarılı olana kadar çözen bir yapay zeka botu.
           </p>
           <br>
@@ -60,33 +56,38 @@
 
         <div class="readme-content">
           
-          <h3><span class="hash">#</span> Proje Özeti</h3>
-          <p>
-            Bir gün Youtube'da gezinirken 'Code Bullet' <a class="linkler" href="https://www.youtube.com/@CodeBullet">(https://www.youtube.com/@CodeBullet)</a>  kanalında gördüğüm, Mayın Tarlası çözme rekoru kırmak için bir bot geliştirdiği bir video gördüm. Bende oradan esinlenerek kendi botumu kendi algoritmamla geliştirmek istedim.
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.summaryHeader">Proje Özeti</span></h3>
+          <p data-i18n="pages.bombsniffer.content.p1">
+            Bir gün Youtube'da gezinirken 'Code Bullet' kanalında gördüğüm...
           </p>
 
           <div class="project-image-container">
-            <img src="assets/images/mayin-tarlasi.gif" alt="Proje Ekran Görüntüsü">
-            <span class="img-caption">Video 1: Uygulamanın aktif çalışma görüntüsü.</span>
+            <img src="assets/images/mayin-tarlasi.gif" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.bombsniffer.ui.imgAlt">
+            <span class="img-caption" data-i18n="pages.bombsniffer.ui.imgCaption">Video 1: Uygulamanın aktif çalışma görüntüsü.</span>
           </div>
 
-          <p>
-            Bot şu şekilde çalışıyor. İlk önce 16x16'lık bir mayın tarlası olduğunu yazılıma anlatmak için 16x16'lık bir matris oluşturup her hücrenin içeriğini (sayı veya bayrak gibi) bu matrise kaydediyoruz. Daha sonrasında PyAutoGUI <a class="linkler" href="https://pyautogui.readthedocs.io/">(https://pyautogui.readthedocs.io/)</a>  kütüphanesi ile ekrandaki fare imlecimizi güvenli hücrelere götüttürüp bastırıyoruz. Mayın tespit edilen hücrelere ise Bayrak koydurup oyunu kazanmaya çalışıyoruz. 
+          <p data-i18n="pages.bombsniffer.content.p2">
+            Bot şu şekilde çalışıyor. İlk önce 16x16'lık bir mayın tarlası olduğunu...
           </p>
 
-          <p>Tabii ki bu bot her oyunda %100 kazanma vadetmiyor. Hiç bir mayın tarlası oyunu %100 olarak çözülecek diye bir şey yoktur çünkü. Belirli oyunlarda oyununuz açılmaz ve rastgele tıklamak zorunda kalırsınız. O rastgele tıkladığınız hücrenin mayın çıkma olasılığı 16x16'lık oyunda 40/216'dır. Yani hiç bir şekilde %100 olarak kazanamazsınız. Bu bot ise bunun birazcık önüne geçiyor ve her hücre komşuları için en güvenli hücreyi seçerek oyunda hızla ilerliyor. </p>
+          <p data-i18n="pages.bombsniffer.content.p3">
+            Tabii ki bu bot her oyunda %100 kazanma vadetmiyor...
+          </p>
 
-          <p>Çalışma mantığı ise şöyle: İlk olarak rastgele bir hücre seçip oyuna başlıyor. Daha sonrasında eğer açılmış ise güvenli hücreleri tespit ederek klasik yöntemle mayın tarlasını çözüyor. Ama eğer açılmaz ve tek hücre açık olursa rastgele bir hücreye tıklıyor ve açılıp açılmama durumuna göre bu döngü devam ediyor. </p>
+          <p data-i18n="pages.bombsniffer.content.p4">
+            Çalışma mantığı ise şöyle: İlk olarak rastgele bir hücre seçip...
+          </p>
 
-          <p>Eğer yanarsa oyunu otomatik olarak yeniden başlatıyor ve kazanana kadar devam ediyor.</p>
+          <p data-i18n="pages.bombsniffer.content.p5">
+            Eğer yanarsa oyunu otomatik olarak yeniden başlatıyor ve kazanana kadar devam ediyor.
+          </p>
 
-          <h3><span class="hash">#</span> Kullanımı</h3>
-          <p>Bu botu kullanmak için ilk önce bilgisayarınızda Python 3+ ve PyAutoGUI kütüphanesi kurulu olmalı. Daha sonrasında Windows görüntü ayarlarınızda 1920x1080 çözünürlük ve %125 ölçeğe getirmeniz gerekiyor. Sonrasında ise tarayıcınızdan <a class="linkler" href="https://minesweeper.online/">https://minesweeper.online/</a>  sitesine gidip 'Intermediate' seçeneğini seçiyoruz. Sadece sağ üstte bulunan ayarlar çarkına girip, 'Skin' seçeneğini 'Low Resolution' seçip altındaki 'Pixelated' seçeneğini seçiyoruz. Bu ayarlar botun çalışma mantığındaki pixel bulma fonksiyonlarının doğru çalışabilmesi için çok önemli. Bu ayarları yaptıktan sonra sayfanın altında bulunan 'Return to the game' seçeneği ile oyuna dönüyoruz. Artık botu kullanmaya hazırız. Oyun ekranda kalacak şekilde scripti çalıştırmanız yeterli olacaktır. Bot bazen bug'a girip hata yapmasına rağmen oyunu yeniden başlatıp tıklamalar yapmaya devam edecektir. Bu durumda farenizi ekranınızın sol üst köşesine götürürseniz bot duracaktır. Sonrasında yeniden botu başlatabilirsiniz.
-            <br><br>
-            Kullanamadığınız veya anlamadığınız durumda bana ulaşmaktan lütfen çekinmeyin. İyi çalışmalar.</p>
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.usageHeader">Kullanımı</span></h3>
+          <p data-i18n="pages.bombsniffer.content.usageText">
+            Bu botu kullanmak için ilk önce bilgisayarınızda Python 3+ ve PyAutoGUI...
+          </p>
           
-          
-          <h3><span class="hash">#</span> Scriptler</h3>
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.scriptsHeader">Scriptler</span></h3>
 
           <div class="code-window">
   
@@ -96,14 +97,14 @@
                 <span class="filename">bombsniffer.py</span>
                 <span class="lang-badge">python</span>
               </div>
-              <button class="copy-btn" title="Kodu Kopyala">
+              <button class="copy-btn" title="Kodu Kopyala" data-i18n-title="pages.common.copyBtn">
                 <i class="fa-regular fa-copy"></i>
-                <span class="btn-text">Kopyala</span>
+                <span class="btn-text" data-i18n="pages.common.copyBtn">Kopyala</span>
               </button>
             </div>
           
             <div class="code-content">
-          <pre><code>import pyautogui
+              <pre><code>import pyautogui
 import time
 import random
 
@@ -254,9 +255,13 @@ while True:
             if kapali:
                 random.shuffle(kapali)
                 tıkla(*kapali[0])
-                time.sleep(0.005)</code></pre>
-</div>
-  <div>
+                time.sleep(0.005)
+</code></pre>
+            </div>
+            
+            <div></div>
+          </div>
+
         </div>
       </div>
 
@@ -269,7 +274,7 @@ while True:
       <div class="start-menu-wrapper">
         
         <div class="start-btn-trigger">
-          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <img src="../assets/favicon.svg" alt="Hasup OS" class="os-logo">
           <span class="os-text">Hasup OS</span>
         </div>
   
@@ -279,6 +284,7 @@ while True:
             <div class="user-avatar">
               <img src="../assets/favicon.svg" alt="Hasup OS">
             </div>
+            
             <div class="user-details">
               <span class="username">Hasup OS</span>
               <span class="role">v1.0</span>
@@ -287,13 +293,13 @@ while True:
   
           <ul class="menu-links">
             <li>
-              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+              <a href="#hero"><i class="fa-solid fa-house"></i> <span data-i18n="start-menu.home"></span></a>
             </li>
             <li>
-              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+              <a href="#projects"><i class="fa-solid fa-diagram-project"></i> <span data-i18n="start-menu.projects"></span></a>
             </li>
             <li>
-              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+              <a href="#contact"><i class="fa-solid fa-address-book"></i> <span data-i18n="start-menu.contact"></span></a>
             </li>
             
             <li class="divider"></li> <li>
@@ -306,12 +312,17 @@ while True:
                 <i class="fa-brands fa-instagram"></i> Instagram
               </a>
             </li>
+            <li>
+              <a href="https://github.com/yushadev0/" target="_blank">
+                <i class="fa-brands fa-github"></i> Github
+              </a>
+            </li>
   
             <li class="divider"></li>
   
             <li>
               <a href="javascript:location.reload()" class="shutdown">
-                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+                <i class="fa-solid fa-power-off"></i> <span data-i18n="start-menu.shutdown"></span>
               </a>
             </li>
           </ul>
@@ -337,5 +348,6 @@ while True:
   </button>
 
   <script src="../assets/script.js"></script>
+  <script src="../assets/i18n.js"></script>
 </body>
 </html>

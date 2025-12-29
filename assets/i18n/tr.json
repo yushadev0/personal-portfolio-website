@@ -1,0 +1,220 @@
+{
+  "hero":{
+     "hi":"Merhabalar, Ben Yuşa.",
+     "terminalLine1":"Öğrenmeyi ve sürekli gelişmeyi önemseyen, edindiği bilgileri üretime dönüştüren bir yazılım mühendisiyim.",
+     "terminalLine2":"Burada yazılım alanındaki yeteneklerimi ve tamamladığım projeleri bulabilirsiniz. Web, mobil ve masaüstü yazılımlardan özel çözümlere kadar birçok alanda sizlere destek oluyorum.",
+     "terminalLine3":"Sitemdeki ayrıntı ve detaylar umarım hoşunuza gider. Geribildirimlerinizi beklemekteyim..."
+  },
+  "terminal-nav":{
+     "cdAbout":"cd ./hakkımda",
+     "cdProjects":"cd ./projelerim",
+     "cdContact":"cd ./iletişim"
+  },
+  "ascii-wrapper":{
+     "title":"Becerilerim"
+  },
+  "about":{
+     "title":"Hakkımda",
+     "about-text-title":"# Hakkımda",
+     "about-text1":"Merhaba, Ben Yuşa",
+     "about-text2":"Yazılıma merak ederek başladım ve bu merak zamanla üretmeye, denemeye ve geliştirmeye dönüştü. Yeni bir şeyler ortaya çıkarmak, bir fikri çalışır hâle getirmek ya da küçük bir detayı daha iyi yapmak beni motive eden şeylerden biri. Bugüne kadar farklı alanlarda projeler geliştirdim. Otomasyon araçları, oyun mantıkları, masaüstü ve web tabanlı uygulamalar üzerinde çalıştım. Genellikle Python ve Delphi ile üretim yapıyorum ",
+     "about-text3":"Yaptığım işlerde benim için önemli olan; ortaya çıkan şeyin gerçekten işe yaraması ve karşısındaki kişi için anlaşılır olması. Teknolojiyle ilişkim hızlıca tüketmekten çok, öğrenerek ilerlemek üzerine. Bu yüzden yeni şeyler denemeyi, araştırmayı ve zamanla daha iyisini yapmayı seviyorum. Her proje bana hem teknik hem de düşünsel olarak yeni bir şey katıyor.",
+     "about-text4":"Bu site, nelerle ilgilendiğimi, neler ürettiğimi ve zaman içinde nasıl geliştiğimi paylaşmak için var. Eğer buradaysanız, umarım yaptıklarım size küçük de olsa bir fikir verir.",
+     "about-text-info-title":"# Bilgilendirme",
+     "about-text-info-text1":"Site üzerinde bulunan 'Sistem Bilgileri' -CPU ve RAM kullanımları, İnternet geçikmesi- gibi bilgiler temsilidir, gerçek değildir.",
+     "about-text-info-text2":"Yan tarafta (mobilde iseniz üst tarafta) gördüğünüz 'hava durumu' izin verilmesi durumunda sizin konumunuzu, aksi takdirde Aksaray'ın hava durumunu gösterecektir."
+  },
+  "hasup-content":{
+     "title":"Hasup Ne Demek?",
+     "p1":"'Hasup' kelimesi, Arapça kökenli olup <strong>'hesap eden, hesaplama yapan'</strong> anlamlarına gelir. Klasik literatürde ve günümüzde; işlem yapan cihazları, yani <strong>'Bilgisayar'</strong>veya <strong>'Hesap Makinesi'</strong> gibi cihazları ifade etmek için kullanılır.",
+     "p2-title":"# Seçim Nedeni:",
+     "p2":"Bu ismin tercih edilme nedeni; <strong>Mühendis</strong> kimliğime (hesaplama ve analitik düşünce yapısına) doğrudan bir gönderme yapmasıdır. Hem kökeniyle teknik yetkinliği temsil etmekte hem de fonetik olarak akılda kalıcı, özgün bir tını sunmaktadır.",
+     "p3-title":"Okunuşu",
+     "p3":"/ha-sup/ — Kelimenin okunuşu, Türkçe'de yazıldığı gibidir.",
+     "footer":"Hasup ne demek?"
+  },
+  "projects":{
+     "title":"Projelerim",
+     "Listp1":"Minecraft MIDI & Pixelart Painter",
+     "Listp2":"Teknoloji Atölyesi Yoklama Sistemi",
+     "Listp3":"UniGUI ile Sweetalert ve Ajax İstekleri",
+     "Listp4":"PolyBank WEB",
+     "Listp5":"BombSniffer",
+     "Listp6":"Arduino Nano ile Game of Life",
+     "Listp7":"Wissio",
+     "Listp8":"Lexio",
+     "commentLine1":"// Proje detaylarını yükle",
+     "commentLine2":"// Detaylı olarak incelemek için; (tıklayabilirsiniz)"
+  },
+  "contact":{
+     "title":"İletişim",
+     "nameLbl":"# Adınız :",
+     "namePh":"Adınız...",
+     "emailLbl":"# Eposta :",
+     "emailPh":"mail@ornek.com",
+     "messageLbl":"# Mesajınız :",
+     "messagePh":"Mesajınız...",
+     "sumbitBtn":"GÖNDER"
+  },
+  "start-menu":{
+     "home":"Ana Sayfa",
+     "projects":"Projelerim",
+     "contact":"İletişim",
+     "shutdown":"Sistemi Kapat"
+  },
+  "pages":{
+     "common":{
+        "summaryHeader":"Proje Özeti",
+        "scriptsHeader":"Scriptler",
+        "codeHeader":"Kod",
+        "copyBtn":"Kopyala",
+        "linksHeader":"Linkler",
+        "thanksHeader":"Teşekkür",
+        "usageHeader":"Kullanımı"
+     },
+     "mcpp":{
+        "browserTitle":"Minecraft Pixelart | Hasup",
+        "title":"Minecraft MIDI & Pixelart",
+        "shortDesc":"Minecraft dünyanızda müzik çalabileceğiniz ve pixelart oluşturabileceğiniz bir uygulama.",
+        "ui":{
+           "imgAlt":"Proje Ekran Görüntüsü"
+        },
+        "content":{
+           "p1":"2 sekmeden oluşan uygulamam size hem müzik çalmanızı hem de resim çizmenizi sağlıyor. Bu uygulama bi html dosyası üzerinden size ya programlanmış ses dizisi verir ya da programlanmış resim matrisi.",
+           "imgCaption":"Resim 1: Editörlerin ekran görüntüsü.",
+           "p2":"Uygulamayı kendi bilgisayarınızda çalıştırmak için ilk önce bir Spigot / Bukkit sunucunuz olması gerekir. Bu <a class='linkler' href='https://www.spigotmc.org/'>$ xdg-open (https://www.spigotmc.org/)</a> siteden gerekli makaleleri okuyarak kendinize bir tane edinebilirsiniz. Bu sunucu lokalde de çalışabilir, globalde de. Sizin ihtiyacınız olan RCON kullanıcı adı ve şifresidir. RCON Spigot / Bukkit sunucularında bulunan özel bir komut gönderme protokolüdür. RCON kullanarak 3. taraf uygulamalarla sunucuya komut göndermeyi mümkün kılar. İşte tam da bu anda bu dönüştürücü/gönderici scriptleri devreye giriyor. Dönüştürücü web uygulaması sizin MIDI dosyanızdan veya resim dosyanızdan elde edilen bilgilerle dizi oluştururlar. Bu dizileri python scriptine girdiğinizde MCRCON <a class='linkler' href='https://pypi.org/project/mcrcon/'>$ xdg-open (https://pypi.org/project/mcrcon/)</a> kütüphanesi sunucuya uygun komutları gönderek müziğinizin ve resminizin oluşmasını sağlar.",
+           "p3":"MIDI çalarken python scripti ile aynı dizinde 'music.txt' diye bir dosya oluşturup müzik dizinizi içine yapıştırmanız gerekmektedir.<br><br>(Scriptte RCON Sunucu IP'sini ve şifresini değiştirebilirsiniz. Kendi sunucunuzun RCON ip ve şifrenizi 'server.properties' dosyasından öğrenip, değiştirebilirsiniz. Mevcut scriptte default olarak 127.0.0.1 ve 12345 kullanıldı.)<br><br>Daha önceki yazılarımda bu uygulamanın sadece resimle çalışan halini yapmıştım. O uygulama sadece tek Minecraft sürümüne bağlıyken bu uygulama daha dinamik bir yapı sunmakta. RCON sunucusu açılabilen her sürümde çalışmaktadır.",
+           "p4":"Bu komutla ilk önce kütüphaneyi kurmanız gerekmektedir.<br><br><a class='linkler' href='https://hasup.net/mmpp.html' target='_blank'>Buradan</a> editörü kullanabilirsiniz.<br><br><a class='linkler' href='../assets/files/world.rar'>Buradan</a> da Minecraft dünyasını indirebilirsiniz."
+        }
+     },
+     "tayoksis":{
+        "browserTitle":"TAYOKSIS | Hasup",
+        "title":"Teknoloji Atölyesi Yoklama Sistemi",
+        "shortDesc":"Yönetim ekibinde yer aldığım öğrenci topluluğum için geliştirdiğim, yaptığımız etkinliklerde öğrencileri daha rahat takip edebilmemiz için kullandığımız uygulama.",
+        "ui":{
+           "imgAlt":"Proje Ekran Görüntüsü",
+           "imgCaption":"Resim 1: Uygulamanın aktif ekran görüntüsü."
+        },
+        "content":{
+           "p1":"Aksaray Üniversitesi Teknoloji Atölyesi (Yeni adıyla, Sanayi ve Teknoloji Topluluğu ) <a class='linkler' href='https://www.linkedin.com/company/sanayiveteknolojitoplulugu'> <br> $ xpd-open https://www.linkedin.com/company/sanayiveteknolojitoplulugu</a> tarafından 2025 Nisan ayında gerçekleştirilen TA Fest öğrenci zirvesinde il içerisi ve il dışarısından gelen öğrencilerin etkinliklere katılıp katılmadığını, hangi üniversiteden kaç öğrenci gelmiş, hangi üniversiteden kaç öğrenci ne kadar oranla etkinliklere katılmış bunun takibatını kolaylaştırmak için geliştirdiğim bir proje. Proje, Delphi 12 ve UniGUI <a class='linkler' href='https://www.unigui.com/'>(https://www.unigui.com/)</a> kütüphanesi ve MSSQL veritabanı ile bir web app (ağ uygulaması) olarak çalışmakta.",
+           "p2":"Alanda kocaman bir perdeye yansıtılan etkinlik kodunu her öğrenci kendi oluşturdukları hesapları ile giriş yaparak etkinlik kodunu girerler ve yoklamaları alınmış olur. Aynı öğrenci aynı etkinliğe 2 defa giriş yapamaz. Her etkinlikten önce yöneticiler tüm kullanıcıların 'katilma_durum' sütunu '0' durumuna getirerek kullanıcıların tekrardan etkinliğe katılmalarını sağlar.",
+           "linksText":"Uygulamayı <a class='linkler' target='_blank' href='https://hasup.net/tayoksis'>buradan</a> test edebilirsiniz.",
+           "note":"(Etkinlik kodu 1 dakikada bir değişecek şekilde ayarlanmıştır ve sadece yöneticiler tarafından kod ekranı gösterilebilir. Yani mevcut testte etkinlik koduna erişiminiz bulunmayacaktır.)",
+           "thanksText":"(Eski) Topluluk başkanımız SAFA RAHMAN CENKCİ'ye <a class='linkler' href='https://www.linkedin.com/in/safarahmancenkci'>(https://www.linkedin.com/in/safarahmancenkci/)</a> proje'nin hayata geçirilmesi ve bu yazının paylaşılması adına özel olarak teşekkür ederim."
+        }
+     },
+     "delphi_sweetalert":{
+        "browserTitle":"Delphi ile SweetAlert ve Ajax İstekleri | Hasup",
+        "title":"Delphi UniGUI ile SweetAlert ve Ajax İstekleri",
+        "shortDesc":"Delphi UniGUI kütüphanesi üzerinde çalışan web uygulamalarınız için UI ve UX'i geliştiren Sweet Alert kütüphanesini bu uygulama ile test edebilir, kendi uygulamalarınıza entegre edebilirsiniz.",
+        "ui":{
+           "imgAlt":"Proje Ekran Görüntüsü",
+           "imgCaption":"Resim 1: Uygulamanın aktif ekran görüntüsü."
+        },
+        "content":{
+           "p1":"Yaptığım araştırmalardan sonra tam olarak düzgün bir örnek bulamadıktan sonra tüm örneklerden bulup birleştirdiğim bu uygulamada Ajax istekleri ile de haşır neşir oluyoruz. UniGUI'nin bize sunduğu Mesaj kutusu ben dahil bir çoğumuzun gözüne hitap etmediği için Sweet Alert kullanmak istedim. Ancak kullanımı her ne kadar kolay gibi görünsede Sweet Alert üzerinde bulunan düğmelerden bilgi çekmek maalesef Ajax istekleri olmadan pek mümkün değil. O yüzden Ajax isteklerini anlamak ve en azından bir projede kullanmak için bu uygulamayı geliştirdim. Açık kaynak kodlu olan bu uygulama Delphi 12.3 ve UniGUI 1597 sürümü kullanılarak yapıldı. (UniGUI'nin eski sürümleri kurulu olan bilgisayarlarda çalışıp çalışmadığı <strong>test edilmedi.</strong>)",
+           "p2":"Designer kısmında açtığınızda resimde görünen butonlar aksine yazılar göreceksiniz. O yazılar HTML kodu olup UniLabel bileşenidir. UniLabel bileşeni HTML kodunu direkt olarak işleyebildiği için onu tercih ettim. (Siz isterseniz UniHTMLFrame kullanabilirsiniz.) Javascript kodları ve Ajax istekleri ile bazı olaylar olmakta. Delphi olaylarını klasik olduğu gibi 'Events' penceresinden, JS fonksiyonlarını ise 'ClientEvents -> ExtEvents -> click' olayında gözlemleyebilirsiniz.",
+           "linksText":"Uygulamayı <a class='linkler' target='_blank' href='https://hasup.net/delphi_sweetalert'>buradan</a> test edebilirsiniz.",
+           "sourceCodeNote":"Kaynak kodları için github'u kontrol edin."
+        }
+     },
+     "polybank":{
+        "browserTitle":"PolyBank Web | Hasup",
+        "title":"PolyBank Web Port",
+        "shortDesc":"Aslında basit bir kutu oyunu için rüzgarda uçan paralar çözüm üretmek için geliştirilen bir projenin web portu.",
+        "ui":{
+           "imgAlt":"Proje Ekran Görüntüsü",
+           "imgCaption":"Resim 1: Uygulamanın aktif ekran görüntüsü."
+        },
+        "content":{
+           "p1":"İlk sürüm geliştiricisi ve ana fikir sahibi değerli arkadaşım Ahmet Aydos (<a class='linkler' href='https://www.linkedin.com/in/ahmet-aydos/ '>$ xdg-open https://www.linkedin.com/in/ahmet-aydos/ </a> | <a class='linkler' href='https://github.com/SgrAhmet'>$ xdg-open https://github.com/SgrAhmet</a>) tarafından yapılan uygulama, rüzgarda uçuşan paralar için bir alternatif çözümdü aslında. İlk sürümü JS ile geliştirilen uygulama, IOS platformunda bulunmamasından dolayı daha çok kullanıcıya erişmesi amacıyla ve kişisel merakımdan dolayı web sürümünü Delphi UniGUI ile geliştirdim.",
+           "p2":"Uygulamayı kullanmak ise çok basit. Oyuncuların isimlerini aşağı tarafta bulunan kutu yardımıyla ekleyin. Her kullanıcı oyun 15000₺ ile başlayacak şekilde ayarlı. Bunu isterseniz kendiniz ayarlayarak değiştirebilirsiniz. Her kullanıcının yanında bulunan '+' ve '-' butonları o kullanıcıya işlem fiyatının karşılığını temsil etmekte. Örneğin 'Kullanıcı 1', '+' seçilmiş olsun. 'Kullanıcı 2' ise '-' seçilmiş olsun. İşlem ücretini de 250₺ olarak yukarıdaki kutudan belirleyelim. Kutunun yanındaki 'Değişim' tuşuna bastığımızda 'Kullanıcı 2'nin bakiyesinden 'Kullanıcı 1'in bakiyesine 250₺ aktarım gerçekleşmiş olur. Aynı şekilde bu transferler herkes için yapılabilir 'Banka' dahil olmak üzere. Banka'nın sınırsız parası vardır istediğiniz kadar ekleyip çıkarabilirsiniz.<br><br><br>Referans alıp portladığım orijinal PolyBank uygulamasını da kullanmak isterseniz Ahmet Aydos'a ulaşabilirsiniz. (Gerekli linkler mevcut.)",
+           "linksText":"Uygulamayı <a class='linkler' target='_blank' href='https://hasup.net/polybank'>buradan</a> test edebilirsiniz.",
+           "sourceCodeNote":"Kaynak kodları için lütfen github'a göz atın.",
+           "thanksText":"Çok kıymetli ve değerli sınıf arkadaşım Ahmet Aydos'a bu uygulamayı kendim de yapıp paylaşmama izin verdiği için çok teşekkür ederim."
+        }
+     },
+     "bombsniffer":{
+        "browserTitle":"Bomb Sniffer | Hasup",
+        "title":"BombSniffer",
+        "shortDesc":"Klasik Mayın Tarlası oyununu kendi başına başarılı olana kadar çözen bir yapay zeka botu.",
+        "ui":{
+           "imgAlt":"Proje Ekran Görüntüsü",
+           "imgCaption":"Video 1: Uygulamanın aktif çalışma görüntüsü."
+        },
+        "content":{
+           "p1":"Bir gün Youtube'da gezinirken 'Code Bullet' <a class='linkler' href='https://www.youtube.com/@CodeBullet'>$ xdg-open (https://www.youtube.com/@CodeBullet)</a> kanalında gördüğüm, Mayın Tarlası çözme rekoru kırmak için bir bot geliştirdiği bir video gördüm. Bende oradan esinlenerek kendi botumu kendi algoritmamla geliştirmek istedim.",
+           "p2":"Bot şu şekilde çalışıyor. İlk önce 16x16'lık bir mayın tarlası olduğunu yazılıma anlatmak için 16x16'lık bir matris oluşturup her hücrenin içeriğini (sayı veya bayrak gibi) bu matrise kaydediyoruz. Daha sonrasında PyAutoGUI <a class='linkler' href='https://pyautogui.readthedocs.io/'>$ xdg-open (https://pyautogui.readthedocs.io/)</a> kütüphanesi ile ekrandaki fare imlecimizi güvenli hücrelere götüttürüp bastırıyoruz. Mayın tespit edilen hücrelere ise Bayrak koydurup oyunu kazanmaya çalışıyoruz.",
+           "p3":"Tabii ki bu bot her oyunda %100 kazanma vadetmiyor. Hiç bir mayın tarlası oyunu %100 olarak çözülecek diye bir şey yoktur çünkü. Belirli oyunlarda oyununuz açılmaz ve rastgele tıklamak zorunda kalırsınız. O rastgele tıkladığınız hücrenin mayın çıkma olasılığı 16x16'lık oyunda 40/216'dır. Yani hiç bir şekilde %100 olarak kazanamazsınız. Bu bot ise bunun birazcık önüne geçiyor ve her hücre komşuları için en güvenli hücreyi seçerek oyunda hızla ilerliyor.",
+           "p4":"Çalışma mantığı ise şöyle: İlk olarak rastgele bir hücre seçip oyuna başlıyor. Daha sonrasında eğer açılmış ise güvenli hücreleri tespit ederek klasik yöntemle mayın tarlasını çözüyor. Ama eğer açılmaz ve tek hücre açık olursa rastgele bir hücreye tıklıyor ve açılıp açılmama durumuna göre bu döngü devam ediyor.",
+           "p5":"Eğer yanarsa oyunu otomatik olarak yeniden başlatıyor ve kazanana kadar devam ediyor.",
+           "usageText":"Bu botu kullanmak için ilk önce bilgisayarınızda Python 3+ ve PyAutoGUI kütüphanesi kurulu olmalı. Daha sonrasında Windows görüntü ayarlarınızda 1920x1080 çözünürlük ve %125 ölçeğe getirmeniz gerekiyor. Sonrasında ise tarayıcınızdan <a class='linkler' href='https://minesweeper.online/'>https://minesweeper.online/</a> sitesine gidip 'Intermediate' seçeneğini seçiyoruz. Sadece sağ üstte bulunan ayarlar çarkına girip, 'Skin' seçeneğini 'Low Resolution' seçip altındaki 'Pixelated' seçeneğini seçiyoruz. Bu ayarlar botun çalışma mantığındaki pixel bulma fonksiyonlarının doğru çalışabilmesi için çok önemli. Bu ayarları yaptıktan sonra sayfanın altında bulunan 'Return to the game' seçeneği ile oyuna dönüyoruz. Artık botu kullanmaya hazırız. Oyun ekranda kalacak şekilde scripti çalıştırmanız yeterli olacaktır. Bot bazen bug'a girip hata yapmasına rağmen oyunu yeniden başlatıp tıklamalar yapmaya devam edecektir. Bu durumda farenizi ekranınızın sol üst köşesine götürürseniz bot duracaktır. Sonrasında yeniden botu başlatabilirsiniz.<br><br>Kullanamadığınız veya anlamadığınız durumda bana ulaşmaktan lütfen çekinmeyin. İyi çalışmalar."
+        }
+     },
+     "ardu_gol":{
+        "browserTitle":"Arduino Nano ile Game of Life | Hasup",
+        "title":"Arduino Nano ile Conway's Game of Life",
+        "shortDesc":"Arduino Nano ile yaptığım bu projede Conway's Game of Life algoritmasını, toplam 1.6KB RAM harcayarak displayde gösteren basit ama keyifli bir gömülü sistem projesi.",
+        "badges":{
+           "electronics":"Elektrik & Elektronik"
+        },
+        "ui":{
+           "imgAlt1":"Proje Ekran Görüntüsü",
+           "imgCaption1":"Resim 1: Devrenin breadboard üzerindeki görüntüsü.",
+           "videoCaption1":"Video 1: Devrenin çalışma anındaki görüntüsü.",
+           "imgAlt2":"Devre Şeması",
+           "imgCaption2":"Şema 1: Devrenin bağlantı şeması."
+        },
+        "content":{
+           "p1":"Bir tane Arduino Nano, bir tane SSD1306 0.96\" OLED Display ve 3 tane butondan oluşan bu uygulama okuldaki 'Gömülü Sistemler' dersim için proje ödevimdi aslında. Ancak projenin çok hoşuma gitmesi ve biraz da fikir üzerine düşüp azıcık geliştirmeden sonra burası için iyi bir yazı olabileceğine karar verdim.",
+           "p2":"Uygulamam çok basit çalışıyor. İşlemci yükünü Nano'ya yükleyip hesaplamaları yaptırıyorum. Daha sonra bilgiyi displaye aktarıp kullanıcıya gösteriyorum. Tabii ilk önce ekrana gelen menü sayesinde hazır şablonlardan seçim yapabiliyoruz.<br><br>Conway's Game of Life algoritması 4 kuraldan oluşur, bunlar:",
+           "rule1Title":"Yalnızlık (Underpopulation):",
+           "rule1Desc":"Canlı bir hücre, iki veya daha az canlı komşuya sahipse bir sonraki nesilde ölür.",
+           "rule2Title":"Hayatta Kalma (Survival):",
+           "rule2Desc":"Canlı bir hücre, iki veya üç canlı komşuya sahipse bir sonraki nesilde yaşamaya devam eder.",
+           "rule3Title":"Aşırı Nüfus (Overpopulation):",
+           "rule3Desc":"Canlı bir hücre, üçten fazla canlı komşuya sahipse bir sonraki nesilde ölür.",
+           "rule4Title":"Doğum (Reproduction):",
+           "rule4Desc":"Ölü bir hücre, tam olarak üç canlı komşuya sahipse bir sonraki nesilde canlı hale gelir.",
+           "p3":"Bu kurallara göre kendi algoritmamda canlı hücreler '1', ölü hücreler '0' oldu. Böylece bir grid üzerinde gelecek nesilleri simule edebildim.<br><br>Şablon dizilerini PROGMEM'e kaydettim. Çünkü RAM miktarını çok fazla zorluyordu. SSD1306 çalışabilmek için en az 1kb RAM istiyor. Siz 2KB olan Nano RAM'inden 1025 byte RAM bile kullansanız display çalışmayacaktır."
+        }
+     },
+     "wissio":{
+        "browserTitle":"Wissio | Hasup",
+        "title":"Wissio",
+        "shortDesc":"Wissio bir bilgi yarışması uygulaması. Topluluğumla düzenlediğimiz 'Quiz Night' etkinlikleri için kendimize ait bir uygulama kullanmak istemiştik bundan dolayı bu uygulamayı geliştirdim.",
+        "ui":{
+           "imgAlt1":"Proje Ekran Görüntüsü",
+           "imgCaption1":"Resim 1: Uygulamanın menü ekran görüntüsü.",
+           "imgAlt2":"Proje Ekran Görüntüsü",
+           "imgCaption2":"Resim 2: Uygulamanın aktif ekran görüntüsü."
+        },
+        "content":{
+           "p1":"Aksaray Üniversitesi Sanayi ve Teknoloji Topluluğu <a class='linkler' href='https://www.linkedin.com/company/sanayiveteknolojitoplulugu'>$ xdg-open (https://www.linkedin.com/company/sanayiveteknolojitoplulugu)</a> olarak 'Quiz Night' etkinlikleri düzenliyoruz. Bu etkinliklerde katılımcı oylamalarıyla bir film veya dizi seçilir, yönetim tarafından hazırlanan sorularla katılımcılara eğlenceli bir aktivite sunmak amaçlanır. Biz de topluluk olarak kendi düzenlediğimiz etkinlikte kendi uygulamamızı kullanmak istedik. Bu görevi üstlenerek tüm algoritmaları ve UI bileşenleri özgün olan 'Wissio' ortaya çıkmış oldu.",
+           "p2":"'Wiss' kelimesi Almanca 'bilmek' anlamına geliyor. Bende sonuna 'io' ekleyerek 'Wissio' ismini bulmuş oldum.<br><br>Nihai amacı, bilgi yarışmaları için tamamen soru göstermek olan Wissio Delphi ve UniGUI ile yazıldı. Kullanıcılar kendi sorularını Wissio'ya yükleyebilirler. Bunu ise JSON formatındaki sorular sayesinde başarabiliyoruz. JSON formatı (Javascript Object Notation) günümüzde; sunucu ve istemci arasında bilgi alış-verişi, API'ler, konfigrasyon dosyaları, yerel veritabanları gibi oldukça geniş ve esnek bir çalışma yelpazesine sahiptir.<br><br>Benim de kullanım amacım aslında 'yerel veritabanı' kategorisine giriyor desek yalnış olmaz. Kullanıcılar soru ve cevaplarını belirli bir formatta bir JSON dosyasına kaydeder ve Wissio'ya yükler. Wissio ise bu JSON dosyasını parse (ayrıştırarak) ederek soruları gizli bir listeye kaydeder. Listeye kaydetmenin nedeni ise, JSON dosyasınıı sunucuda sürekli tutmaktan kurtarmak ve tüm yükü sunucudan istemciye yüklemektir. Yani ne kadar uzun sorularınız da olsa, milyonlarca karakter kullansanız bile, sadece dosya yükleme aşamasında bekleme yaşayacaksınız. Yarışma sırasında soruların tamamı çoktan listelere kaydedildiğinden dolayı yarışma esnasında asla bekleme yaşamayacaksınız demektir. Çok güzel bir optimizasyon örneği desek yanlış olmaz.<br><br>Bu şekilde kullanıcılar istedikleri yarışmayı yine Wissio içerisinde bulunan JSON editörü (buradan ulaşabilirsiniz.) ile oluşturabilir ve Wissio ile kullanabilir.<br><br>Bu proje benim için şu yönden önemli oldu: Yeni teknikler deneyip başarılı oldum. Yani kendimi geliştirdim. Benim için çok büyük bir gelişme bu çünkü UniGUI ile dinamik web siteleri tasarlarken sadece Delphi'nin bize sunduğu UI elementlerini (butonlar, textarea'lar, label'lar gibi) kullanıyorken bu uygulama özelinde tamamen HTML ve CSS ile ürettiğim elementleri kullandım. Uygulama üzerinde gördüğünüz tüm bu UI elementleri Delphi'nin sunduğu değil, benim özel olarak ürettiğim elementlerdir.<br><br>Bu yöntemin daha önceden zaten mümkün olduğunu biliyordum ama denemeye biraz korkuyordum. Bu uygulamayla konfor alanımdan çıkıp yeni şeyler denemek istedim ve aldığım sonuçtan çooook memnunum. - Özellikle de 'Soruları Göster' butonundan :) -",
+           "p3":"Uygulamayı kullanmak ise çook basit. İlk önce daha önceden JSON editörü ile oluşturduğunuz ve içerisinde sorularını içeren JSON dosyanızı Wissio'ya 'JSON Yükle' butonu ile seçip yüklüyorsunuz. (Yükleme sırasında iptal ederseniz yükleniyor ekranında kalacaktır. Bu sorunu çözemedim sayfayı yenileyebilirsiniz.). Sonrasında sorularını kontrol edebilmeniz için soruları size gösterir. Bu esnada soruları gizleyebilirsiniz. Soru gizleme özelliği ekledim çünkü kalabalık ortamlarda bazen projeksiyonla yansıtıldığında ilk birkaç soru yarışmacılara gösterilmiş olabiliyor. Bu yüzden soruları gizleyip yükleme yaparsanız hiç bir yarışmacı sorularınızı göremez. Sonrasında tercih ettiğiniz soru süresini giriyorsunuz. Varsayılan olarak 1 dakika yani 60 saniyeye ayarlı. Bunu istediğiniz gibi ayarlayabilirsiniz. En sonunda artık yarışmaya başlamaya hazırsınız.<br><br>'Yarışmaya Başlat' butonuna tıkladığınız andan itibaren artık Yarışma ekranındasınız demektir. Bu ekranda en üstte yeşil bir bar bulunur. Bu bar süre barıdır ve rengi yavaşça kırmızıya dönüşür. Tamamen bittiğinde ise cevap otomatik olarak ekrana yazılır. Kontrollerinizi sağlamanız için bu ekranda istediğiniz kadar bekleyebilirsiniz. (Aslında istediğiniz kadar bekleyemezsiniz çünkü uygulamanın timeout süresi 100 dakika :P) Kontrollerinizi sağladıktan sonra 'Sıradaki Soru' butonuyla sonraki soruya geçebilir ve döngüye yeniden başlayabilirsiniz.<br><br><br>Aşağıdaki linklerle sizler de Wissio'yu kullanabilir arkadaşlarınızla, ailenizle, sevdiklerinizde kaliteli ve eğlenceli zamanlar yaşayabilirsiniz.",
+           "linksText1":"Uygulamayı <a class='linkler' target='_blank' href='https://hasup.net/wissio'>buradan</a> test edebilirsiniz.",
+           "linksText2":"Editörü de <a class='linkler' target='_blank' href='https://hasup.net/wissio/json_editoru.html'>buradan</a> kullanabilirsiniz.",
+           "sourceCodeNote":"Kaynak kodları için lütfen github'a göz atın."
+        }
+     },
+     "lexio":{
+        "browserTitle":"Lexio | Hasup",
+        "title":"Lexio",
+        "shortDesc":"Lexio bir kelime oyunu yarışması uygulaması. Yıllarca televizyonda izlediğimiz formatın kendi yöntemlerimle yeniden uyarlaması.",
+        "ui":{
+           "imgAlt1":"Proje Ekran Görüntüsü",
+           "imgCaption1":"Resim 1: Uygulamanın menü ekran görüntüsü.",
+           "imgAlt2":"Proje Ekran Görüntüsü",
+           "imgCaption2":"Resim 2: Uygulamanın aktif ekran görüntüsü."
+        },
+        "content":{
+           "p1":"Bir gün Youtube'da gezinirken zamanında Ali İhsan Varol beyin sunduğu 'Kelime Oyunu' yarışmasına denk geldim. Eskiden çok fazla izlerdim bu yarışmayı ve hep de yarışmacı olarak katılmak istedim. Sonrasında yakın zamanda yine benzer formatta bir uygulama geliştirdiğimden kendi kendime ben bunu yaparım dediğim için bu uygulamayı geliştirdim.",
+           "p2":"'Lex' kelimesi Latince 'kelime' anlamına geliyor. Bende sonuna 'io' ekleyerek 'Lexio' ismini bulmuş oldum.<br><br>Uygulamanın amacı Kelime Oyunu formatında olan yarışmanın sorularına bir ekran olmak ve puan takibi yapmak. Oyunun kuralları formattakiyle aynı: 4:30 dakika süre, her harf için 100 puan.<br><br>Teknik yapısına gelecek olursak, Wissio gibi JSON formatı ile soru yüklenmesini bu sefer istemedim. Neden bilmiyorum aslında JSON ile daha kolay olurdu ama bu sefer böyle olmasını tercih ettim. Sorunuzu ve cevabınızı yazıp 'Soru Ekle' butonu ile soru ekliyoruz. Sonrasında eklediğiniz soruları kontrol etmeniz ve silebilmeniz için hemen yukarıdaki kısımda görebilirsiniz.<br><br>En az 2 soru ekledikten sonra 'Yarışmayı Başlat' butonu ile yarışma ekranına geçiş yapıyoruz.<br><br>Bu proje de aynı 'Wissio' gibi tamamen benim oluşturduğum UI elementlerinden oluşuyor. Sonuçtan çoook memnunum..",
+           "p3":"Yukarıda yarışma ekranını görüyorsunuz. Sol alt tarafta 'Süreyi Başlat/Durdur' butonu, 'Harf Al' butonu, 'Kelimeyi Aç' butonu bulunmakta. İşlevleri tam da üzerlerinde yazdığı gibi. Süreyi başlatıp/durdurur, harf aldırır, kelimeyi tamamen açar.<br><br>Yarışma senaryosu şöyle yaşanır. Sunucu (moderatör) 'Sıradaki Soru' butonu ile yarışmayı başlatır. Soru ekrana çıkar ve sunucu soruyu okur. Yarışmacı düşünmeye başlar, cevap vermeye hazır olduğunu belirttiğinde 'Süreyi Durdur' butonu ile süre durdurulur. Buradaki cevap süresi sunucunun inisiyatifindedir. Yarışmacı cevabını verir, sunucu kelimeyi açar ve sonraki soruyla bu döngü devam eder.<br><br>Sorularınız bitince otomatik olarak yarışma ekranı kapanır ve ekrana yarışmacının kasasındaki toplam puan yazılır. Kullanması çook basit.<br><br><br>Aşağıdaki linklerle sizler de Lexio'yu kullanabilir arkadaşlarınızla, ailenizle, sevdiklerinizde kaliteli ve eğlenceli zamanlar yaşayabilirsiniz.",
+           "linksText":"Uygulamayı <a class='linkler' target='_blank' href='https://hasup.net/lexio'>buradan</a> test edebilirsiniz.",
+           "sourceCodeNote":"Kaynak kodları için lütfen github'a göz atın."
+        }
+     }
+  }
+}

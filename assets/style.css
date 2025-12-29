@@ -129,16 +129,35 @@ section { padding: 80px 10%; }
   25%, 75% { opacity: 0; }
 }
 
-/* ===== THEME TOGGLE ===== */
-.theme-toggle {
+.top-toggles {
   position: absolute;
   top: -40px;
   right: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+/* Lang toggle theme ile aynı davranır */
+
+.theme-toggle,
+.lang-toggle {
+  position: static;      /* veya tamamen sil */
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+
   font-size: 0.85rem;
   color: var(--muted);
   cursor: pointer;
   user-select: none;
   transition: color 0.2s ease;
+}
+
+
+.lang-toggle:hover {
+  color: var(--accent);
 }
 
 .theme-toggle:hover { color: var(--accent); }

@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Delphi ile SweetAlert ve Ajax İstekleri | Hasup</title>
+  <title data-i18n="pages.delphi_sweetalert.browserTitle">Delphi ile SweetAlert ve Ajax İstekleri | Hasup</title>
   
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <link rel="stylesheet" href="../assets/style.css">
-
   <link rel="stylesheet" href="assets/project-style.css">
-
 </head>
 <body class="project-page">
 
@@ -36,8 +32,8 @@
       
       <div class="project-header">
         <div class="header-left">
-          <h1 class="project-title">Delphi UniGUI ile SweetAlert ve Ajax İstekleri</h1>
-          <p>
+          <h1 class="project-title" data-i18n="pages.delphi_sweetalert.title">Delphi UniGUI ile SweetAlert ve Ajax İstekleri</h1>
+          <p data-i18n="pages.delphi_sweetalert.shortDesc">
             Delphi UniGUI kütüphanesi üzerinde çalışan web uygulamalarınız için UI ve UX'i geliştiren Sweet Alert kütüphanesini bu uygulama ile test edebilir, kendi uygulamalarınıza entegre edebilirsiniz.
           </p>
           <br>
@@ -61,24 +57,24 @@
 
         <div class="readme-content">
           
-          <h3><span class="hash">#</span> Proje Özeti</h3>
-          <p>
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.summaryHeader">Proje Özeti</span></h3>
+          <p data-i18n="pages.delphi_sweetalert.content.p1">
             Yaptığım araştırmalardan sonra tam olarak düzgün bir örnek bulamadıktan sonra tüm örneklerden bulup birleştirdiğim bu uygulamada Ajax istekleri ile de haşır neşir oluyoruz. UniGUI'nin bize sunduğu Mesaj kutusu ben dahil bir çoğumuzun gözüne hitap etmediği için Sweet Alert kullanmak istedim. Ancak kullanımı her ne kadar kolay gibi görünsede Sweet Alert üzerinde bulunan düğmelerden bilgi çekmek maalesef Ajax istekleri olmadan pek mümkün değil. O yüzden Ajax isteklerini anlamak ve en azından bir projede kullanmak için bu uygulamayı geliştirdim. Açık kaynak kodlu olan bu uygulama Delphi 12.3 ve UniGUI 1597 sürümü kullanılarak yapıldı. (UniGUI'nin eski sürümleri kurulu olan bilgisayarlarda çalışıp çalışmadığı <strong>test edilmedi.</strong>) 
           </p>
 
           <div class="project-image-container">
-            <img src="assets/images/delphi-seetalert.png" alt="Proje Ekran Görüntüsü">
-            <span class="img-caption">Resim 1: Uygulamanın aktif ekran görüntüsü.</span>
+            <img src="assets/images/delphi-seetalert.png" alt="Proje Ekran Görüntüsü" data-i18n-alt="pages.delphi_sweetalert.ui.imgAlt">
+            <span class="img-caption" data-i18n="pages.delphi_sweetalert.ui.imgCaption">Resim 1: Uygulamanın aktif ekran görüntüsü.</span>
           </div>
 
-          <p>
+          <p data-i18n="pages.delphi_sweetalert.content.p2">
             Designer kısmında açtığınızda resimde görünen butonlar aksine yazılar göreceksiniz. O yazılar HTML kodu olup UniLabel bileşenidir. UniLabel bileşeni HTML kodunu direkt olarak işleyebildiği için onu tercih ettim. (Siz isterseniz UniHTMLFrame kullanabilirsiniz.) Javascript kodları ve Ajax istekleri ile bazı olaylar olmakta. Delphi olaylarını klasik olduğu gibi 'Events' penceresinden, JS fonksiyonlarını ise 'ClientEvents -> ExtEvents -> click' olayında gözlemleyebilirsiniz. 
           </p>
 
-          <h3><span class="hash">#</span> Linkler</h3>
+          <h3><span class="hash">#</span> <span data-i18n="pages.common.linksHeader">Linkler</span></h3>
 
-          <p>Uygulamayı <a class="linkler" target="_blank" href="https://hasup.net/delphi_sweetalert">buradan</a> test edebilirsiniz.</p>
-          <p>Kaynak kodları için lütfen özel olarak ulaşın.</p>
+          <p data-i18n="pages.delphi_sweetalert.content.linksText">Uygulamayı <a class="linkler" target="_blank" href="https://hasup.net/delphi_sweetalert">buradan</a> test edebilirsiniz.</p>
+          <p data-i18n="pages.delphi_sweetalert.content.sourceCodeNote">Kaynak kodları için lütfen özel olarak ulaşın.</p>
 
         </div>
       </div>
@@ -92,7 +88,7 @@
       <div class="start-menu-wrapper">
         
         <div class="start-btn-trigger">
-          <img src="..//assets/favicon.svg" alt="Hasup OS" class="os-logo">
+          <img src="../assets/favicon.svg" alt="Hasup OS" class="os-logo">
           <span class="os-text">Hasup OS</span>
         </div>
   
@@ -102,6 +98,7 @@
             <div class="user-avatar">
               <img src="../assets/favicon.svg" alt="Hasup OS">
             </div>
+            
             <div class="user-details">
               <span class="username">Hasup OS</span>
               <span class="role">v1.0</span>
@@ -110,13 +107,13 @@
   
           <ul class="menu-links">
             <li>
-              <a href="..//index.html#hero"><i class="fa-solid fa-house"></i> Anasayfa / Home</a>
+              <a href="#hero"><i class="fa-solid fa-house"></i> <span data-i18n="start-menu.home"></span></a>
             </li>
             <li>
-              <a href="..//index.html#projects"><i class="fa-solid fa-diagram-project"></i> Projelerim</a>
+              <a href="#projects"><i class="fa-solid fa-diagram-project"></i> <span data-i18n="start-menu.projects"></span></a>
             </li>
             <li>
-              <a href="..//index.html#contact"><i class="fa-solid fa-address-book"></i> İletişim</a>
+              <a href="#contact"><i class="fa-solid fa-address-book"></i> <span data-i18n="start-menu.contact"></span></a>
             </li>
             
             <li class="divider"></li> <li>
@@ -129,12 +126,17 @@
                 <i class="fa-brands fa-instagram"></i> Instagram
               </a>
             </li>
+            <li>
+              <a href="https://github.com/yushadev0/" target="_blank">
+                <i class="fa-brands fa-github"></i> Github
+              </a>
+            </li>
   
             <li class="divider"></li>
   
             <li>
               <a href="javascript:location.reload()" class="shutdown">
-                <i class="fa-solid fa-power-off"></i> Sistemi Kapat
+                <i class="fa-solid fa-power-off"></i> <span data-i18n="start-menu.shutdown"></span>
               </a>
             </li>
           </ul>
@@ -160,5 +162,6 @@
   </button>
 
   <script src="../assets/script.js"></script>
+  <script src="../assets/i18n.js"></script>
 </body>
 </html>
