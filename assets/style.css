@@ -194,13 +194,11 @@ section { padding: 80px 10%; }
   
   /* Mobilde taşmayı önlemek için kaydırma ekleyelim (Güvenlik) */
   max-width: 100%;
-  overflow-x: auto; 
 }
 
 @media (max-width: 768px) {
   .ascii-wrapper {
     /* Mobilde taşarsa yana kaydırılabilsin */
-    overflow-x: auto;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -729,7 +727,6 @@ body.light .ascii-text { color: #333; }
   section { padding: 60px 5%; }
   .hero-grid { grid-template-columns: 1fr; gap: 60px; align-items: flex-start; }
   .terminal-wrapper, .terminal { height: auto; }
-  .ascii-wrapper { overflow-x: hidden; }
   .terminal-nav { justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
   
   /* Project Container Mobil */
