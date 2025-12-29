@@ -22,8 +22,9 @@
      "about-text4":"Bu site, nelerle ilgilendiğimi, neler ürettiğimi ve zaman içinde nasıl geliştiğimi paylaşmak için var. Eğer buradaysanız, umarım yaptıklarım size küçük de olsa bir fikir verir.",
      "about-text-info-title":"# Bilgilendirme",
      "about-text-info-text1":"Site üzerinde bulunan 'Sistem Bilgileri' -CPU ve RAM kullanımları, İnternet geçikmesi- gibi bilgiler temsilidir, gerçek değildir.",
-     "about-text-info-text2":"Yan tarafta (mobilde iseniz üst tarafta) gördüğünüz 'hava durumu' izin verilmesi durumunda sizin konumunuzu, aksi takdirde Aksaray'ın hava durumunu gösterecektir."
-  },
+     "about-text-info-text2":"Yan tarafta (mobilde iseniz üst tarafta) gördüğünüz 'hava durumu' izin verilmesi durumunda sizin konumunuzu, aksi takdirde Aksaray'ın hava durumunu gösterecektir.",
+     "age":"20 Yıl (Level 20)" 
+    },
   "hasup-content":{
      "title":"Hasup Ne Demek?",
      "p1":"'Hasup' kelimesi, Arapça kökenli olup <strong>'hesap eden, hesaplama yapan'</strong> anlamlarına gelir. Klasik literatürde ve günümüzde; işlem yapan cihazları, yani <strong>'Bilgisayar'</strong>veya <strong>'Hesap Makinesi'</strong> gibi cihazları ifade etmek için kullanılır.",

@@ -22,7 +22,8 @@
      "about-text4":"This site exists to share what I’m interested in, what I produce, and how I develop over time. If you’re here, I hope what I do gives you at least a small idea.",
      "about-text-info-title":"# Information",
      "about-text-info-text1":"The 'System Information' shown on the site — such as CPU and RAM usage or internet latency — is representative and not real.",
-     "about-text-info-text2":"The 'weather information' you see on the side (or at the top if you are on mobile) will display your local weather if permission is granted; otherwise, it will show the weather in Aksaray."
+     "about-text-info-text2":"The 'weather information' you see on the side (or at the top if you are on mobile) will display your local weather if permission is granted; otherwise, it will show the weather in Aksaray.",
+     "age":"20 Years (Level 20)"
   },
   "hasup-content":{
      "title":"What Does Hasup Mean?",
