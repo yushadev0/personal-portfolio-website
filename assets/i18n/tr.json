@@ -23,7 +23,8 @@
      "about-text-info-title":"# Bilgilendirme",
      "about-text-info-text1":"Site üzerinde bulunan 'Sistem Bilgileri' -CPU ve RAM kullanımları, İnternet geçikmesi- gibi bilgiler temsilidir, gerçek değildir.",
      "about-text-info-text2":"Yan tarafta (mobilde iseniz üst tarafta) gördüğünüz 'hava durumu' izin verilmesi durumunda sizin konumunuzu, aksi takdirde Aksaray'ın hava durumunu gösterecektir.",
-     "age":"20 Yıl (Level 20)" 
+     "age":"20 Yıl (Level 20)",
+     "minor-title":"Yazılım Mühendisi" 
     },
   "hasup-content":{
      "title":"Hasup Ne Demek?",
