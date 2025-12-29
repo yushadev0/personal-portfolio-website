@@ -218,5 +218,11 @@
            "sourceCodeNote":"Kaynak kodları için lütfen github'a göz atın."
         }
      }
+  },
+  "weather-popup": {
+    "title": "Konum İzni",
+    "text": "Size en doğru hava durumunu sunabilmek için konumunuza erişmek istiyoruz. İzin veriyor musunuz?",
+    "confirm": "İzin Ver",
+    "deny": "Hayır, Aksaray kalsın"
   }
 }

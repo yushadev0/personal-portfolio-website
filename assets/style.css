@@ -956,3 +956,14 @@ body.light .ascii-text { color: #333; }
     color: var(--proj-fg-muted);
   }
 }
+
+.swal2-popup {
+  font-family: "JetBrains Mono", monospace !important;
+  border: 1px solid var(--proj-border) !important;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6) !important;
+}
+
+/* Butonlardaki focus çizgisini kaldır */
+.swal2-styled:focus {
+  box-shadow: none !important;
+}

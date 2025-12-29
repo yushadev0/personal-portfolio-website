@@ -699,21 +699,10 @@ if(ppBtn) {
 }
 
 /* ========================================= */
-/* REAL WEATHER FETCH (URL TABANLI MULTILINGUAL) */
+/* HAVA DURUMU (SABİT KONUM: AKSARAY - ÇOKLU DİL) */
 /* ========================================= */
 
-// 1. URL'DEN DİLİ ALGILA (Kesin Çözüm)
-function getLangFromUrl() {
-  const path = window.location.pathname.toLowerCase();
-  
-  // Eğer URL '/en' ile başlıyorsa 'en' döndür, yoksa varsayılan 'tr'
-  if (path.startsWith('/en') || path.includes('/en/')) {
-    return 'en';
-  }
-  return 'tr';
-}
-
-// 2. KÜÇÜK SÖZLÜK (Çeviriler)
+// 1. Dil Sözlüğü (Çeviriler)
 const weatherTerms = {
   tr: {
     wind: "Rüzgar",
@@ -725,7 +714,7 @@ const weatherTerms = {
     storm: "Fırtına",
     fog: "Sisli",
     connError: "Bağlantı Yok",
-    locFinding: "Konum bulunuyor..."
+    city: "Aksaray" // Şehir ismini de buradan yönetebilirsin
   },
   en: {
     wind: "Wind",
@@ -737,18 +726,11 @@ const weatherTerms = {
     storm: "Storm",
     fog: "Foggy",
     connError: "No Connection",
-    locFinding: "Locating..."
+    city: "Aksaray"
   }
 };
 
-// ... (HTML Element Seçicileri - Değişmedi) ...
-const wTemp = document.getElementById('w-temp');
-const wDesc = document.getElementById('w-desc');
-const wLoc = document.getElementById('w-loc');
-const wWind = document.getElementById('w-wind');
-const wHum = document.getElementById('w-hum'); 
-const wAscii = document.getElementById('w-ascii');
-
+// 2. ASCII Sanatları (Ortak)
 const weatherAscii = {
   clear: `
      \\   /
@@ -777,84 +759,68 @@ const weatherAscii = {
    ⚡⚡⚡`
 };
 
-// 3. BAŞLAT (Init)
-function initWeather() {
-  const lang = getLangFromUrl(); // URL'den dili al
-  const t = weatherTerms[lang];  // Sözlükten ilgili dili seç
+// DOM Elementleri
+const wTemp = document.getElementById('w-temp');
+const wDesc = document.getElementById('w-desc');
+const wLoc = document.getElementById('w-loc');
+const wWind = document.getElementById('w-wind');
+const wHum = document.getElementById('w-hum'); 
+const wAscii = document.getElementById('w-ascii');
 
-  if(wLoc) wLoc.innerText = t.locFinding; // "Konum bulunuyor..." mesajını dile göre yaz
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => fetchWeather(pos.coords.latitude, pos.coords.longitude),
-      (err) => loadDefaultWeather(),
-      { timeout: 4000 } 
-    );
-  } else {
-    loadDefaultWeather();
+// 3. Mevcut Dili Algıla
+function getLang() {
+  // URL '/en' içeriyorsa veya parametrede 'lang=en' varsa
+  if (window.location.pathname.includes('/en') || window.location.search.includes('lang=en')) {
+    return 'en';
   }
+  return 'tr';
 }
 
-// 4. Varsayılan Konum
-function loadDefaultWeather() {
-  fetchWeather(38.3687, 34.0297, "Aksaray");
+// 4. BAŞLAT (Sabit Konum: Aksaray)
+function initWeather() {
+  const lat = 38.3687;
+  const lon = 34.0297;
+  
+  fetchWeather(lat, lon);
 }
 
-// 5. Verileri Çek (Fetch)
-async function fetchWeather(lat, lon, manualCity = null) {
-  const lang = getLangFromUrl(); // Dili tekrar kontrol et
-  const t = weatherTerms[lang];
+// 5. Verileri Çek
+async function fetchWeather(lat, lon) {
+  const lang = getLang();       // Dili bul (tr/en)
+  const t = weatherTerms[lang]; // Sözlükten ilgili kısmı seç
 
   try {
-    // A) ŞEHİR İSMİNİ BUL
-    let cityName = manualCity;
-    
-    if (!cityName) {
-        try {
-            // API isteğine localityLanguage=${lang} ekledik
-            const cityRes = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=${lang}`);
-            const cityData = await cityRes.json();
-            
-            cityName = cityData.city || cityData.locality || cityData.principalSubdivision || "Konum Bulundu";
-            cityName = cityName.replace(" Merkez", "").replace(" Province", "");
-            
-        } catch (e) {
-            console.error("Şehir ismi hatası:", e);
-            cityName = `${lat.toFixed(1)}, ${lon.toFixed(1)}`;
-        }
-    }
-
-    // B) HAVA DURUMU VERİSİ
     const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`);
     const weatherData = await weatherRes.json();
     
-    // C) ARAYÜZÜ GÜNCELLE (Sözlüğü gönderiyoruz)
-    updateWeatherUI(weatherData.current, cityName, t);
+    // Arayüzü güncellemek için çevirileri (t) de gönderiyoruz
+    updateWeatherUI(weatherData.current, t);
 
   } catch (error) {
     console.error("Hava durumu hatası:", error);
-    if(wDesc) wDesc.innerText = t.connError; 
+    if(wDesc) wDesc.innerText = t.connError;
   }
 }
 
-// 6. Arayüzü Güncelle (UI)
-function updateWeatherUI(current, city, t) {
+// 6. Arayüzü Güncelle
+function updateWeatherUI(current, t) {
   if(!wTemp) return;
 
   wTemp.innerText = `${Math.round(current.temperature_2m)}°C`;
   
-  // "Rüzgar" ve "Nem" kelimeleri artık dinamik (t.wind / t.hum)
+  // "Rüzgar" ve "Nem" artık dinamik (t.wind / t.hum)
   wWind.innerText = `${t.wind}: ${current.wind_speed_10m} km/s`;
   wHum.innerText  = `${t.hum}: %${current.relative_humidity_2m}`;
-  wLoc.innerText = city; 
+  wLoc.innerText = t.city; 
 
   const code = current.weather_code;
   
-  // Hava durumu açıklamaları dinamik (t.clear, t.cloudy vb.)
+  // Varsayılan: Açık
   let condition = t.clear; 
   let art = weatherAscii.clear;
   let color = "#facc15";
 
+  // Kodlara göre durumları sözlükten çekiyoruz
   if (code >= 1 && code <= 3) {
     condition = t.cloudy; art = weatherAscii.cloudy; color = "#9ca3af";
   } else if (code >= 45 && code <= 48) {
@@ -873,6 +839,8 @@ function updateWeatherUI(current, city, t) {
 }
 
 document.addEventListener("DOMContentLoaded", initWeather);
+
+
 
 /* ========================================= */
 /* KOD KOPYALAMA İŞLEVİ                      */

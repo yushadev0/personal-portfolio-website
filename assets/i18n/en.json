@@ -218,5 +218,11 @@
            "sourceCodeNote":"Please lookup github for source codes."
         }
      }
+  },
+  "weather-popup": {
+    "title": "Location Permission",
+    "text": "We would like to access your location to provide you with the most accurate weather forecast. Do you allow it?",
+    "confirm": "Allow",
+    "deny": "No, keep default"
   }
 }
