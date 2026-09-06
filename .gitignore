@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+*.local
+*.tsbuildinfo
+
+# previous static site, kept locally as migration reference only
+old_version/
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.log
+npm-debug.log*
+
+# project brief / build spec — not for the public repo
+CLAUDE.md

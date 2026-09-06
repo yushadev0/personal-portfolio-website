@@ -1,0 +1,87 @@
+.footer {
+  flex-shrink: 0;
+  border-top: var(--hairline) solid var(--border);
+  margin-top: var(--space-3xl);
+}
+
+.inner {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: var(--space-xl) var(--gutter) var(--space-l);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.4fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.brand {
+  display: grid;
+  gap: 4px;
+}
+
+.brandLine {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+}
+
+.brandSub {
+  color: var(--muted);
+}
+
+.rights {
+  margin-top: var(--space-s);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--faint);
+}
+
+.cols {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.cols ul {
+  display: grid;
+  gap: var(--space-2xs);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}
+
+.colophon {
+  display: grid;
+  gap: var(--space-2xs);
+  max-width: 42ch;
+  justify-self: end;
+}
+
+.colophon p {
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7ch;
+}
+.socialIcon {
+  font-size: 1.05em;
+  width: 1.2em;
+  text-align: center;
+  color: var(--faint);
+  transition: color var(--dur-fast) var(--ease);
+}
+.social:hover .socialIcon {
+  color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+  }
+  .colophon {
+    justify-self: start;
+  }
+}

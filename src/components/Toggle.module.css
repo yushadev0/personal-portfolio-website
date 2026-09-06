@@ -1,0 +1,50 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: var(--hairline) solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.toggle:hover {
+  color: var(--foreground);
+  border-color: var(--border-strong);
+}
+
+.langGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.langItem {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  padding: 0.2rem 0.35rem;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.lang:hover {
+  color: var(--foreground);
+}
+
+.langActive {
+  color: var(--foreground);
+}
+
+.langSep {
+  color: var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}

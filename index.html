@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Yuşa Göverdik — Software Engineer</title>
+    <meta
+      name="description"
+      content="The personal engineering archive of Yuşa Göverdik — a software engineer building developer tools, desktop software, data projects and experiments."
+    />
+    <link rel="canonical" href="https://yusa.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Yuşa Göverdik" />
+    <meta property="og:title" content="Yuşa Göverdik — Software Engineer" />
+    <meta
+      property="og:description"
+      content="An archive of things built, broken and rebuilt. Developer tools, desktop software, data and experiments."
+    />
+    <meta property="og:url" content="https://yusa.app/" />
+    <meta property="og:image" content="https://yusa.app/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)" />
+
+    <script>
+      // No-flash theme resolution — runs before first paint.
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var system = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+          var theme = stored === 'light' || stored === 'dark' ? stored : system;
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

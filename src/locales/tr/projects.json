@@ -1,0 +1,153 @@
+{
+  "trace": {
+    "title": "Trace",
+    "descriptor": "Tek bir kişinin iş akışı etrafında kurulmuş, hafif ve geliştirici odaklı bir tarayıcı.",
+    "overview": [
+      "Trace kişisel bir masaüstü tarayıcı. Web render'ını CEF4Delphi üzerinden Chromium yapıyor; etrafındaki neredeyse her şey — sekme çubuğu, pencere kontrolleri, favicon'lar, yüklenme göstergeleri, iç sayfalar — elle yazıldı. Native bir Delphi 12 uygulaması olarak, Skia ile çizilmiş bir arayüz ve local-first bir SQLite deposuyla çalışıyor.",
+      "İç sayfalar özel bir şema altında yaşıyor: trace://newtab, trace://downloads, trace://history, trace://settings, trace://taskmgr, trace://reports. Yeni sekme sayfasında küçük bir görev listesi ve isteğe bağlı olarak AI e-posta özetleri var."
+    ],
+    "why": [
+      "Mevcut bir tarayıcı kabuğunun üzerine inşa etmek yerine Trace, Chromium'u doğrudan bir Delphi uygulamasının içine gömüyor; böylece çevresindeki arayüz ve iş akışı doğrudan kontrol altında kalıyor.",
+      "Amaç hiçbir zaman ana akım bir tarayıcıyı yeniden üretmek değildi. Amaç, bir tarayıcıyı gerçekten kullandığım şekle göre kurmaktı: elimin uzandığı birkaç araca sahip, uzanmadıklarına sahip olmayan; hızlı ve hafif bir pencere."
+    ],
+    "engineering": [
+      "CEF4Delphi Chromium'u gömüyor ve web platformunu sağlıyor. Uygulama arayüzü, standart VCL kontrolleri yerine Skia4Delphi ile render ediliyor — sekme çubuğu, sekme animasyonları, favicon'lar, yüklenme göstergeleri, pencere kontrolleri — bu da ağır bir UI katmanı getirmeden özgün bir görsel dil koruyor.",
+      "Her renderer süreci, V8 context'i oluşturulduğunda işletim sistemindeki PID'ini Chromium'un IPC'si üzerinden ana sürece bildiriyor. Yerleşik görev yöneticisi (trace://taskmgr) bu eşlemeyi kullanarak sekme başına CPU, RAM ve ağ kullanımını gösteriyor — ruhen Chrome'un kendi görev yöneticisine benzer şekilde.",
+      "Chromium'un indirme balonu DisableFeatures ile kapatılıyor; indirmeler trace://downloads içinde canlı ilerleme çubuğu, otomatik ve üzerine yazmayan yeniden adlandırma (file (1).ext, file (2).ext…) ve diskten silinen dosyaların tespitiyle gösteriliyor — silinenler soluk, üstü çizili bir duruma geçiyor.",
+      "FireDAC üzerinden SQLite; bookmark'ları, geçmişi, indirmeleri, görevleri, raporları ve ayarları tutuyor. Bookmark çubuğu her girdi için favicon çekiyor ve adı olmayan bir bookmark için yalnızca ikon içeren bir çipe düşüyor. AI e-posta özetleri için Indy, SSL üzerinden bir IMAP bağlantısı yönetiyor."
+    ],
+    "decisions": [
+      "Native diyaloglar yerine özel trace:// sayfaları — böylece tema veya dil değişikliği açık her sekmeye anında uygulanıyor.",
+      "Alt süreç çökmelerini önlemek için başlangıçta sandbox kapalı; framework ve kaynak yolları çalıştırılabilir dosyanın dizinine sabitleniyor.",
+      "AI asistanı (Gemini) ve IMAP e-posta özetleri opsiyonel ve ayarlardan yapılandırılıyor — faydalı ama olmazsa olmaz değil."
+    ],
+    "result": [
+      "Kendi testimde bu odaklı mimari, karşılaştırılabilir kullanım senaryolarında Chrome'a göre yaklaşık %40–50 daha az RAM kullandı. Bu, tek bir makinede yapılmış proje düzeyinde bir gözlem; genel bir kıyaslama değil.",
+      "Geçmiş, indirmeler, bookmark'lar, görev yöneticisi ve ayarlar tamamlandı. Chromium DevTools entegrasyonu, sayfada arama, klavye kısayolları ve sekme askıya alma hâlâ yol haritasında."
+    ],
+    "learned": [
+      "Bir tarayıcının ne kadarının, göndermemeye karar edene kadar hiç düşünmediğin arka plan servisleri olduğu.",
+      "Elle çizilmiş bir UI katmanının nerede karşılığını verdiği — sekmeler, animasyonlar, küçük etkileşimler — ve nerede standart bir kontrolün gayet yeterli olacağı."
+    ],
+    "funFact": "Yeni sekme sayfası seni \"Daddy's home?\" ile karşılıyor — kaldırılmayı unutmuş bir Iron Man repliği.",
+    "images": {
+      "newtab": "Yeni sekme sayfası: solda görevler ve planlar, sağda AI e-posta özetleri, ortada asistan."
+    }
+  },
+  "iposi": {
+    "title": "Iposi ve IposiAgent",
+    "descriptor": "Bir API test aracı; bir de onun kendi ağındaki API'lere ulaşmasını sağlayan yerel bir ajan.",
+    "overview": [
+      "Iposi, Postman'den ilham alan bir API istemcisi. Herhangi bir herkese açık API'ye GET, POST, PUT, PATCH ve DELETE istekleri gönderiyor; başlıklar, sorgu parametreleri ve istek gövdesi yapılandırılabiliyor — x-www-form-urlencoded, JSON, düz metin, HTML, XML veya JavaScript. Yanıt anında geliyor.",
+      "Her istek kullanıcıya özel bir veritabanında saklanıyor, böylece geçmiş sekmesinden çalışma alanına geri çağrılabiliyor. Çalışma alanının kendisi sekmeli: sekme oluştur, yeniden adlandır, sırala, sil. İsmin anlamı Zulu dilinde \"postacı\".",
+      "Delphi, UniGUI ve Indy ile geliştirildi."
+    ],
+    "why": [
+      "Uzun süredir API testlerimi Postman ve RESTful Debugger üzerinden yapıyordum. Aslında başka bir araca ihtiyacım yoktu — sadece Postman'i referans alarak kendiminkini yapmak istedim."
+    ],
+    "engineering": [
+      "HTTP katmanını Indy yönetiyor, web arayüzünü UniGUI sunuyor ve istekler kullanıcıya bağlı bir veritabanına kaydediliyor; böylece geçmiş oturumlar arasında korunuyor.",
+      "IposiAgent ayrı bir Windows uygulaması ve Iposi'yi kullanmak için gerekli değil. Tek bir durum için var: tarayıcıda çalışan bir araç, yerel ağındaki bir API'yi doğrudan çağıramaz. Agent çalışıyorken Iposi isteği ona iletiyor, Agent çağrıyı yerel ağda yapıyor ve yanıtı geri döndürüyor; Iposi de sonucu hiçbir şey olmamış gibi gösteriyor."
+    ],
+    "decisions": [
+      "Tarayıcının güvenlik modeliyle savaşmak yerine yerel bir köprü ajanı.",
+      "Postman'e yakın bir sekme modeli, çünkü yakalamaya çalıştığım şey oydu."
+    ],
+    "images": {
+      "app": "Iposi kullanımda — solda istek, yanında yanıt ve geçmiş."
+    }
+  },
+  "dgit": {
+    "title": "DGit",
+    "descriptor": "Delphi IDE'sinin içinde yaşayan, VS Code tarzı bir Git paneli.",
+    "overview": [
+      "DGit, Delphi iş akışları için bir Git arayüzü; modern IDE'lere gömülü kaynak kontrol panelinin ruhunda. Standart bir Delphi paketi (.dpk) olarak dağıtılıyor ve tamamen native Object Pascal ile yazıldı.",
+      "Tüm Git işi özel bir TFrame içinde oluyor: dosya durumları, staging, commit'ler, push'lar, dal yönetimi ve uzak depoya bağlanmak gibi projeye özel ayarlar."
+    ],
+    "why": [
+      "Git zaten iş akışının bir parçası — Delphi projelerini GitHub'a göndermek, ortak projelerde çalışmak. Ama Delphi'nin yerleşik Git entegrasyonu her zaman yavaş ve hantal hissettirdi; dahili bir terminal olmadığı için de alternatif, sürekli git status çalıştırdığın harici bir kabuktu.",
+      "VS Code'un Git panelini, IDE'den çıkmadan o deneyimi isteyecek kadar seviyordum."
+    ],
+    "engineering": [
+      "Özel bir RunGitCommand(), gizli bir Komut İstemi'ni sessizce başlatıyor, istenen Git komutunu çalıştırıyor ve çıktısını döndürüyor.",
+      "Dosya durumu, ayrıntılı varsayılanı ayrıştırmak yerine git status -s kullanıyor — işlenmesi daha hızlı, özet bir yanıt. Sonuçlar, değişiklikleri gerçek zamanlı izleyen bir TreeView'da anında görünüyor.",
+      "Dallar görüntülenebiliyor, oluşturulabiliyor, değiştirilebiliyor ve silinebiliyor. Git ilk commit'ten önce dal oluşturmaya izin vermediği için eklenti bu durumu tespit edip işlemi başarısız bırakmak yerine yardımcı bir uyarı gösteriyor."
+    ],
+    "decisions": [
+      "Sürüm kontrolünü yeniden yazmak yerine gerçek git ikilisine komut geçmek.",
+      "Yanıt hızı için kısa formatlı durum ayrıştırma.",
+      ".dpk olarak dağıtmak, böylece kurulum başka herhangi bir Delphi bileşeniyle aynı."
+    ],
+    "images": {
+      "panel": "Delphi IDE'sine gömülü DGit paneli — dosya durumu, staging ve commit.",
+      "history": "Geçmiş penceresi — her commit ve push durumu.",
+      "settings": "Projeye özel ayarlar: kimlik, uzak depo ve dallar."
+    }
+  },
+  "telemetria": {
+    "title": "Telemetria",
+    "descriptor": "Gerçek Formula 1 yarış analizi ve Assetto Corsa için canlı bir yarış mühendisi ekranı.",
+    "overview": [
+      "Telemetria tek bir uygulamada iki şey. Bir modül 2018'den günümüze gerçek Formula 1 yarışlarını analiz ediyor. Diğeri, Assetto Corsa tarafından beslenen gerçek zamanlı bir yarış mühendisi görünümü.",
+      "İstemci Delphi (VCL ve UniGUI). Arkasında bir Python FastAPI servisi ve bir WebSocket sunucusu duruyor."
+    ],
+    "why": [
+      "Her şey FastF1 ile başladı — gerçek Formula 1 telemetrisini açık ve ücretsiz sunan, ama herkese açık bir API'si olmayan bir Python kütüphanesi. İlk parça bu yüzden, FastAPI ile yazılmış bir API servisiydi.",
+      "Motor sporlarına ilgi uzun süredir vardı; Cars filminden Adrian Newey'nin \"How to Build a Car\" kitabına, LEGO araba setlerine ve yarış filmlerine kadar. Bir noktada soru şuna döndü: bir yarış mühendisi ekranında gerçekte ne görüyor? Bu proje bunu öğrenmenin yoluydu."
+    ],
+    "engineering": [
+      "Formula 1 tarafı, FastF1'i uygulamanın yarış ve tur verisi için çağırdığı bir FastAPI servisinin arkasına alıyor.",
+      "Canlı taraf Assetto Corsa'yı doğrudan okuyor. Kunos Simulazioni, sürülen aracın telemetrisini — hız, vites, devir, konum ve fazlası — gerçek zamanlı olarak bellekte tutuyor. Bir Delphi VCL derlemesi bu bellek adreslerini WinAPI üzerinden okuyor, sonra değerleri FastAPI sunucusuyla asenkron çalışan bir WebSocket sunucusuna gönderiyor. İstemci akışı tekrar alıp mühendis görünümünü render ediyor.",
+      "Uçtan uca — bellek okuma, WebSocket sıçraması, istemci render — bu yaklaşık 50 milisaniyede gerçekleşiyor."
+    ],
+    "result": [
+      "Assetto Corsa'dan gerçek zamanlı telemetri, özel bir arayüzde; burada gerçek bir antrenman seansı sırasında kaydedildi. Formula 1 tarafında gerçek veri — örneğin 2025 Avustralya Grand Prix, Verstappen, 43. tur — telemetri ekranına işleniyor.",
+      "API ve WebSocket sunucusu kendi herkese açık deposunda yaşıyor."
+    ],
+    "images": {
+      "f1": "Formula telemetri ekranı — gerçek 2025 Avustralya Grand Prix verisi.",
+      "ac": "Assetto Corsa yarış mühendisi modülü, gerçek bir antrenman seansında kaydedildi."
+    }
+  },
+  "octaily": {
+    "title": "Octaily",
+    "descriptor": "Sekiz oyunlu bir günlük bulmaca platformu — arayüz ve backend, ikisi de elle yapıldı.",
+    "overview": [
+      "Octaily sekiz günlük bulmaca sunuyor — Wordle (Türkçe ve İngilizce), Sudoku, Queens, Nerdle, Zip, Hexle ve Worldle — her biri her gün yenilenen, çözülebilir bir bulmaca.",
+      "Ön yüz Delphi ve UniGUI; arayüzün tamamı elle, HTML ve CSS ile yazıldı. Ayrı bir REST API servisi günlük içeriği üretiyor ve her tahmini doğruluyor."
+    ],
+    "why": [
+      "Uzun süredir bir API servisi yapmak istiyordum. LinkedIn'de Queens ve Zip oynuyordum, o yüzden bu ikisini klonlayarak başladım — sonra iki oyun yeterli gelmedi ve altı oyun daha bunu bir platforma dönüştürdü."
+    ],
+    "engineering": [
+      "Çekirdek sistem API: günlük bulmaca üretimi, tahmin doğrulama ve oyun bazlı kurallar, hepsi REST ve JSON üzerinden. Her oyun bağımsız bir mantık katmanı, bu yüzden birini eklemek veya değiştirmek diğerlerini bozmuyor.",
+      "Bazı oyunlar veri setlerine dayanıyor — Wordle ve Nerdle — bazıları ise tamamen algoritmayla üretiliyor; her günün bulmacasının adil, tutarlı ve benzersiz olması için rastgelelikle sabit kurallar dengeleniyor.",
+      "Arayüz hiçbir hazır UniGUI bileşeni kullanmıyor. Her kontrol HTML ve CSS; kullanıcı işlemleri Ajax ile Delphi'ye dönüyor ve orada işleniyor."
+    ],
+    "decisions": [
+      "Tam kontrol için UI'ı sıfırdan kurmak; bunun seni Delphi'nin yanında gerçek JavaScript işiyle full-stack bir konuma ittiğini kabul ederek.",
+      "Günlük içerik üretimini kendi servisine ayırmak, böylece ön yüz ince kalıyor ve aynı API'yi başka istemciler de kullanabilir."
+    ],
+    "images": {
+      "app": "Octaily platformu — sekiz günlük oyundan biri.",
+      "api": "Her bulmacayı üreten ve doğrulayan Octaily API servisi."
+    }
+  },
+  "minecraft-midi": {
+    "title": "Minecraft MIDI & Pixelart Painter",
+    "descriptor": "Bir Minecraft dünyasının içinde MIDI çalan ve resim çizen bir araç — RCON üzerinden.",
+    "overview": [
+      "İki sekme: biri müzik çalıyor, biri resim çiziyor — ikisi de çalışan bir Minecraft dünyasının içinde. Bir web dönüştürücü, bir MIDI dosyasını veya bir görseli bir diziye çeviriyor; bir Python scripti bu diziyi sunucuya besliyor ve sunucu, resmi kuran ya da müziği çalan blok ve ses komutlarını veriyor."
+    ],
+    "why": [
+      "Daha önceki bir sürüm yalnızca görselleri işliyordu ve tek bir Minecraft sürümüne bağlıydı. Bu sürüm bilinçli olarak dinamik: RCON sunucusu açılabilen her sürümde çalışıyor."
+    ],
+    "engineering": [
+      "Dönüştürücü bir MIDI veya görsel dosyayı okuyor — görsel işlemeyi OpenCV yapıyor — ve bir komut dizisi üretiyor.",
+      "Python tarafı, bir Spigot/Bukkit sunucusunun RCON arayüzüyle konuşmak için MCRCON kütüphanesini kullanıyor; bu, üçüncü taraf araçların bir sunucuyu sürmek için kullandığı komut protokolünün aynısı. Ondan sonrası sadece iyi zamanlanmış komut akışları. RCON adresi ve şifresi yapılandırılabiliyor; MIDI çalma, dizisini scriptin yanındaki bir music.txt dosyasından okuyor."
+    ],
+    "images": {
+      "editors": "İki editör — bir sekmede MIDI, diğerinde pixel art."
+    }
+  }
+}

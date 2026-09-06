@@ -1,0 +1,153 @@
+{
+  "trace": {
+    "title": "Trace",
+    "descriptor": "A lightweight, developer-oriented browser built around one person's workflow.",
+    "overview": [
+      "Trace is a personal desktop browser. Chromium does the web rendering through CEF4Delphi; almost everything around it — the tab bar, window controls, favicons, loading indicators, the internal pages — is built by hand. It runs as a native Delphi 12 application with a Skia-drawn interface and a local-first SQLite store.",
+      "The internal pages live under a custom scheme: trace://newtab, trace://downloads, trace://history, trace://settings, trace://taskmgr, trace://reports. The new tab page carries a small task list and, optionally, AI email summaries."
+    ],
+    "why": [
+      "Rather than building on top of an existing browser shell, Trace embeds Chromium directly into a Delphi application, so the surrounding interface and workflow stay under direct control.",
+      "The goal was never to reproduce a mainstream browser. It was to build a browser around the way I actually use one: a fast, light window with the few tools I reach for and none of the ones I don't."
+    ],
+    "engineering": [
+      "CEF4Delphi embeds Chromium and provides the web platform. The application chrome is rendered with Skia4Delphi instead of stock VCL controls — tab bar, tab animations, favicons, loading indicators, window controls — which keeps a custom visual language without pulling in a heavy UI layer.",
+      "Each renderer process reports its operating-system PID back to the main process over Chromium's IPC when its V8 context is created. The built-in task manager (trace://taskmgr) uses that mapping to show CPU, RAM and network per tab, similar in spirit to Chrome's own.",
+      "Chromium's download bubble is switched off through DisableFeatures; downloads are shown in trace://downloads with a live progress bar, automatic non-clobbering renames (file (1).ext, file (2).ext…), and detection of files removed from disk, which get a faded, struck-through state.",
+      "SQLite via FireDAC backs bookmarks, history, downloads, tasks, reports and settings. The bookmark bar fetches a favicon per entry and falls back to an icon-only chip when a bookmark has no name. Indy handles an IMAP-over-SSL connection for the AI email summaries."
+    ],
+    "decisions": [
+      "Custom trace:// pages instead of native dialogs, so a theme or language change applies instantly across every open tab.",
+      "Sandbox disabled at startup to avoid sub-process crashes, with framework and resource paths pinned to the executable directory.",
+      "The AI assistant (Gemini) and IMAP email summaries are opt-in and configured in settings — useful, not load-bearing."
+    ],
+    "result": [
+      "In my own testing, this focused architecture used roughly 40–50% less RAM than Chrome in comparable usage scenarios. That is a project-level observation from one machine, not a general benchmark.",
+      "History, downloads, bookmarks, the task manager and settings are implemented. Chromium DevTools integration, find-in-page, keyboard shortcuts and tab suspension are still on the roadmap."
+    ],
+    "learned": [
+      "How much of a browser is background services you never think about until you decide not to ship them.",
+      "Where a hand-drawn UI layer earns its keep — tabs, animations, the small interactions — and where a stock control would have been perfectly fine."
+    ],
+    "funFact": "The new tab page greets you with \"Daddy's home?\" — an Iron Man line that never got removed.",
+    "images": {
+      "newtab": "The new tab page: tasks and plans on the left, AI email summaries on the right, the assistant in the middle."
+    }
+  },
+  "iposi": {
+    "title": "Iposi and IposiAgent",
+    "descriptor": "An API testing tool, plus a local agent that lets it reach APIs on your own network.",
+    "overview": [
+      "Iposi is a Postman-inspired API client. It sends GET, POST, PUT, PATCH and DELETE requests to any public API, with configurable headers, query parameters and a request body — x-www-form-urlencoded, JSON, plain text, HTML, XML or JavaScript. The response comes back immediately.",
+      "Every request is stored in a database scoped to the user, so anything can be pulled back out of the history tab into the workspace. The workspace itself is tabbed: create, rename, reorder and delete tabs. The name means \"postman\" in Zulu.",
+      "Built with Delphi, UniGUI and Indy."
+    ],
+    "why": [
+      "I had been running my API tests through Postman and RESTful Debugger for a long time. I didn't really need another tool — I just wanted to build my own, using Postman as the reference."
+    ],
+    "engineering": [
+      "Indy handles the HTTP layer, UniGUI serves the web interface, and requests persist to a database keyed to the user so the history survives across sessions.",
+      "IposiAgent is a separate Windows application and is not required to use Iposi. It exists for one case: a browser-hosted tool cannot call an API on your local network directly. When the Agent is running, Iposi forwards the request to it, the Agent performs the call on the LAN and returns the response, and Iposi shows the result as if nothing unusual happened."
+    ],
+    "decisions": [
+      "A local bridge agent rather than fighting the browser's security model.",
+      "A tab model close to Postman's, because that was the thing I was trying to match."
+    ],
+    "images": {
+      "app": "Iposi in use — request on the left, response and history alongside it."
+    }
+  },
+  "dgit": {
+    "title": "DGit",
+    "descriptor": "A VS Code-style Git panel that lives inside the Delphi IDE.",
+    "overview": [
+      "DGit is a Git interface for Delphi workflows, in the spirit of the source-control panel built into modern IDEs. It ships as a standard Delphi package (.dpk) and is written entirely in native Object Pascal.",
+      "All Git work happens inside a dedicated TFrame: file statuses, staging, commits, pushes, branch management, and per-project settings such as connecting a remote."
+    ],
+    "why": [
+      "Git is already part of the workflow — pushing Delphi projects to GitHub, collaborating on shared ones. But Delphi's built-in Git integration always felt slow and heavy, and with no integrated terminal the fallback was an external shell where you re-run git status constantly.",
+      "I liked VS Code's Git panel enough to want that experience without leaving the IDE."
+    ],
+    "engineering": [
+      "A custom RunGitCommand() silently launches a hidden Command Prompt, runs the requested Git command and returns its output.",
+      "File status uses git status -s rather than parsing the verbose default — a concise response that is faster to handle. Results render instantly in a TreeView that tracks changes in real time.",
+      "Branches can be viewed, created, switched and deleted. Since Git won't create a branch before the first commit, the plugin detects that state and shows a helpful warning instead of letting the operation fail."
+    ],
+    "decisions": [
+      "Shell out to the real git binary instead of reimplementing version control.",
+      "Short-format status parsing for responsiveness.",
+      "Distribute as a .dpk so installation is identical to any other Delphi component."
+    ],
+    "images": {
+      "panel": "The DGit panel docked in the Delphi IDE — file status, staging and commit.",
+      "history": "The history window — every commit with its push state.",
+      "settings": "Per-project settings: identity, remote and branches."
+    }
+  },
+  "telemetria": {
+    "title": "Telemetria",
+    "descriptor": "Real Formula 1 race analysis, and a live race-engineer screen for Assetto Corsa.",
+    "overview": [
+      "Telemetria is two things in one application. One module analyses real Formula 1 races from 2018 to the present. The other is a real-time race-engineer view driven by Assetto Corsa.",
+      "The client is Delphi (VCL and UniGUI). Behind it sit a Python FastAPI service and a WebSocket server."
+    ],
+    "why": [
+      "It started with FastF1, a Python library that exposes real Formula 1 telemetry openly and for free — but with no public API. So the first piece was an API service for it, built with FastAPI.",
+      "The motorsport interest had been there a long time, from the Cars film through Adrian Newey's \"How to Build a Car\", LEGO car sets and racing films. At some point the question became: what does a race engineer actually see on their screen? This project was the way to find out."
+    ],
+    "engineering": [
+      "The Formula 1 side wraps FastF1 behind a FastAPI service that the application calls for race and lap data.",
+      "The live side reads Assetto Corsa directly. Kunos Simulazioni keep the driven car's telemetry — speed, gear, RPM, position and more — in memory in real time. A Delphi VCL build reads those memory addresses through WinAPI, then pushes the values to a WebSocket server that runs asynchronously alongside the FastAPI server. The client picks the stream back up and renders the engineer view.",
+      "End to end — memory read, WebSocket hop, client render — this happens in about 50 milliseconds."
+    ],
+    "result": [
+      "Real-time telemetry from Assetto Corsa on a custom interface, recorded here during an actual practice session. On the Formula 1 side, real data — for example the 2025 Australian Grand Prix, Verstappen, lap 43 — rendered into the telemetry screen.",
+      "The API and WebSocket server live in their own public repository."
+    ],
+    "images": {
+      "f1": "The Formula telemetry screen — real 2025 Australian Grand Prix data.",
+      "ac": "The Assetto Corsa race-engineer module, recorded during a real practice session."
+    }
+  },
+  "octaily": {
+    "title": "Octaily",
+    "descriptor": "A daily puzzle platform with eight games — interface and backend both hand-built.",
+    "overview": [
+      "Octaily serves eight daily puzzles — Wordle (Turkish and English), Sudoku, Queens, Nerdle, Zip, Hexle and Worldle — each a fresh, solvable puzzle every day.",
+      "The front end is Delphi and UniGUI with the entire interface written by hand in HTML and CSS. A separate REST API service generates the daily content and validates every guess."
+    ],
+    "why": [
+      "I had wanted to build an API service for a long time. I was playing Queens and Zip on LinkedIn, so I started by cloning those two — then two games didn't feel like enough, and six more turned it into a platform."
+    ],
+    "engineering": [
+      "The API is the core system: daily puzzle generation, guess validation and per-game rules, all over REST with JSON. Each game is an independent logic layer, so adding or changing one doesn't disturb the others.",
+      "Some games lean on datasets — Wordle and Nerdle — while others are generated entirely by algorithm, balancing randomness against fixed rules so each day's puzzle is fair, consistent and unique.",
+      "The interface uses no stock UniGUI widgets. Every control is HTML and CSS; user actions go back to Delphi over Ajax and are processed there."
+    ],
+    "decisions": [
+      "Build the UI from scratch for full control, accepting that it pushes you into a full-stack position with real JavaScript work alongside Delphi.",
+      "Split daily content generation into its own service so the front end stays thin and other clients could use the same API."
+    ],
+    "images": {
+      "app": "The Octaily platform — one of eight daily games.",
+      "api": "The Octaily API service that generates and validates every puzzle."
+    }
+  },
+  "minecraft-midi": {
+    "title": "Minecraft MIDI & Pixelart Painter",
+    "descriptor": "A tool that plays MIDI and paints images inside a Minecraft world, over RCON.",
+    "overview": [
+      "Two tabs: one plays music, one draws pictures — both inside a running Minecraft world. A web converter turns a MIDI file or an image into a sequence; a Python script feeds that sequence to the server, which issues the block and sound commands that build the picture or play the music."
+    ],
+    "why": [
+      "An earlier version only handled images and was tied to a single Minecraft version. This one is deliberately dynamic: it works on any version where an RCON server can be opened."
+    ],
+    "engineering": [
+      "The converter reads a MIDI or image file — OpenCV handles the image processing — and emits a command sequence.",
+      "The Python side uses the MCRCON library to talk to a Spigot/Bukkit server's RCON interface, the same command protocol third-party tools use to drive a server. From there the whole thing is just well-timed command streams. The RCON host and password are configurable; MIDI playback reads its sequence from a music.txt next to the script."
+    ],
+    "images": {
+      "editors": "The two editors — MIDI on one tab, pixel art on the other."
+    }
+  }
+}

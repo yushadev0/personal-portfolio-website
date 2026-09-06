@@ -1,0 +1,30 @@
+.work {
+  padding-block: var(--space-2xl) var(--space-3xl);
+}
+
+.head {
+  display: grid;
+  gap: var(--space-m);
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-l);
+  border-bottom: var(--hairline) solid var(--border);
+}
+
+.head .eyebrow {
+  margin-bottom: var(--space-s);
+}
+
+.title {
+  font-size: var(--step-4);
+}
+
+.intro {
+  max-width: 44ch;
+  color: var(--muted);
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--faint);
+}

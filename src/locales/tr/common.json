@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "home": {
+      "title": "Yuşa Göverdik — Yazılım Mühendisi",
+      "description": "Yuşa Göverdik'in kişisel mühendislik arşivi — geliştirici araçları, masaüstü yazılımlar, veri projeleri ve denemeler."
+    },
+    "work": {
+      "title": "İşler — Yuşa Göverdik",
+      "description": "Seçili yazılım projeleri: bir tarayıcı, bir API istemcisi, bir Git eklentisi, bir telemetri uygulaması, bir bulmaca platformu ve bir Minecraft aracı."
+    },
+    "about": {
+      "title": "Hakkında — Yuşa Göverdik",
+      "description": "Yazılım mühendisi. Mühendislik ile deney arasında duran araçlar ve sistemler kurar."
+    },
+    "contact": {
+      "title": "İletişim — Yuşa Göverdik",
+      "description": "Yuşa Göverdik ile iletişime geçin."
+    },
+    "notFound": {
+      "title": "Bulunamadı — Yuşa Göverdik",
+      "description": "Bu sayfa mevcut değil."
+    }
+  },
+  "nav": {
+    "brandLine1": "YUŞA GÖVERDİK",
+    "brandLine2": "YAZILIM MÜHENDİSİ",
+    "work": "İşler",
+    "about": "Hakkında",
+    "contact": "İletişim",
+    "menu": "Menü",
+    "close": "Kapat",
+    "theme": "Tema",
+    "themeLight": "Açık",
+    "themeDark": "Koyu",
+    "language": "Dil"
+  },
+  "hero": {
+    "index": "01 / DİZİN",
+    "manifestoLines": [
+      "ÇALIŞAN",
+      "ŞEYLER."
+    ],
+    "statement": "Sistemlerin nasıl davrandığını anlamak için yazılım yazarım — sonra önümdeki şey yapması gerekeni yapana kadar üzerine çalışmaya devam ederim. Çoğunlukla geliştirici araçları, masaüstü yazılım ve veri işleri. Bir kısmı ciddi. Bir kısmı bir soruyla başladı.",
+    "roles": [
+      "Geliştirici araçları",
+      "Masaüstü yazılım",
+      "Veri",
+      "Denemeler"
+    ],
+    "cue": "İşleri keşfet",
+    "since": "Türkiye"
+  },
+  "home": {
+    "workEyebrow": "02 / SEÇİLİ İŞLER",
+    "workTitle": "Seçili işler",
+    "workNote": "Altı proje, çoğu 2026'dan. Sıfırdan yazılmış bir tarayıcı, başka geliştiriciler için araçlar ve kontrolden çıkmış birkaç deneme.",
+    "viewAll": "Tüm dizini aç",
+    "aboutEyebrow": "04 / PROFİL",
+    "aboutTitle": "Mühendislik ile deney arasında",
+    "aboutBody": "Ders programının dışında sürekli bir şeyler geliştiren bir yazılım mühendisliği öğrencisiyim — Delphi ile native masaüstü uygulamalar, Python otomasyonu, web araçları ve son dönemde gerçek iş akışlarına yerleştirilmiş yapay zeka. En çok önemsediğim şey, ortaya çıkan şeyin karşıdaki kişi için gerçekten işe yarar ve anlaşılır olması.",
+    "aboutLink": "Hakkımda daha fazlası",
+    "contactEyebrow": "05 / İLETİŞİM",
+    "contactTitle": "Merhaba de",
+    "contactBody": "İşe alım yapanlar, mühendisler ya da bu projelerden birini merak eden herkes — kutu açık.",
+    "contactLink": "İletişime geç"
+  },
+  "work": {
+    "eyebrow": "DİZİN",
+    "title": "İşler",
+    "intro": "Yapılmış, bozulmuş ve yeniden yapılmış şeylerin kataloğu.",
+    "colProject": "Proje",
+    "colYear": "Yıl",
+    "colStatus": "Durum",
+    "colStack": "Teknoloji",
+    "count_one": "{{count}} proje",
+    "count_other": "{{count}} proje"
+  },
+  "project": {
+    "back": "Dizin",
+    "overview": "Genel Bakış",
+    "why": "Neden",
+    "engineering": "Mühendislik",
+    "decisions": "Kararlar",
+    "result": "Sonuç",
+    "learned": "Öğrenilen",
+    "facts": "Künye",
+    "year": "Yıl",
+    "status": "Durum",
+    "role": "Rol",
+    "category": "Kategori",
+    "stack": "Teknoloji",
+    "links": "Bağlantılar",
+    "repository": "Depo",
+    "demo": "Canlı",
+    "download": "İndir",
+    "next": "Sonraki proje",
+    "funFact": "Ufak bir not",
+    "gallery": "Görseller"
+  },
+  "about": {
+    "eyebrow": "PROFİL",
+    "title": "Hakkında",
+    "lead": "Mühendislik ile deney arasında bir yerde duran araçlar, sistemler ve yazılımlar kurmakla ilgilenen bir yazılım mühendisiyim.",
+    "body": [
+      "Yazılıma dair bir merakla başladı ve bir şeyler üretme alışkanlığına dönüştü — bir fikri çalışır hâle getirmek, sonra küçük detayları doğru hissettirene kadar iyileştirmek. Çoğunlukla Delphi ve Python ile otomasyon araçları, oyun mantıkları, gömülü denemeler, masaüstü ve web uygulamaları geliştirdim.",
+      "Benim için en önemli şey, ortaya çıkanın kullanan kişi için gerçekten işe yaraması ve anlaşılır olması. Teknolojiyle ilişkim hızlıca tüketmek yerine öğrenerek ilerlemek üzerine — her proje bana teknik ve düşünsel olarak yeni bir şey bırakıyor."
+    ],
+    "educationTitle": "Eğitim",
+    "education": [
+      {
+        "period": "2024 — 2028",
+        "title": "Yazılım Mühendisliği (Lisans)",
+        "place": "Aksaray Üniversitesi, Türkiye",
+        "note": "Devam ediyor."
+      }
+    ],
+    "experienceTitle": "Deneyim",
+    "experience": [
+      {
+        "period": "2026",
+        "title": "Yazılım Ar-Ge Stajyeri",
+        "note": "Araştırma-geliştirme odaklı yazılım mühendisliği stajı."
+      },
+      {
+        "period": "2026",
+        "title": "Erasmus — Rzeszów, Polonya",
+        "note": "Oyun tasarımı odaklı değişim dönemi."
+      },
+      {
+        "period": "2018 — günümüz",
+        "title": "Freelance yazılım geliştirme",
+        "note": "Bağımsız müşteriler için masaüstü ve web uygulamaları."
+      }
+    ],
+    "exploringTitle": "Şu an ilgilendiğim",
+    "exploring": [
+      "Gerçek uygulama iş akışlarına entegre yapay zeka",
+      "Web tarayıcıları ve render",
+      "React ve React Native"
+    ]
+  },
+  "contact": {
+    "eyebrow": "BANA ULAŞ",
+    "title": "İletişim",
+    "lead": "Bana ulaşmanın en hızlı yolu e-posta. Hepsini okuyorum.",
+    "emailLabel": "E-posta",
+    "elsewhereLabel": "Diğer yerler",
+    "formTitle": "Ya da bir mesaj gönder",
+    "formName": "Adınız",
+    "formNamePh": "İsim",
+    "formEmail": "E-posta",
+    "formEmailPh": "mail@ornek.com",
+    "formMessage": "Mesaj",
+    "formMessagePh": "Aklında ne var?",
+    "formSubmit": "Gönder",
+    "formSending": "Gönderiliyor…",
+    "formSuccess": "Gönderildi. Teşekkürler — en kısa sürede döneceğim.",
+    "formError": "Bir şeyler ters gitti. E-posta ile dene.",
+    "closing": "Yapılmış, bozulmuş ve yeniden yapılmış şeylerin arşivi."
+  },
+  "footer": {
+    "brandLine1": "YUŞA GÖVERDİK",
+    "brandLine2": "YAZILIM MÜHENDİSİ",
+    "rights": "© 2026",
+    "colophonLabel": "Künye",
+    "colophon": "React, TypeScript ve Vite ile yapıldı. Newsreader, Inter ve IBM Plex Mono. Takip yok.",
+    "backToTop": "Başa dön"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Burada sayfa yok",
+    "body": "Adres hiçbir şeye çözümlendi. Arşive kaldırılmış bir deneme olabilir.",
+    "home": "Dizine dön"
+  },
+  "status": {
+    "active": "Aktif",
+    "maintained": "Sürdürülüyor",
+    "shipped": "Yayında",
+    "archived": "Arşiv",
+    "wip": "Devam ediyor"
+  },
+  "capabilities": {
+    "eyebrow": "03 / YETENEKLER",
+    "title": "Neler yapabilirim",
+    "note": "Bir teknoloji listesinden çok, elimin uzandığı yazılım türleri. Panel yığını sırayla gösterir; sabitlemek için üzerine gel.",
+    "engineeringTitle": "Mühendislik",
+    "engineering": [
+      "Masaüstü uygulamalar",
+      "Geliştirici araçları",
+      "API geliştirme",
+      "Veri işleme",
+      "Oyun ve yaratıcı kodlama",
+      "Sistem odaklı yazılım"
+    ],
+    "techTitle": "Teknolojiler",
+    "tech": [
+      "Delphi",
+      "C#",
+      "Java",
+      "Python",
+      "JavaScript / TypeScript",
+      "SQL",
+      "React",
+      "CEF4Delphi",
+      "Skia",
+      "FastAPI",
+      "Arduino"
+    ]
+  },
+  "kedy": {
+    "eyebrow": "İMZA",
+    "title": "kedY",
+    "body": "Bir kedi ve Yuşa'nın Y'si. Kedileri severim; bu işaret düşük poligonlu, uyuyan ve kıvrılmış bir kedi — bu projelerin çoğu da aşağı yukarı bu hâlde başladı, gece 2'de yarım kalmış bir fikir olarak."
+  }
+}

@@ -1,0 +1,39 @@
+.wrap {
+  position: relative;
+  grid-column: 1 / -1;
+  margin-block: clamp(1.2rem, 4vh, 2.6rem);
+}
+
+.manifesto {
+  font-family: var(--font-display);
+  font-size: var(--step-5);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+  /* headroom so the fluid lift isn't clipped, while still masking the reveal */
+  padding: 0.3em 0.08em 0.08em;
+  margin: -0.3em -0.08em -0.08em;
+}
+
+.line {
+  display: block;
+  position: relative;
+}
+
+.ch {
+  display: inline-block;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.space {
+  display: inline-block;
+  width: 0.28em;
+  pointer-events: none;
+}

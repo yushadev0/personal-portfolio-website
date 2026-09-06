@@ -1,0 +1,190 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---------- Background grid ---------- */
+.grid {
+  position: absolute;
+  inset: -6% -4%;
+  z-index: -1;
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  gap: clamp(6px, 1.1vw, 15px);
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 88% 92% at 38% 50%, #000 18%, transparent 82%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 92% at 38% 50%, #000 18%, transparent 82%);
+}
+
+.cell {
+  border: 1px solid var(--muted);
+  border-radius: 1px;
+  opacity: 0;
+  transform-origin: center;
+}
+.cell:nth-child(5n) {
+  border-color: var(--accent);
+}
+.cell:nth-child(9n) {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.cell:nth-child(13n) {
+  background: color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+
+/* ---------- Content ---------- */
+.inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+  padding-block: var(--space-m) clamp(2.5rem, 8vh, 5rem);
+}
+
+/* controls row (replaces the navbar) */
+.controls {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+  padding-bottom: clamp(2rem, 8vh, 5rem);
+  opacity: 0;
+}
+
+.brand {
+  display: grid;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+}
+.brandSub {
+  color: var(--muted);
+}
+
+.controlsRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background: var(--border);
+}
+
+.index {
+  grid-column: 1 / -1;
+  color: var(--faint);
+  opacity: 0;
+}
+
+/* Manifesto lives in Manifesto.module.css; it spans the full grid row. */
+
+/* ---------- Meta ---------- */
+.meta {
+  grid-column: 1 / span 5;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  opacity: 0;
+}
+
+.identity {
+  display: grid;
+  gap: 3px;
+}
+
+.name,
+.role {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+}
+.role {
+  color: var(--muted);
+}
+
+.roles {
+  display: grid;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--faint);
+}
+
+.statement {
+  grid-column: 7 / -1;
+  align-self: end;
+  max-width: 42ch;
+  color: var(--muted);
+  opacity: 0;
+}
+
+.footerRow {
+  grid-column: 1 / -1;
+  margin-top: clamp(1.6rem, 6vh, 3.5rem);
+  padding-top: var(--space-m);
+  border-top: var(--hairline) solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+.cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6ch;
+  color: var(--foreground);
+}
+.cue:hover {
+  color: var(--accent);
+}
+
+.since {
+  margin-left: auto;
+  color: var(--faint);
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+  }
+  .controls {
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+  .meta,
+  .statement {
+    grid-column: 1 / -1;
+  }
+  .statement {
+    margin-top: var(--space-l);
+  }
+  .footerRow {
+    flex-wrap: wrap;
+    gap: var(--space-s) var(--space-m);
+  }
+  .since {
+    margin-left: 0;
+    width: 100%;
+  }
+}

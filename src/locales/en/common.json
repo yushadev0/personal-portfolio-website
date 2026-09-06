@@ -1,0 +1,216 @@
+{
+  "meta": {
+    "home": {
+      "title": "Yuşa Göverdik — Software Engineer",
+      "description": "The personal engineering archive of Yuşa Göverdik — developer tools, desktop software, data projects and experiments."
+    },
+    "work": {
+      "title": "Work — Yuşa Göverdik",
+      "description": "Selected software projects: a browser, an API client, a Git plugin, a telemetry app, a puzzle platform and a Minecraft painter."
+    },
+    "about": {
+      "title": "About — Yuşa Göverdik",
+      "description": "Software engineer. Builds tools and systems that sit between engineering and experimentation."
+    },
+    "contact": {
+      "title": "Contact — Yuşa Göverdik",
+      "description": "Get in touch with Yuşa Göverdik."
+    },
+    "notFound": {
+      "title": "Not found — Yuşa Göverdik",
+      "description": "This page does not exist."
+    }
+  },
+  "nav": {
+    "brandLine1": "YUŞA GÖVERDİK",
+    "brandLine2": "SOFTWARE ENGINEER",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "language": "Language"
+  },
+  "hero": {
+    "index": "01 / INDEX",
+    "manifestoLines": [
+      "I MAKE",
+      "THINGS",
+      "WORK."
+    ],
+    "statement": "I build software to understand how systems behave — then keep building until the thing in front of me does what it should. Mostly developer tools, desktop software and data work. Some of it is serious. Some of it started as a question.",
+    "roles": [
+      "Developer tools",
+      "Desktop software",
+      "Data",
+      "Experiments"
+    ],
+    "cue": "Explore work",
+    "since": "Based in Türkiye"
+  },
+  "home": {
+    "workEyebrow": "02 / SELECTED WORK",
+    "workTitle": "Selected work",
+    "workNote": "Six projects, most from 2026. A browser built from scratch, tools for other developers, and a couple of experiments that got out of hand.",
+    "viewAll": "Open the full index",
+    "aboutEyebrow": "04 / PROFILE",
+    "aboutTitle": "Between engineering and experimentation",
+    "aboutBody": "I'm a software engineering student who keeps building outside coursework — native desktop apps in Delphi, Python automation, web tooling, and lately AI woven into real workflows. I care most about the result being genuinely useful and understandable for the person on the other side.",
+    "aboutLink": "More about me",
+    "contactEyebrow": "05 / CONTACT",
+    "contactTitle": "Say hello",
+    "contactBody": "Recruiters, engineers, or anyone curious about one of these projects — the inbox is open.",
+    "contactLink": "Get in touch"
+  },
+  "work": {
+    "eyebrow": "INDEX",
+    "title": "Work",
+    "intro": "A catalogue of things built, broken and rebuilt.",
+    "colProject": "Project",
+    "colYear": "Year",
+    "colStatus": "Status",
+    "colStack": "Stack",
+    "count_one": "{{count}} project",
+    "count_other": "{{count}} projects"
+  },
+  "project": {
+    "back": "Index",
+    "overview": "Overview",
+    "why": "Why",
+    "engineering": "Engineering",
+    "decisions": "Decisions",
+    "result": "Result",
+    "learned": "Learned",
+    "facts": "Facts",
+    "year": "Year",
+    "status": "Status",
+    "role": "Role",
+    "category": "Category",
+    "stack": "Stack",
+    "links": "Links",
+    "repository": "Repository",
+    "demo": "Live",
+    "download": "Download",
+    "next": "Next project",
+    "funFact": "Fun fact",
+    "gallery": "Gallery"
+  },
+  "about": {
+    "eyebrow": "PROFILE",
+    "title": "About",
+    "lead": "I'm a software engineer interested in building tools, systems and software that sit somewhere between engineering and experimentation.",
+    "body": [
+      "It started as curiosity about software and turned into a habit of making things — turning an idea into something that runs, then improving the small details until it feels right. I've built automation tools, game logic, embedded experiments, and desktop and web applications, mostly in Delphi and Python.",
+      "What matters most to me is that the result is actually useful and clear for the person using it. My relationship with technology is about learning my way forward rather than consuming quickly — every project leaves me with something new, technically and otherwise."
+    ],
+    "educationTitle": "Education",
+    "education": [
+      {
+        "period": "2024 — 2028",
+        "title": "BSc Software Engineering",
+        "place": "Aksaray University, Türkiye",
+        "note": "In progress."
+      }
+    ],
+    "experienceTitle": "Experience",
+    "experience": [
+      {
+        "period": "2026",
+        "title": "Software R&D Intern",
+        "note": "Research-and-development software engineering internship."
+      },
+      {
+        "period": "2026",
+        "title": "Erasmus — Rzeszów, Poland",
+        "note": "Exchange term focused on game design."
+      },
+      {
+        "period": "2018 — now",
+        "title": "Freelance software development",
+        "note": "Desktop and web applications for independent clients."
+      }
+    ],
+    "exploringTitle": "Currently exploring",
+    "exploring": [
+      "AI integrated into real application workflows",
+      "Web browsers and rendering",
+      "React and React Native"
+    ]
+  },
+  "contact": {
+    "eyebrow": "CONTACT",
+    "title": "Contact",
+    "lead": "The quickest way to reach me is email. I read everything.",
+    "emailLabel": "Email",
+    "elsewhereLabel": "Elsewhere",
+    "formTitle": "Or send a message",
+    "formName": "Your name",
+    "formNamePh": "Name",
+    "formEmail": "Email",
+    "formEmailPh": "mail@example.com",
+    "formMessage": "Message",
+    "formMessagePh": "What's on your mind?",
+    "formSubmit": "Send",
+    "formSending": "Sending…",
+    "formSuccess": "Sent. Thanks — I'll get back to you.",
+    "formError": "Something went wrong. Try email instead.",
+    "closing": "An archive of things built, broken and rebuilt."
+  },
+  "footer": {
+    "brandLine1": "YUŞA GÖVERDİK",
+    "brandLine2": "SOFTWARE ENGINEER",
+    "rights": "© 2026",
+    "colophonLabel": "Colophon",
+    "colophon": "Built with React, TypeScript and Vite. Newsreader, Inter and IBM Plex Mono. No tracking.",
+    "backToTop": "Back to top"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "No page here",
+    "body": "The address resolved to nothing. It may have been an experiment that got archived.",
+    "home": "Back to the index"
+  },
+  "status": {
+    "active": "Active",
+    "maintained": "Maintained",
+    "shipped": "Shipped",
+    "archived": "Archived",
+    "wip": "In progress"
+  },
+  "capabilities": {
+    "eyebrow": "03 / CAPABILITIES",
+    "title": "What I can build",
+    "note": "Less a list of technologies, more the kinds of software I reach for. The panel cycles through the stack; hover to hold it.",
+    "engineeringTitle": "Engineering",
+    "engineering": [
+      "Desktop applications",
+      "Developer tools",
+      "API development",
+      "Data processing",
+      "Game & creative coding",
+      "Systems-oriented software"
+    ],
+    "techTitle": "Technologies",
+    "tech": [
+      "Delphi",
+      "C#",
+      "Java",
+      "Python",
+      "JavaScript / TypeScript",
+      "SQL",
+      "React",
+      "CEF4Delphi",
+      "Skia",
+      "FastAPI",
+      "Arduino"
+    ]
+  },
+  "kedy": {
+    "eyebrow": "SIGNATURE",
+    "title": "kedY",
+    "body": "A cat, and the Y from Yuşa. I like cats; the mark is a low-poly one, asleep and curled up — which is roughly the state most of these projects started in, as a half-formed idea at 2am."
+  }
+}
